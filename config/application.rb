@@ -1,4 +1,4 @@
-require_relative 'boot'
+require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
@@ -29,7 +29,19 @@ module Neighbourly
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    # Use structure.sql
+    config.active_record.schema_format = :sql
+
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Dont autogenerate files
+    config.generators do |g|
+      g.test_framework false
+      g.stylesheets false
+      g.javascripts false
+      g.helper false
+      g.channel assets: false
+    end
   end
 end
