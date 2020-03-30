@@ -9,7 +9,7 @@ module Types
           description: "Returns all the listings in neighbourly"
 
     def listings
-      Listing.All
+      Listing.all
     end
   end
 end
