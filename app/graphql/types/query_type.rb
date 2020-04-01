@@ -12,8 +12,10 @@ module Types
       Listing.includes(:user)
     end
 
-
-    field :me, Types::UserType, null: true
+    field :me,
+          Types::UserType,
+          null: true,
+          description: "the current user"
 
     def me
       context[:current_user]
