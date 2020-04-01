@@ -20,8 +20,8 @@ RSpec.describe "Types::QueryType" do
 
     it "returns all listings" do
       expect(result.dig(
-        "data", "items"
-      )).to match_array(listings.map { |listing| { title: listing.title } })
+        "data", "listings"
+      )).to match_array(listings.map { |listing| { "title" => listing.title } })
     end
   end
 end

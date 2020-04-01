@@ -65,6 +65,7 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.1)
+    coderay (1.1.2)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
     devise (4.7.1)
@@ -127,6 +128,13 @@ GEM
     pg (1.2.3)
     pg (1.2.3-x64-mingw32)
     pg (1.2.3-x86-mingw32)
+    pry (0.13.0)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry (0.13.0-java)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+      spoon (~> 0.0)
     puma (4.3.3)
       nio4r (~> 2.0)
     puma (4.3.3-java)
@@ -201,6 +209,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    spoon (0.0.6)
+      ffi
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -255,6 +265,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
+  pry (~> 0.13.0)
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.2)
   rspec-rails (~> 4.0)
