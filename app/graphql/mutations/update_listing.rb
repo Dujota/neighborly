@@ -10,8 +10,11 @@ module Mutations
 
     def resolve(id:, title:, description: nil, image_url: nil)
       listing = Listing.find id
+      listing.title = title if title
+      listing.description = description if description
+      listing.image_url = image_url if image_url
 
-      if listing.update(title: title, description: description, image_url: image_url)
+      if listing.save
         {
           listing: listing,
         }
