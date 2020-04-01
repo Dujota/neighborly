@@ -18,8 +18,8 @@ module Mutations
         description: description,
         image_url: image_url,
 
-        #TODO: CHANGE ME!!!!!! FOR DEV ONLY
-        user: context[:current_user] || User.find(3),
+        #TODO: CHANGE ME!!!!!! FOR DEV ONLY - REMOVE User.first
+        user: context[:current_user] || User.first,
       )
 
       if listing.save
