@@ -1,55 +1,97 @@
 //ruleset for entire component (for now)
-$primary: #FC4445;
-$secondary: #3feee6;
-$neutral: #CAFAFE;
+$primary: #17252a;
+$secondary: #3aafa9;
+$neutral: #def2f1;
+$b-color: #2b7a78;
+$white: #feffff;
 $b-radius: 5px;
 $pad: 10px;
-$margin: 10px;  
+$margin: 20px;  
 
 //flex mixin for simplified application of styling
-@mixin flex($dir) {
+@mixin flex($dir, $jcontent, $aitems) {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: $jcontent;
   flex-direction: $dir;
-  align-items: center;
+  align-items: $aitems;
+}
+
+body{
+  background: $neutral;
 }
 
 //List and listing items styles.
 #listings{
-  @include flex(column);
+  @include flex(column, space-between, flex-start);
+  width: 50%;
+  min-width: 400px;
+  max-width: 500px;
 
   .listing-item{
-    @include flex(row);
+    @include flex(row, space-between, flex-start);
+    -webkit-box-shadow: 1px 35px 71px -33px rgba(43,122,120,1);
+    -moz-box-shadow: 1px 35px 71px -33px rgba(43,122,120,1);
+    box-shadow: 1px 35px 71px -33px rgba(43,122,120,1);
     background: $secondary;
-    width: 100%;
-    min-height: 20px; //COMEBACK TO THIS
+    color: $white;
+    width: 98%;
+    height: 80px;
     border-radius: $b-radius;
     padding: $pad;
-    margin: $margin;
+    margin: $margin 0;
 
     .listing-image-section{
-      width:20%;
+      @include flex(row, center, center);
+      width:15%;
       height: 100%;
+
+      img{
+        width: 100%;
+      }
     }
 
     .listing-info-section{
+      @include flex(column, flex-start, flex-start);
       width: 50%;
       height: 100%;
+      
+      h3{
+        margin: 3px 0;
+      }
+      
+      .listing-user{
+        font-size: 12px;
+
+        span{
+          background: $b-color;
+        }
+      }
+      
+      //Eventually add a fade bar under the P tag to fad the rest of description out of view.
+      p {
+        margin: 8px 0;
+      }
     }
 
     .listing-action-section{
-      width: 27%;
+      @include flex(column, space-between, center);
+      width: 25%;
       height: 100%;
 
       button{
         background: $primary;
+        color: $neutral;
         border-radius: $b-radius;
         padding: $pad;
+        border: none;
+        cursor: pointer;
+        margin-bottom: 10px;
       }
 
       span{
         color: $neutral;
-        font-size: 9px;
+        font-size: 13px;
+        align-self: flex-end;
       }
     }
   }
