@@ -26,12 +26,12 @@ module Mutations
         # Successful creation, return the created object with no errors
         {
           listing: listing,
-          errors: [],
         }
       else
         # Failed save, return the errors to the client
-        { listing: nil,
-          errors: listing.errors.full_messages }
+        {
+          errors: listing.errors.full_messages,
+        }
       end
     end
   end
