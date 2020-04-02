@@ -25,13 +25,19 @@ RSpec.describe "MutationType::UpdateListing" do
 
   context "updates the listing" do
     it "does something" do
+<<<<<<< Updated upstream
       binding.pry
+=======
+>>>>>>> Stashed changes
       title = result["data"]["updateListing"]["listing"]["title"]
       expect(title).to eq("UPDATED TITLE")
     end
 
     it "sets description" do
+<<<<<<< Updated upstream
       binding.pry
+=======
+>>>>>>> Stashed changes
       description = result["data"]["updateListing"]["listing"]["description"]
 
       expect(description).to eq("WORKS AMAZING!")
