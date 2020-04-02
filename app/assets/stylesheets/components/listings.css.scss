@@ -1,3 +1,56 @@
-body {
-  background-color: blue;
+//ruleset for entire component (for now)
+$primary: #FC4445;
+$secondary: #3feee6;
+$neutral: #CAFAFE;
+$b-radius: 5px;
+$pad: 10px;
+$margin: 10px;  
+
+//flex mixin for simplified application of styling
+@mixin flex($dir) {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: $dir;
+  align-items: center;
+}
+
+//List and listing items styles.
+#listings{
+  @include flex(column);
+
+  .listing-item{
+    @include flex(row);
+    background: $secondary;
+    width: 100%;
+    min-height: 20px; //COMEBACK TO THIS
+    border-radius: $b-radius;
+    padding: $pad;
+    margin: $margin;
+
+    .listing-image-section{
+      width:20%;
+      height: 100%;
+    }
+
+    .listing-info-section{
+      width: 50%;
+      height: 100%;
+    }
+
+    .listing-action-section{
+      width: 27%;
+      height: 100%;
+
+      button{
+        background: $primary;
+        border-radius: $b-radius;
+        padding: $pad;
+      }
+
+      span{
+        color: $neutral;
+        font-size: 9px;
+      }
+    }
+  }
 }
