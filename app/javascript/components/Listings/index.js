@@ -37,7 +37,7 @@ export default () => (
                   </div>
                   <div className="listing-action-section">
                     <span className="listing-date">April 1st 2020</span>
-                    <button className="listing-btn">More Details</button>
+                    <a href={`/listingInfo/${id}`}><button className="listing-btn">More Details</button></a>
                   </div>
                 </div>
               ))}
