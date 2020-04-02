@@ -39,6 +39,7 @@ body{
     border-radius: $b-radius;
     padding: $pad;
     margin: $margin 0;
+    overflow: hidden;
 
     .listing-image-section{
       @include flex(row, center, center);
@@ -54,6 +55,7 @@ body{
       @include flex(column, flex-start, flex-start);
       width: 50%;
       height: 100%;
+      position: relative;
       
       h3{
         margin: 3px 0;
@@ -70,6 +72,18 @@ body{
       //Eventually add a fade bar under the P tag to fad the rest of description out of view.
       p {
         margin: 8px 0;
+      }
+
+      div{
+        position:absolute;
+        bottom: -10px;
+        width: 100%;
+        height: 30px;
+        z-index: 1000;
+        background: transparent;
+        background-image: linear-gradient(to bottom, transparent, $secondary);
+        background-image: -moz-linear-gradient(0deg, transparent, $secondary);
+        background-image: -webkit-linear-gradient(0deg, transparent $secondary);
       }
     }
 

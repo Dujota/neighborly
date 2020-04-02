@@ -26,7 +26,7 @@ export default () => (
         <div id="listings">
           {loading
             ? 'loading...'
-            : data.listings.map(({ title, id, user, createdAt }) => (
+            : data.listings.map(({ title, id, user, createdAt, description }) => (
                 <div className="listing-item" key={id}>
                   <div className="listing-image-section">
                     <img src="https://cdn2.iconfinder.com/data/icons/grocery-store-solid/64/Grocery_food-36-512.png" />
@@ -34,7 +34,8 @@ export default () => (
                   <div className="listing-info-section">
                     <h3 className="listing-title">{title}</h3>
                     <span className="listing-user">added by <span>{user ? user.email : null}</span></span>
-                    <p className="listing-details">details...</p>
+                    <p className="listing-details">{description}}</p>
+                    <div></div>
                   </div>
                   <div className="listing-action-section">
                     <span className="listing-date">
