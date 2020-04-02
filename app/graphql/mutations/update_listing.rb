@@ -17,6 +17,7 @@ module Mutations
       if listing.save
         {
           listing: listing,
+          errors: [],
         }
       else
         {
