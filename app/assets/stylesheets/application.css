@@ -14,3 +14,12 @@
  *= require_self
  //= link graphiql/rails/application.css
  */
+
+
+/* TO IMPORT A STYLE SHEET
+ * first create the stylesheet ex components/
+ *
+ *
+ */
+
+@import "components/*";
