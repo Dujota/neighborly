@@ -12,7 +12,6 @@ module Types
       Listing.includes(:user)
     end
 
-
     field :me, Types::UserType, null: true
 
     def me
