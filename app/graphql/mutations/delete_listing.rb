@@ -1,23 +1,18 @@
 module Mutations
-  class UpdateListing < BaseMutation
-    description "Update an existing Listing"
+  class DeleteListing < BaseMutation
+    description "Removes a Listing"
 
     argument :id, ID, required: true
-    argument :title, String, required: true
-    argument :description, String, required: false
-    argument :image_url, String, required: false
 
     field :errors, [String], null: false
     field :listing, Types::ListingType, null: true
 
-    def resolve(id:, title:, description: nil, image_url: nil)
+    def resolve(id:)
+      # Check for ability before the delete
       listing = Listing.find id
-      listing.title = title if title
-      listing.description = description if description
-      listing.image_url = image_url if image_url
 
       if is_admin? || is_owner?(listing)
-        if listing.save
+        if listing.destroy
           {
             listing: listing,
             errors: [],
