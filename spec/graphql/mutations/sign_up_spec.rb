@@ -1,10 +1,10 @@
 require "rails_helper"
 
-RSpec.describe "MutationType::CreateUser" do
+RSpec.describe "MutationType::SignUp" do
   let(:mutation) do
     %(
       mutation{
-        createUser(
+        signUp(
           authProvider:{
             credentials:{
               email:"test@example.com"
@@ -28,8 +28,7 @@ RSpec.describe "MutationType::CreateUser" do
 
   context "creates a new user" do
     it "returns the new user created" do
-
-      email = result.dig("data", "createUser", "user", "email")
+      email = result.dig("data", "signUp", "user", "email")
 
       expect(email).to eq("test@example.com")
     end
