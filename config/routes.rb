@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   devise_for :users, skip: :all
 
   root "listing#index"
+  get "/listingInfo/:id", to: "listing_details#index"
 end

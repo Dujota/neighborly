@@ -12,6 +12,14 @@ module Types
       Listing.includes(:user)
     end
 
+    field :listing, Types::ListingType, null: false do
+      argument :id, ID, required: true
+    end
+
+    def listing(id:)
+      listing.find(id)
+    end
+
     field :me,
           Types::UserType,
           null: true,
