@@ -1,0 +1,101 @@
+// COLOUR SWATCH FOR APP
+// collection -> variables and classes of colours
+// feel free to add to this file
+
+$primary: #17252a;
+
+$secondary: #3aafa9;
+$neutral: #def2f1;
+
+$white: #feffff;
+$almost-white: #fafafa;
+$off-white: #fff;
+
+
+$dark-gray: #111;
+$medium-gray: #222;
+$nav-gray: #333;
+$gray: #777;
+$light-gray:#999;
+$really-light-gray: #a7a7a7;
+$slight-pale-gray:#bbb;
+$pale-gray:#ddd;
+$really-pale-gray:#eee;
+$almost-white-gray: #EAEAEA;
+
+
+$light-green: #BDEFC0;
+$green: #259b2d;
+$dark-green: #18661e;
+$pale-green: #f3fef0;
+
+$pale-red: #ffedec;
+$light-red: #FFD1CD;
+$red: #a90f1c;
+$dark-red: #640810;
+
+$success-background: #e2ffdd;
+$dark-success-background: #cdffc4;
+$medium-background: #fff9c6;
+$dark-medium-background: #f9f1a9;
+$low-background: #ffd3d3;
+$dark-low-background: #f2b5b5;
+
+$light-blue: #3f8dfe;
+$blue: #145fcc;
+$dark-blue: #0B182B;
+$medium-blue: #6b86ae;
+
+// Button Colours
+$btn-color: #2b7a78;
+
+$transparent: transparent;
+
+$hidden-background:#FEE0BD;
+
+/* Shadows*/
+$shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2),
+2px 2px 5px 0 rgba(0, 0, 0, 0.19);
+$table-row-shadow: 2px 0 4px 1px rgba(0, 0, 0, 0.2);
+
+
+@mixin light-blue-gradientt {
+  /* Old Browsers */
+  background: rgba(134, 174, 204, 1);
+  /* FF3.6+ */
+  background: -moz-linear-gradient(left,
+      rgba(134, 174, 204, 1) 0%,
+      rgba(212, 228, 239, 1) 100%);
+  /* Chrome, Safari4+ */
+  background: -webkit-gradient(left top,
+      right top,
+      color-stop(0%, rgba(134, 174, 204, 1)),
+      color-stop(100%, rgba(212, 228, 239, 1)));
+  /* Chrome10+,Safari5.1+ */
+  background: -webkit-linear-gradient(left,
+      rgba(134, 174, 204, 1) 0%,
+      rgba(212, 228, 239, 1) 100%);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(left,
+      rgba(134, 174, 204, 1) 0%,
+      rgba(212, 228, 239, 1) 100%);
+  /* IE 10+ */
+  background: -ms-linear-gradient(left,
+      rgba(134, 174, 204, 1) 0%,
+      rgba(212, 228, 239, 1) 100%);
+  /* W3C */
+  background: linear-gradient(to right,
+      rgba(134, 174, 204, 1) 0%,
+      rgba(212, 228, 239, 1) 100%);
+  /* IE6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#86aecc', endColorstr='#d4e4ef', GradientType=1);
+
+}
+
+.light-gray {
+  color: $light-gray;
+}
+
+.gray {
+  color: $gray !important;
+}
