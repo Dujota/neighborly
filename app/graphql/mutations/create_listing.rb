@@ -1,5 +1,6 @@
 module Mutations
   class CreateListing < BaseMutation
+    description "Create a new Listings"
     # arguments passed to the `resolve` method
     argument :title, String, required: true
     argument :description, String, required: true

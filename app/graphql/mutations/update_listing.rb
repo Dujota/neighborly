@@ -1,5 +1,7 @@
 module Mutations
   class UpdateListing < BaseMutation
+    description "Update an existing Listing"
+
     argument :id, ID, required: true
     argument :title, String, required: true
     argument :description, String, required: false
