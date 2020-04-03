@@ -46,7 +46,7 @@ export default () => (
                   <span className="listing-user">
                     added by <span>{user ? user.email : null}</span>
                   </span>
-                  <p className="listing-details">{description}}</p>
+                  <p className="listing-details">{description}</p>
                   <div></div>
                 </div>
                 <div className="listing-action-section">
