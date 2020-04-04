@@ -12,7 +12,7 @@ module Types
       Listing.includes(:user)
     end
 
-    field :listing, Types::ListingType, null: false do
+    field :listing, Types::ListingType, null: false, description: "Returns a listing in neighbourly based on an id" do
       argument :id, ID, required: true
     end
 
