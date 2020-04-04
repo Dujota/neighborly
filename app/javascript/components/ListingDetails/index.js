@@ -11,9 +11,12 @@ import gql from 'graphql-tag';
 import Link from '../link';
 //import Listings from '../Listings';
 
-const ListingQuery = gql`
-  {
-    listings {
+// eslint-disable-next-line react/display-name
+export default (props) => {
+
+  const ListingQuery = gql`
+  query{
+    listing(id: ${props.listingId}) {
       id
       title
       description
@@ -27,22 +30,21 @@ const ListingQuery = gql`
   }
 `;
 
-// eslint-disable-next-line react/display-name
-export default (props) => (
+  return(
   <Query query={ListingQuery}>
     {({ data, loading }) => (
-      
       <div id="listInfo">
         {loading
           ? 'loading...'
-          : data.listing.map(({ title, id, user, createdAt, description }) => (
-              <div key={id}>
-                <h1>{title}</h1>
-                <h2>{user.name}</h2>
-                <h3>{description}</h3>
-              </div>
-            ))}
+          : <div key={data.listing.id}>
+              <img src={data.listing.imageUrl}></img>
+              <h1>{data.listing.title}</h1>
+              <h4>by {data.listing.user.email}</h4>
+              <h3>{data.listing.description}</h3>
+            </div>
+        }
       </div>
     )}
   </Query>
-);
+  );
+};
