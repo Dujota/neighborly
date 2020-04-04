@@ -3,11 +3,11 @@ import { render } from 'react-dom';
 import Provider from '../components/Provider';
 
 // Components
-import Listing from '../components/Listings';
+import Listings from '../components/Listings';
 
 render(
   <Provider>
-    <Listing />
+    <Listings />
   </Provider>,
   document.querySelector('#root')
 );
