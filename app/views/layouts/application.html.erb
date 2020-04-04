@@ -5,11 +5,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= javascript_pack_tag "application" %>
   </head>
 
   <body>
+  <h1>Welcome to Neighbourly</h1>
+    <%= render "layouts/flash" %>
+
+    <ul class="hmenu">
+      <%= render "devise/menu/login_logout" %>
+      <%= render "devise/menu/signup_edit" %>
+    </ul>
+
     <%= yield %>
   </body>
 </html>

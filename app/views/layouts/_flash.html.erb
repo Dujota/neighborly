@@ -1,0 +1,11 @@
+<% flash.each do |key, value| %>
+	<div class="flash <%= key %> shadow">
+		<%= value %>
+		<div class="close-flash-container">
+			<%= link_to "#", :id => "close-flash", title: "Close" do %>
+        Close
+      <% end %>
+		</div>
+	</div>
+
+<% end %>

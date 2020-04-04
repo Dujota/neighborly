@@ -1,0 +1,124 @@
+// /*flash*/
+// .alert-error {
+//   background-color: #f2dede;
+//   border-color: #eed3d7;
+//   color: #b94a48;
+//   text-align: left;
+// }
+
+// .alert-alert {
+//   background-color: #f2dede;
+//   border-color: #eed3d7;
+//   color: #b94a48;
+//   text-align: left;
+// }
+
+// .alert-success {
+//   background-color: #dff0d8;
+//   border-color: #d6e9c6;
+//   color: #468847;
+//   text-align: left;
+// }
+
+// .alert-notice {
+//   background-color: #dff0d8;
+//   border-color: #d6e9c6;
+//   color: #468847;
+//   text-align: left;
+// }
+
+
+
+/* Flash */
+.flash {
+  // Flex Box
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+
+
+  // Positioning
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  z-index: 199991;
+
+  // Sizing
+  width: calc(344px - 32px);
+  /* 16px padding left & right */
+  min-height: 48px;
+  max-height: 68px;
+  padding: 0.3rem 1rem;
+  border-radius: $border-radius;
+
+  // Font
+  font-family: "Arial", sans-serif;
+  color: #222222;
+
+  // Default for devise flash messages
+  border-color: #666;
+  background: #eee;
+
+  .message-text {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    padding-right: 2px;
+
+  }
+
+  .close-flash-container {
+    font-size: 1.1rem;
+    padding: 8px;
+    border-radius: $border-radius;
+
+    #close-flash {
+      color: $dark-gray;
+    }
+
+    -webkit-transition: background-color ease 1s;
+    -o-transition: background-color ease 1s;
+    transition: background-color ease 1s;
+
+    &:hover {
+      -webkit-transition: background-color ease 1s;
+      -o-transition: background-color ease 1s;
+      transition: background-color ease 1s;
+      background-color: rgba(0, 0, 0, 0.16);
+    }
+  }
+}
+
+.error,
+.alert {
+  border-color: red;
+  background: $light-red;
+}
+
+.success {
+  border-color: green;
+  background: #E4FEE8;
+}
+
+.notice {
+  border-color: #666;
+  background: #eee;
+}
+
+
+
+/* Form Flash */
+#error_explanation {
+  border: 1px solid red;
+  padding: 10px;
+  margin: 10px 0;
+  background: $light-red;
+
+  h2 {
+    color: red;
+    font-family: "Arial";
+  }
+}
