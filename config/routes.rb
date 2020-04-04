@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # Disable devise routes until further notice
-  devise_for :users, skip: :all
+  devise_for :users
 
   root "listing#index"
   get "/listingInfo/:id", to: "listing_details#index"

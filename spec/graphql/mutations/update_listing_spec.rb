@@ -25,12 +25,12 @@ RSpec.describe "MutationType::UpdateListing" do
 
   context "updates the listing" do
     it "does something" do
-      title = result["data"]["updateListing"]["listing"]["title"]
+      title = result.dig("data", "updateListing", "listing", "title")
       expect(title).to eq("UPDATED TITLE")
     end
 
     it "sets description" do
-      description = result["data"]["updateListing"]["listing"]["description"]
+      description = result.dig("data", "updateListing", "listing", "description")
 
       expect(description).to eq("WORKS AMAZING!")
     end
