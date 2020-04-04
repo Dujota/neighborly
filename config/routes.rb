@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   devise_for :users
 
   root "listing#index"
-  get "/listingInfo/:id", to: "listing_details#index"
+  get "/listingInfo/:id", to: "listing#show"
 end
