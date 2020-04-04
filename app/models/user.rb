@@ -4,7 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :listings, dependent: :destroy
+  #  Callbacks
 
+  #  Assosiactions
+  has_and_belongs_to_many :roles
+
+  has_many :listings, -> { order "updated_at desc" }, dependent: :destroy
+
+  # Validations
   validates :email, presence: true, uniqueness: true
 end
