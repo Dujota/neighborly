@@ -32,12 +32,20 @@ module Neighbourly
     # Use structure.sql
     config.active_record.schema_format = :sql
 
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    # # Don't generate system test files.
+    # config.generators.system_tests = :rspec
 
     # Dont autogenerate files
     config.generators do |g|
-      g.test_framework false
+      g.system_tests = :rspec
+      g.test_framework :rspec,
+                       fixtures: true,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       controller_specs: true,
+                       request_specs: false
+      g.fixture_replacement :factory_bot, dir: "spec/factories"
       g.stylesheets false
       g.javascripts false
       g.helper false
