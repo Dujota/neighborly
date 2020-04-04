@@ -18,7 +18,7 @@ module Mutations
       return GraphQL::ExecutionError.new("User with #{email} not registered on this application") unless user
 
       # Check that the password for the fetched user, matches the one provided by mutation
-      if user.valid_password?(password: password)
+      if user.valid_password?(credentials[:password])
         context[:current_user] = user
 
         # use Ruby on Rails - ActiveSupport::MessageEncryptor, to build a token
@@ -27,6 +27,7 @@ module Mutations
 
         {
           user: user,
+          token: token,
           errors: [],
         }
       else
