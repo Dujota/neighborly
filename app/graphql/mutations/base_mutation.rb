@@ -16,11 +16,8 @@ module Mutations
       resource.try(:user) == context[:current_user]
     end
 
-    # TODO: ADD A ROLE TABLE AND CONTROL WITH THAT
     def is_admin?
-      # context[:current_user].try(:email) == "admin@user.com"
-
-      true #return true during development until we have a sign in mechanism
+      context[:current_user]&.is_admin?
     end
   end
 end
