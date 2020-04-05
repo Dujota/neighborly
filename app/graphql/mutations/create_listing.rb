@@ -14,26 +14,26 @@ module Mutations
 
     # 2 required, one optional
     def resolve(title:, description:, image_url: nil)
-      listing = Listing.new(
-        title: title,
-        description: description,
-        image_url: image_url,
+      if context[:current_ability].can?(:create_listing, Listing)
+        listing = Listing.new(
+          title: title,
+          description: description,
+          image_url: image_url,
+          user: context[:current_user],
+        )
 
-        #TODO: CHANGE ME!!!!!! FOR DEV ONLY - REMOVE User.first
-        user: context[:current_user] || User.first,
-      )
-
-      if listing.save
-        # Successful creation, return the created object with no errors
-        {
-          listing: listing,
-          errors: [],
-        }
-      else
-        # Failed save, return the errors to the client
-        {
-          errors: listing.errors.full_messages,
-        }
+        if listing.save
+          # Successful creation, return the created object with no errors
+          {
+            listing: listing,
+            errors: [],
+          }
+        else
+          # Failed save, return the errors to the client
+          {
+            errors: listing.errors.full_messages,
+          }
+        end
       end
     end
   end
