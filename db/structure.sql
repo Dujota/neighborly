@@ -11,7 +11,7 @@ SET row_security = off;
 
 SET default_tablespace = '';
 
-SET default_with_oids = false;
+SET default_table_access_method = heap;
 
 --
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
@@ -57,6 +57,48 @@ CREATE SEQUENCE public.listings_id_seq
 --
 
 ALTER SEQUENCE public.listings_id_seq OWNED BY public.listings.id;
+
+
+--
+-- Name: roles; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.roles (
+    id bigint NOT NULL,
+    name character varying,
+    description text,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.roles_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.roles_id_seq OWNED BY public.roles.id;
+
+
+--
+-- Name: roles_users; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.roles_users (
+    role_id integer,
+    user_id integer
+);
 
 
 --
@@ -115,6 +157,13 @@ ALTER TABLE ONLY public.listings ALTER COLUMN id SET DEFAULT nextval('public.lis
 
 
 --
+-- Name: roles id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.roles ALTER COLUMN id SET DEFAULT nextval('public.roles_id_seq'::regclass);
+
+
+--
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -138,6 +187,14 @@ ALTER TABLE ONLY public.listings
 
 
 --
+-- Name: roles roles_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.roles
+    ADD CONSTRAINT roles_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -158,7 +215,6 @@ ALTER TABLE ONLY public.users
 --
 
 CREATE INDEX index_listings_on_user_id ON public.listings USING btree (user_id);
-
 
 --
 -- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -
@@ -190,6 +246,8 @@ SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
 ('20200329041340'),
-('20200329041833');
+('20200329041833'),
+('20200404173219'),
+('20200404193318');
 
 

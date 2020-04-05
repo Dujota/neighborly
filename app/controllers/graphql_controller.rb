@@ -11,7 +11,9 @@ class GraphqlController < ApplicationController
     context = {
       # Query context goes here, for example:
       current_user: current_user,
+      current_ability: current_ability,
     }
+
     result = NeighbourlySchema.execute(
       query,
       variables: variables,
