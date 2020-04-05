@@ -8,6 +8,7 @@ class Ability
 
     if !user.is_admin?
       # Annonymous User Permissions
+
       can :read, Listing
 
       if !user.new_record?

@@ -14,7 +14,7 @@ module Mutations
 
     # 2 required, one optional
     def resolve(title:, description:, image_url: nil)
-      if context[:current_ability].can?(:create_listing, Listing)
+      if context[:current_ability].can?(:create, Listing)
         listing = Listing.new(
           title: title,
           description: description,

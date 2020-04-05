@@ -11,7 +11,7 @@ module Mutations
       # Check for ability before the delete
       listing = Listing.find id
 
-      if context[:current_ability].can?(:delete_listing, Listing)
+      if context[:current_ability].can?(:destroy, listing)
         if listing.destroy
           {
             listing: listing,

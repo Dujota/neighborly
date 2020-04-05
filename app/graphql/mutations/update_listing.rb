@@ -16,7 +16,7 @@ module Mutations
       listing.description = description if description
       listing.image_url = image_url if image_url
 
-      if context[:current_ability].can?(:update_listing, Listing)
+      if context[:current_ability].can?(:update, listing)
         if listing.save
           {
             listing: listing,
