@@ -11,7 +11,7 @@ module Mutations
       # Check for ability before the delete
       listing = Listing.find id
 
-      if is_admin? || is_owner?(listing)
+      if context[:current_ability].can?(:destroy, listing)
         if listing.destroy
           {
             listing: listing,
