@@ -24,5 +24,9 @@ module Mutations
     def is_admin?
       context[:current_user]&.is_admin?
     end
+
+    def authorize_user(action, resource)
+      context[:current_ability].can?(action, resource)
+    end
   end
 end

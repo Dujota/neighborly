@@ -15,19 +15,19 @@ module Mutations
       listing.description = description if description
       listing.image_url = image_url if image_url
 
-      if context[:current_ability].can?(:update, listing)
-        if listing.save
-          {
-            listing: listing,
-
-          }
-        else
-          {
-            errors: listings.errors.full_messages,
-          }
-        end
-      else
+      if !authorize_user(:update, listing)
         raise GraphQL::ExecutionError, "Unauthorized operation"
+      end
+
+      if listing.save
+        {
+          listing: listing,
+
+        }
+      else
+        {
+          errors: listings.errors.full_messages,
+        }
       end
 
       # Record Not Found

@@ -13,25 +13,28 @@ module Mutations
 
     # 2 required, one optional
     def resolve(title:, description:, image_url: nil)
-      if context[:current_ability].can?(:create, Listing)
-        listing = Listing.new(
-          title: title,
-          description: description,
-          image_url: image_url,
-          user: context[:current_user],
-        )
+      if !authorize_user(:create, Listing)
+        raise GraphQL::ExecutionError,
+              "You need to authenticate to perform this action"
+      end
 
-        if listing.save
-          # Successful creation, return the created object with no errors
-          {
-            listing: listing,
-          }
-        else
-          # Failed save, return the errors to the client
-          {
-            errors: listing.errors.full_messages,
-          }
-        end
+      listing = Listing.new(
+        title: title,
+        description: description,
+        image_url: image_url,
+        user: context[:current_user],
+      )
+
+      if listing.save
+        # Successful creation, return the created object with no errors
+        {
+          listing: listing,
+        }
+      else
+        # Failed save, return the errors to the client
+        {
+          errors: listing.errors.full_messages,
+        }
       end
     end
   end

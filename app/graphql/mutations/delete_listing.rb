@@ -10,18 +10,18 @@ module Mutations
       # Check for ability before the delete
       listing = Listing.find id
 
-      if context[:current_ability].can?(:destroy, listing)
-        if listing.destroy
-          {
-            listing: listing,
-          }
-        else
-          {
-            errors: listings.errors.full_messages,
-          }
-        end
-      else
+      if !authorize_user(:destroy, listing)
         raise GraphQL::ExecutionError, "Unauthorized operation"
+      end
+
+      if listing.destroy
+        {
+          listing: listing,
+        }
+      else
+        {
+          errors: listings.errors.full_messages,
+        }
       end
 
       # Record Not Found
