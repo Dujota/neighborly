@@ -4,7 +4,6 @@ module Mutations
 
     argument :id, ID, required: true
 
-    field :errors, [String], null: false
     field :listing, Types::ListingType, null: true
 
     def resolve(id:)
@@ -15,7 +14,6 @@ module Mutations
         if listing.destroy
           {
             listing: listing,
-            errors: [],
           }
         else
           {

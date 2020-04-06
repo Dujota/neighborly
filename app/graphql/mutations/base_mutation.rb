@@ -11,6 +11,10 @@ module Mutations
     # object_class Types::BaseObject
 
     # place all general mutation helpershere
+
+    # https://github.com/rmosolgo/graphql-ruby/issues/1837
+    field :errors, [String], null: true
+
     protected
 
     def is_owner?(resource = nil)

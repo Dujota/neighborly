@@ -4,7 +4,6 @@ module Mutations
 
     argument :credentials, Types::AuthProviderCredentialsInput, required: false
 
-    field :errors, [String], null: false
     field :token, String, null: true
     field :user, Types::UserType, null: true
 
@@ -28,7 +27,6 @@ module Mutations
         {
           user: user,
           token: token,
-          errors: [],
         }
       else
         { errors: user.errors.full_messages }

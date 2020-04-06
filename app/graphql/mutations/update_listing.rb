@@ -7,7 +7,6 @@ module Mutations
     argument :description, String, required: false
     argument :image_url, String, required: false
 
-    field :errors, [String], null: false
     field :listing, Types::ListingType, null: true
 
     def resolve(id:, title:, description: nil, image_url: nil)
@@ -20,7 +19,7 @@ module Mutations
         if listing.save
           {
             listing: listing,
-            errors: [],
+
           }
         else
           {

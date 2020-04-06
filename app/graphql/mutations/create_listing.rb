@@ -9,7 +9,6 @@ module Mutations
     # return type from the mutation if you just want the object with the below line
     # type Types::ListingType
 
-    field :errors, [String], null: false
     field :listing, Types::ListingType, null: true
 
     # 2 required, one optional
@@ -26,7 +25,6 @@ module Mutations
           # Successful creation, return the created object with no errors
           {
             listing: listing,
-            errors: [],
           }
         else
           # Failed save, return the errors to the client
