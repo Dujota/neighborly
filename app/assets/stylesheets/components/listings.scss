@@ -1,28 +1,35 @@
 //List and listing items styles.
 #listings {
-  @include flex(column, space-between, flex-start);
-  width: 50%;
-  min-width: 400px;
-  max-width: 500px;
+  @include flex(row, space-around, flex-start);
+  flex-wrap: wrap;
+  width: 100%;
 
   .listing-item {
-    @include flex(row, space-between, flex-start);
+    position: relative;
+    @include flex(column, space-around, center);
     -webkit-box-shadow: $shadow;
     -moz-box-shadow: $shadow;
     box-shadow: $shadow;
     background: $neutral;
     color: $primary;
-    width: 98%;
-    height: 80px;
-    border-radius: $btn-radius;
+    width: 350px;
+    height: 300px;
+    border-radius: $border-radius;
     padding: $pad;
     margin: $margin 0;
     overflow: hidden;
 
+    .listing-date{
+      color: $neutral-medium-gray;
+      font-size: 13px;
+      position:absolute;
+      top: $pad;
+      right: $pad;
+    }
+
     .listing-image-section {
       @include flex(row, center, center);
-      width: 15%;
-      height: 100%;
+      width: 10%;
 
       img {
         width: 100%;
@@ -30,20 +37,24 @@
     }
 
     .listing-info-section {
-      @include flex(column, flex-start, flex-start);
-      width: 50%;
-      height: 100%;
+      @include flex(column, flex-start, center);
+      width: 80%;
       position: relative;
+      max-height: 175px;
+      overflow: hidden;
 
       h3 {
-        margin: 3px 0;
+        margin: 0 0 5px 0;
       }
 
       .listing-user {
         font-size: 12px;
-
+        margin: 0 0 5px 0;
+        
         span {
           background: $secondary;
+          color: $neutral;
+          padding: 0 3px;
         }
       }
 
@@ -54,9 +65,9 @@
 
       div {
         position: absolute;
-        bottom: -10px;
+        bottom: 0px;
         width: 100%;
-        height: 30px;
+        height: 50%;
         z-index: 1000;
         background: transparent;
         background-image: linear-gradient(to bottom, transparent, $neutral);
@@ -66,15 +77,8 @@
     }
 
     .listing-action-section {
-      @include flex(column, space-between, center);
-      width: 25%;
-      height: 100%;
-
-      span {
-        color: $neutral;
-        font-size: 13px;
-        align-self: flex-end;
-      }
+      @include flex(column, center, center);
+      width: 40%;
     }
   }
 }
