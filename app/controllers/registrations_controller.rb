@@ -23,7 +23,7 @@ class RegistrationsController < Devise::RegistrationsController
   def set_form_defaults
     resource.profile.first_name = params[:first_name]
     resource.profile.last_name = params[:last_name]
-    resource.profile.loacation = params[:last_name]
+    resource.profile.location = params[:location]
     resource.profile.phone_number = params[:last_name]
     resource.email = params[:email]
   end
