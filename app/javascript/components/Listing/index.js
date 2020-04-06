@@ -11,8 +11,7 @@ import gql from 'graphql-tag';
 import Link from '../link';
 
 // eslint-disable-next-line react/display-name
-export default (props) => {
-
+export default props => {
   const ListingQuery = gql`
   query{
     listing(id: ${props.listingId}) {
@@ -29,13 +28,14 @@ export default (props) => {
   }
 `;
 
-  return(
-  <Query query={ListingQuery}>
-    {({ data, loading }) => (
-      <div id="listInfo">
-        {loading
-          ? 'loading...'
-          : <div id="listing-details">
+  return (
+    <Query query={ListingQuery}>
+      {({ data, loading }) => (
+        <div id="listInfo">
+          {loading ? (
+            'loading...'
+          ) : (
+            <div id="listing-details">
               <div className="listing-details-header">
                 <div className="heading">
                   <img className="logo" src="https://thumbs.dreamstime.com/z/neighbor-icon-vicinal-170543124.jpg"></img>
@@ -58,9 +58,9 @@ export default (props) => {
                 <div className="map-box"></div>
               </div>
             </div>
-        }
-      </div>
-    )}
-  </Query>
+          )}
+        </div>
+      )}
+    </Query>
   );
 };
