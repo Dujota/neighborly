@@ -4,11 +4,15 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+/.ruby-version
+
 # Ignore bundler config.
 /.bundle
 
 # Ignore all logfiles and tempfiles.
+*.log
 /log/*
+log/*.log
 /tmp/*
 !/log/.keep
 !/tmp/.keep
@@ -23,12 +27,56 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+
+# Webpacker build packs & manifest.js
 /public/packs
 /public/packs-test
+
+# Yarn
 /node_modules
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
 
-# Ignore vscode files
+# Assets
+.project
+.sass-cache/
+public/uploads*
+
+# Env
+.env
+.setenv
+
+# VS Code
 .vscode
+.vs
+.DS_Store
+*.DS_Store*
+
+# Linters
+.eslintrc
+.eslintrc.json
+.eslintignore
+.rufo
+
+# Testing Coverage
+test_results.html
+coverage
+lcov-report
+clover.xml
+coverage-final.json
+lcov.info
+.yardoc
+junit.xml
+
+# Database
+*.dump
+dump.rdb
+db/*.sqlite3*
+# config/database.yml
+
+
+# Misc
+doc/
+*.swp
+*~

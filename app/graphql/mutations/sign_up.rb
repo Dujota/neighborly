@@ -9,7 +9,6 @@ module Mutations
 
     argument :auth_provider, AuthProviderSignupData, required: false
 
-    field :errors, [String], null: false
     field :user, Types::UserType, null: true
 
     def resolve(auth_provider: nil)
@@ -21,7 +20,6 @@ module Mutations
       if user.save
         {
           user: user,
-          errors: [],
         }
       else
         { errors: user.errors.full_messages }

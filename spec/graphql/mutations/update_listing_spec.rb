@@ -2,7 +2,11 @@ require "rails_helper"
 
 RSpec.describe "MutationType::UpdateListing" do
   let!(:user) { create :user }
-  let!(:new_listing) { create :listing }
+  let!(:new_listing) { create :listing, { user: user } }
+
+  let(:current_ability) do
+    Ability.new(user)
+  end
 
   let(:mutation) do
     %(
@@ -20,6 +24,7 @@ RSpec.describe "MutationType::UpdateListing" do
   subject(:result) do
     NeighbourlySchema.execute(mutation, context: {
                                           current_user: user,
+                                          current_ability: current_ability,
                                         }).as_json
   end
 

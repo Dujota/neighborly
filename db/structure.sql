@@ -60,6 +60,41 @@ ALTER SEQUENCE public.listings_id_seq OWNED BY public.listings.id;
 
 
 --
+-- Name: profiles; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.profiles (
+    id bigint NOT NULL,
+    first_name character varying,
+    last_name character varying,
+    phone_number character varying,
+    location character varying,
+    user_id bigint NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: profiles_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.profiles_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: profiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.profiles_id_seq OWNED BY public.profiles.id;
+
+
+--
 -- Name: roles; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -157,6 +192,13 @@ ALTER TABLE ONLY public.listings ALTER COLUMN id SET DEFAULT nextval('public.lis
 
 
 --
+-- Name: profiles id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.profiles ALTER COLUMN id SET DEFAULT nextval('public.profiles_id_seq'::regclass);
+
+
+--
 -- Name: roles id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -184,6 +226,14 @@ ALTER TABLE ONLY public.ar_internal_metadata
 
 ALTER TABLE ONLY public.listings
     ADD CONSTRAINT listings_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: profiles profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.profiles
+    ADD CONSTRAINT profiles_pkey PRIMARY KEY (id);
 
 
 --
@@ -218,6 +268,13 @@ CREATE INDEX index_listings_on_user_id ON public.listings USING btree (user_id);
 
 
 --
+-- Name: index_profiles_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_profiles_on_user_id ON public.profiles USING btree (user_id);
+
+
+--
 -- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -240,6 +297,14 @@ ALTER TABLE ONLY public.listings
 
 
 --
+-- Name: profiles fk_rails_e424190865; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.profiles
+    ADD CONSTRAINT fk_rails_e424190865 FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -249,6 +314,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200329041340'),
 ('20200329041833'),
 ('20200404173219'),
-('20200404193318');
+('20200404193318'),
+('20200406002105');
 
 
