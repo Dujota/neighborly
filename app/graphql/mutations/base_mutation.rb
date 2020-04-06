@@ -11,6 +11,7 @@ module Mutations
     # object_class Types::BaseObject
 
     # place all general mutation helpershere
+    protected
 
     def is_owner?(resource = nil)
       resource.try(:user) == context[:current_user]
