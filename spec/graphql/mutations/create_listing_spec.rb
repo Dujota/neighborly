@@ -17,10 +17,14 @@ RSpec.describe "MutationType::CreateListing" do
       }
     )
   end
+  let(:current_ability) do
+    Ability.new(user)
+  end
 
   subject(:result) do
     NeighbourlySchema.execute(mutation, context: {
                                           current_user: user,
+                                          current_ability: current_ability,
                                         }).as_json
   end
 
