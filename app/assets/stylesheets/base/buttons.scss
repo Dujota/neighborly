@@ -1,7 +1,6 @@
 $btn-radius: 5px;
 
 .btn {
-  background: $secondary;
   color: $neutral;
   border-radius: $btn-radius;
   padding: $pad;
@@ -9,4 +8,12 @@ $btn-radius: 5px;
   cursor: pointer;
   margin-bottom: 10px;
   text-decoration: none;
+}
+
+.btn-primary {
+  background: $primary;
+}
+
+.btn-secondary{
+  background: $secondary;
 }

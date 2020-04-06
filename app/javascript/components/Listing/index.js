@@ -35,7 +35,7 @@ export default (props) => {
       <div id="listInfo">
         {loading
           ? 'loading...'
-          : <div id="listing-details-container">
+          : <div id="listing-details">
               <div className="listing-details-header">
                 <div className="heading">
                   <img className="logo" src="https://thumbs.dreamstime.com/z/neighbor-icon-vicinal-170543124.jpg"></img>

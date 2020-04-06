@@ -54,7 +54,7 @@ export default () => (
                     <Moment format="DD/MM/YYYY">{createdAt}</Moment>
                   </span>
 
-                  <Link path={`/listingInfo/${id}`} className="btn listing-btn">
+                  <Link path={`/listing?id=${id}`} className="btn listing-btn btn-secondary">
                     More Details
                   </Link>
                 </div>
