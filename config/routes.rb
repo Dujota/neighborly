@@ -10,6 +10,8 @@ Rails.application.routes.draw do
                        :sign_in => "signin",
                        :sign_out => "signout",
                        :sign_up => "signup",
+                     }, :controllers => {
+                       :registrations => "registrations",
                      }
 
   # SESSIONS AND REGISTRATIONS
