@@ -55,3 +55,5 @@ gem "factory_bot_rails", "~> 5.1", :groups => [:development, :test]
 gem "pry", "~> 0.13.0", :groups => [:development, :test]
 
 gem "cancancan", "~> 3.1"
+
+gem "dotenv-rails", "~> 2.7", :groups => [:development, :test]
