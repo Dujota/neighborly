@@ -12,12 +12,21 @@ module Mutations
 
     # place all general mutation helpershere
 
+    # https://github.com/rmosolgo/graphql-ruby/issues/1837
+    field :errors, [String], null: true
+
+    protected
+
     def is_owner?(resource = nil)
       resource.try(:user) == context[:current_user]
     end
 
     def is_admin?
       context[:current_user]&.is_admin?
+    end
+
+    def authorize_user(action, resource)
+      context[:current_ability].can?(action, resource)
     end
   end
 end

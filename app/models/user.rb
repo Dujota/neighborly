@@ -8,11 +8,23 @@ class User < ApplicationRecord
 
   #  Assosiactions
   has_and_belongs_to_many :roles
-
+  has_one :profile, autosave: true
   has_many :listings, -> { order "updated_at desc" }, dependent: :destroy
 
   # Validations
   validates :email, presence: true, uniqueness: true
+
+  # Delegation Methods
+  delegate :first_name, :first_name=,
+           :last_name, :last_name=,
+           :company, :company=,
+           :phone_number, :phone_number=,
+           :full_name, :full_name=,
+           :location, :location=,
+           to: :profile
+
+  #  Allows user to receive a hash with nested attributes to populate profile
+  accepts_nested_attributes_for :profile
 
   # USER AUTHORITY METHODS
   def add_role(role)

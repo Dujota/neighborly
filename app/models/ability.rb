@@ -16,6 +16,7 @@ class Ability
         # we can use this to switch on new features for users after they sign up
 
         can [:create, :update, :destroy], Listing, user_id: user.id
+        can :manage, :profile
       end
     else
       # - User is an admin
