@@ -3,11 +3,13 @@ import { render } from 'react-dom';
 import Provider from '../components/Provider';
 
 // Components
-import Listings from '../components/Listings';
+import Listing from '../components/Listing';
+
+const listingId = document.querySelector('#root').getAttribute("listing-id-data");
 
 render(
   <Provider>
-    <Listings />
+    <Listing listingId={listingId} />
   </Provider>,
   document.querySelector('#root')
 );

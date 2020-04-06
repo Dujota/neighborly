@@ -26,6 +26,8 @@ $sidebar-width: 250px;
 $pad: 10px;
 $margin: 20px;
 
+$shadow: 0px 17px 29px -8px rgba(0,0,0,0.55);
+
 @mixin vertical-middle-align {
   position: relative;
   top: 50%;

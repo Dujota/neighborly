@@ -7,11 +7,11 @@
 
   .listing-item {
     @include flex(row, space-between, flex-start);
-    -webkit-box-shadow: 1px 35px 71px -33px rgba(43, 122, 120, 1);
-    -moz-box-shadow: 1px 35px 71px -33px rgba(43, 122, 120, 1);
-    box-shadow: 1px 35px 71px -33px rgba(43, 122, 120, 1);
-    background: $secondary;
-    color: $white;
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+    background: $neutral;
+    color: $primary;
     width: 98%;
     height: 80px;
     border-radius: $btn-radius;
@@ -43,7 +43,7 @@
         font-size: 12px;
 
         span {
-          background: $btn-color;
+          background: $secondary;
         }
       }
 
@@ -59,9 +59,9 @@
         height: 30px;
         z-index: 1000;
         background: transparent;
-        background-image: linear-gradient(to bottom, transparent, $secondary);
-        background-image: -moz-linear-gradient(0deg, transparent, $secondary);
-        background-image: -webkit-linear-gradient(0deg, transparent $secondary);
+        background-image: linear-gradient(to bottom, transparent, $neutral);
+        background-image: -moz-linear-gradient(0deg, transparent, $neutral);
+        background-image: -webkit-linear-gradient(0deg, transparent $neutral);
       }
     }
 

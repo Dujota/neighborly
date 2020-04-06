@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   get "/register" => redirect("/users/signup")
 
   root "listing#index"
+  get "/listing", to: "listing#show"
 end

@@ -1,0 +1,76 @@
+#listing-details{
+    background: $neutral-gray;
+    width: 100%;
+    margin:0;
+
+    .listing-details-header{
+        position: relative;
+        width: 100%;
+        background: $primary;
+        @include flex(column, flex-start, center);
+
+        .heading{
+            width: 100%;
+            @include flex(row, flex-start, center);
+            
+            h4{
+                color: $neutral;
+            }
+
+            img{
+                width: 40px;
+                margin: 20px;
+            }
+        }
+
+        .listing-image{
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .listing-title{
+            margin-bottom: 150px;
+            color: $neutral;
+        }
+
+        .listing-description-box{
+            width: 85%;
+            padding: 30px;
+            position: absolute;
+            bottom: -100px;
+            @include flex(column, space-around, center);
+            -webkit-box-shadow: $shadow;
+            -moz-box-shadow: $shadow;
+            box-shadow: $shadow;
+            z-index: 1000;
+            background: $neutral;
+            color: $primary;
+        }
+    }
+
+    .listing-details-body{
+        width:100%;
+        padding: 180px 0 50px 0;
+        @include flex(row, space-around, space-around);
+
+        .user-info-box{
+            width: 25%;
+            @include flex(column, flex-start, flex-start);
+
+            h2{
+                margin-top: 0;
+            }
+
+            span{
+                margin: 0 0 10px 0;
+            }
+        }
+
+        .map-box{
+            border: solid 1px white;
+            width: 50%;
+            height: 450px;
+        }
+    }
+}
+
