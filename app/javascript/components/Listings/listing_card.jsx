@@ -15,6 +15,7 @@ const CURRENT_USER = gql`
   {
     currentUser {
       id
+      isAdmin
     }
   }
 `;
@@ -54,7 +55,7 @@ const ListingCard = ({ id, createdAt, title, user, description }) => (
               More Details
             </Link>
 
-            {(data.currentUser.id === user.id || user.isAdmin) && (
+            {data.currentUser && (data.currentUser.id === user.id || data.currentUser.isAdmin) && (
               <Link path={`/listing?id=${id}&edit=true`} className="btn listing-btn btn-secondary">
                 Edit
               </Link>

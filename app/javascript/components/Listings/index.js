@@ -19,7 +19,6 @@ const ListingsQuery = gql`
       user {
         id
         email
-        isAdmin
       }
     }
   }
