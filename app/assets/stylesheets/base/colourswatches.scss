@@ -3,8 +3,9 @@
 // feel free to add to this file
 
 
-//dribbble colour palette
-$primary: #5B635C;;
+// Palette from https://dribbble.com/shots/10924816-Event-calendar
+$primary: #5B635C;
+;
 
 $secondary: #856F49;
 
@@ -13,7 +14,14 @@ $neutral-light-gray: #C0C8C1;
 $neutral-medium-gray: #7A8A86;
 $super-dark-green: #0D1614;
 
-//global colour palette
+
+// ColorPicker from https://dribbble.com/shots/10924816-Event-calendar/attachments/2553914?mode=media
+$body-color: #f3f3f3;
+
+
+
+
+// Global Styles <--- we can trim down when a style-guide is decided --->
 $white: #feffff;
 $almost-white: #fafafa;
 $off-white: #fff;
