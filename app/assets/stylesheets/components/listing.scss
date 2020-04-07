@@ -12,7 +12,7 @@
         .heading{
             width: 100%;
             @include flex(row, flex-start, center);
-            
+
             h4{
                 color: $neutral;
             }
