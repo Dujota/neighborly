@@ -54,7 +54,6 @@ const ListingCard = ({ id, createdAt, title, user, description }) => (
             <Link path={`/listing?id=${id}`} className="btn listing-btn btn-secondary">
               More Details
             </Link>
-            {console.log(data)}
 
             {(data.currentUser.id === user.id || data.currentUser.isAdmin) && (
               <Link path={`/listing?id=${id}&edit=true`} className="btn listing-btn btn-secondary">
