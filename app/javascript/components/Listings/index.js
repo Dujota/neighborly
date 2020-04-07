@@ -35,7 +35,10 @@ export default () => (
           ? 'loading...'
           : data.listings.map(({ title, id, user, createdAt, description }) => (
               <div className="listing-item" key={id}>
-                <div className="listing-image-section">
+                <span className="listing-date">
+                    <Moment format="DD/MM/YYYY">{createdAt}</Moment>
+                </span>
+                <div className="listing-image-section"> 
                   <img
                     src="https://cdn2.iconfinder.com/data/icons/grocery-store-solid/64/Grocery_food-36-512.png"
                     alt="listing-avatar"
@@ -50,9 +53,7 @@ export default () => (
                   <div></div>
                 </div>
                 <div className="listing-action-section">
-                  <span className="listing-date">
-                    <Moment format="DD/MM/YYYY">{createdAt}</Moment>
-                  </span>
+                  
 
                   <Link path={`/listing?id=${id}`} className="btn listing-btn btn-secondary">
                     More Details
