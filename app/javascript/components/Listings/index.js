@@ -1,14 +1,13 @@
 import React from 'react';
 
 // GraphQl
-import { Query } from 'react-apollo';
+import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
 
 // Components
-
 import ListingCard from './listing_card';
 
-const ListingsQuery = gql`
+const ALL_LISTINGS = gql`
   {
     listings {
       id
@@ -24,17 +23,18 @@ const ListingsQuery = gql`
   }
 `;
 
-// eslint-disable-next-line react/display-name
-export default () => (
-  <Query query={ListingsQuery}>
-    {({ data, loading }) => (
-      <div id="listings">
-        {loading
-          ? 'loading...'
-          : data.listings.map(({ title, id, user, createdAt, description }) => (
-              <ListingCard title={title} id={id} user={user} createdAt={createdAt} description={description} />
-            ))}
-      </div>
-    )}
-  </Query>
-);
+const Listings = () => {
+  const { loading, error, data } = useQuery(ALL_LISTINGS);
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+
+  return (
+    <div id="listings">
+      {data.listings.map(({ title, id, user, createdAt, description }) => (
+        <ListingCard title={title} key={id} id={id} user={user} createdAt={createdAt} description={description} />
+      ))}
+    </div>
+  );
+};
+
+export default Listings;
