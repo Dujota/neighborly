@@ -26,12 +26,12 @@ module Types
       Listing.find id
     end
 
-    field :me,
+    field :current_user,
           Types::UserType,
           null: true,
           description: "the current user"
 
-    def me
+    def current_user
       context[:current_user]
     end
   end
