@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
   def index
   end
 
-  def show
-    @id = params[:id]
+  def listing
+    @id = params[:id] if params[:id]
   end
 end

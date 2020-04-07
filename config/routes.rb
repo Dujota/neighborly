@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get "/register" => redirect("/users/signup")
 
   # Listing
-  get "/listing", to: "listings#show", as: :listing
+  get "/listing", to: "listings#listing"
 
   # Static pages
   root :to => "pages#home"
