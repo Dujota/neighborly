@@ -19,9 +19,9 @@ Rails.application.routes.draw do
   get "/signup" => redirect("/users/signup")
   get "/register" => redirect("/users/signup")
 
-  # ROOT ENTRY
-  root "listings#index"
-
   # Listing
   get "/listing", to: "listings#show", as: :listing
+
+  # Static pages
+  root :to => "pages#home"
 end
