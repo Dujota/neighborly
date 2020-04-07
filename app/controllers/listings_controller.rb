@@ -4,5 +4,6 @@ class ListingsController < ApplicationController
 
   def listing
     @id = params[:id] if params[:id]
+    @edit = params[:edit] if params[:edit]
   end
 end

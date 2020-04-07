@@ -9,11 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const element = document.querySelector('#listing-mounting-point');
 
   if (element) {
-    const listingId = element.getAttribute('listing-id-data');
+    const { listingId, edit } = element.dataset;
 
     render(
       <Provider>
-        <Listing listingId={listingId} />
+        {edit ? <Listing listingId={listingId} edit={edit === 'true'} /> : <Listing listingId={listingId} />}
       </Provider>,
       element
     );
