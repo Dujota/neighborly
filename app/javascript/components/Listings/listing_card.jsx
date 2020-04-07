@@ -26,6 +26,8 @@ const ListingCard = ({ id, createdAt, title, user, description }) => (
       if (loading) return 'Loading...';
       if (error) return `Error! ${error.message}`;
 
+      const canEdit = data.currentUser && (data.currentUser.id === user.id || data.currentUser.isAdmin);
+
       return (
         <div className="listing-item" key={id}>
           <span className="listing-date">
@@ -55,8 +57,8 @@ const ListingCard = ({ id, createdAt, title, user, description }) => (
               More Details
             </Link>
 
-            {data.currentUser && (data.currentUser.id === user.id || data.currentUser.isAdmin) && (
-              <Link path={`/listing?id=${id}&edit=true`} className="btn listing-btn btn-secondary">
+            {canEdit && (
+              <Link path={`/listing?id=${id}&edit=true`} className="btn listing-btn btn-secondary" canShow={canEdit}>
                 Edit
               </Link>
             )}

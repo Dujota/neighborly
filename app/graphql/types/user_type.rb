@@ -2,7 +2,7 @@ module Types
   class UserType < Types::BaseObject
     field :id, ID, null: false
     field :email, String, null: false
-    field :is_admin, String, null: true
+    field :is_admin, Boolean, null: true
 
     def is_admin
       # `object` references the user instance
