@@ -2,4 +2,4 @@
 
 import React from 'react';
 
-export default () => <div>DASHBOARD COMPONENT</div>;
+export default () => <section id="dashboard-component">DASHBOARD COMPONENT</section>;

@@ -1,39 +1,39 @@
-#listing-details{
+#listing-details-component {
     background: $neutral-light-gray;
     width: 100%;
-    margin:0;
+    margin: 0;
 
-    .listing-details-header{
+    .listing-details-header {
         position: relative;
         width: 100%;
         background: $primary;
         @include flex(column, flex-start, center);
 
-        .heading{
+        .heading {
             width: 100%;
             @include flex(row, flex-start, center);
 
-            h4{
+            h4 {
                 color: $neutral;
             }
 
-            img{
+            img {
                 width: 40px;
                 margin: 20px;
             }
         }
 
-        .listing-image{
+        .listing-image {
             width: 150px;
             margin-bottom: 20px;
         }
 
-        .listing-title{
+        .listing-title {
             margin-bottom: 150px;
             color: $neutral;
         }
 
-        .listing-description-box{
+        .listing-description-box {
             width: 85%;
             padding: 30px;
             position: absolute;
@@ -48,29 +48,28 @@
         }
     }
 
-    .listing-details-body{
-        width:100%;
+    .listing-details-body {
+        width: 100%;
         padding: 180px 0 50px 0;
         @include flex(row, space-around, space-around);
 
-        .user-info-box{
+        .user-info-box {
             width: 25%;
             @include flex(column, flex-start, flex-start);
 
-            h2{
+            h2 {
                 margin-top: 0;
             }
 
-            span{
+            span {
                 margin: 0 0 10px 0;
             }
         }
 
-        .map-box{
+        .map-box {
             border: solid 1px white;
             width: 50%;
             height: 450px;
         }
     }
 }
-

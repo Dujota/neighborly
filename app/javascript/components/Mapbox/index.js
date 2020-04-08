@@ -1,4 +1,4 @@
 /* eslint-disable react/display-name */
 import React from 'react';
 
-export default () => <div>MAPBOX COMPONENT</div>;
+export default () => <article id="mapbox-component">MAPBOX COMPONENT</article>;

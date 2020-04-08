@@ -1,28 +1,30 @@
 //List and listing items styles.
-#listings {
-  @include flex(row, space-around, flex-start);
-  flex-wrap: wrap;
-  width: 100%;
+#listings-component {
+  // @include flex(row, space-around, flex-start);
+  // flex-wrap: wrap;
+  // width: 100%;
+  overflow-y: auto;
+  height: 100%;
 
   .listing-item {
     position: relative;
     @include flex(column, space-around, center);
-    -webkit-box-shadow: $shadow;
-    -moz-box-shadow: $shadow;
-    box-shadow: $shadow;
+    // -webkit-box-shadow: $shadow;
+    // -moz-box-shadow: $shadow;
+    // box-shadow: $shadow;
     background: $neutral;
     color: $primary;
     width: 350px;
     height: 300px;
     border-radius: $border-radius;
-    padding: $pad;
-    margin: $margin 0;
+    // padding: $pad;
+    margin: 2px 0;
     overflow: hidden;
 
-    .listing-date{
+    .listing-date {
       color: $neutral-medium-gray;
       font-size: 13px;
-      position:absolute;
+      position: absolute;
       top: $pad;
       right: $pad;
     }
@@ -50,7 +52,7 @@
       .listing-user {
         font-size: 12px;
         margin: 0 0 5px 0;
-        
+
         span {
           background: $secondary;
           color: $neutral;

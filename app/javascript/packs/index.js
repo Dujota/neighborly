@@ -9,9 +9,12 @@ import MapBox from '../components/Mapbox';
 
 render(
   <Provider>
-    <Dashboard />
-    <MapBox />
+    <section className="map-dashboard-section">
+      <Dashboard />
+      <MapBox />
+    </section>
+
     <Listings />
   </Provider>,
-  document.querySelector('#root')
+  document.querySelector('#home')
 );

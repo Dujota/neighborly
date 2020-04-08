@@ -1,11 +1,11 @@
 <h1>Listing No. <%= @id %></h1>
 
-<div id="listing-mounting-point"
+<section id="listing-mounting-point"
   data-listing-id= <%= @id %>
   <% if @edit %>
     data-edit= <%= @edit %>
   <% end %>
 >
-</div>
+</section>
 
 <%= javascript_packs_with_chunks_tag "listing" %>
