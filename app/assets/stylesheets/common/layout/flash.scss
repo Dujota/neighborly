@@ -40,6 +40,10 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
 
+  // Animations
+  animation-iteration-count: 1;
+
+
 
   // Positioning
   position: fixed;
@@ -75,7 +79,7 @@
     padding: 8px;
     border-radius: $border-radius;
 
-    #close-flash {
+    .close-flash-btn {
       color: $dark-gray;
     }
 

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (element) {
     const { listingId, edit } = element.dataset;
-    debugger;
+
     render(
       <Provider>
         {edit ? <Listing listingId={listingId} edit={edit === 'true'} /> : <Listing listingId={listingId} />}
