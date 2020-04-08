@@ -7,8 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const element = document.querySelector('#top-bar');
 
   if (element) {
-    // const { listingId, edit } = element.dataset;
-    debugger;
     render(
       <Provider>
         <div className="top-bar">TOPBAR COMPONENT</div>

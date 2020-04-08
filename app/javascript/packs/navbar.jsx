@@ -7,8 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const element = document.querySelector('#nav-bar');
 
   if (element) {
-    // const { listingId, edit } = element.dataset;
-
     render(
       <Provider>
         <div className="navbar">NAVBAR COMPONENT</div>
