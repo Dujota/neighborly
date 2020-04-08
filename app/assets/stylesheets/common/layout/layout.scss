@@ -1,11 +1,13 @@
 // This Provides the base style for the site layout
+$main-content-height: calc(100vh - 40px) !default;
 
 body {
   background: $white;
   box-sizing: border-box;
 
+
   // Limit to the one page REMOVE ME if we want to change ?
-  height: 100vh;
+  height: $main-content-height;
   overflow: hidden;
 
   .layout-container {
@@ -20,7 +22,11 @@ body {
         width: 80%;
         @include flex(column, $justify-content, $align-items);
       }
-
     }
   }
+}
+
+
+.container {
+  height: calc(100% - 40px);
 }
