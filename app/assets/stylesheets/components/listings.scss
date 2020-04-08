@@ -1,5 +1,5 @@
 //List and listing items styles.
-#listings {
+#listings-component {
   @include flex(row, space-around, flex-start);
   flex-wrap: wrap;
   width: 100%;
@@ -19,10 +19,10 @@
     margin: $margin 0;
     overflow: hidden;
 
-    .listing-date{
+    .listing-date {
       color: $neutral-medium-gray;
       font-size: 13px;
-      position:absolute;
+      position: absolute;
       top: $pad;
       right: $pad;
     }
@@ -50,7 +50,7 @@
       .listing-user {
         font-size: 12px;
         margin: 0 0 5px 0;
-        
+
         span {
           background: $secondary;
           color: $neutral;

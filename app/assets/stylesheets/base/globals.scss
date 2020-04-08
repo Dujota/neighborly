@@ -26,7 +26,7 @@ $sidebar-width: 250px;
 $pad: 10px;
 $margin: 20px;
 
-$shadow: 0px 17px 29px -8px rgba(0,0,0,0.55);
+$shadow: 0px 17px 29px -8px rgba(0, 0, 0, 0.55);
 
 @mixin vertical-middle-align {
   position: relative;
@@ -46,12 +46,17 @@ $shadow: 0px 17px 29px -8px rgba(0,0,0,0.55);
   }
 }
 
+
 //flex mixin for simplified application of styling
-@mixin flex($dir, $jcontent, $aitems) {
+$direction: row !default;
+$justify-content: flex-start !default;
+$align-items: stretch !default;
+
+@mixin flex($direction, $justify-content, $align-items) {
   display: flex;
-  justify-content: $jcontent;
-  flex-direction: $dir;
-  align-items: $aitems;
+  justify-content: $justify-content;
+  flex-direction: $direction;
+  align-items: $align-items;
 }
 
 .text-green {

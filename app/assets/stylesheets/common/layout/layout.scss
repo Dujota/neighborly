@@ -6,9 +6,13 @@ body {
 
   .layout-container {
     background: $neutral-light-gray;
-    display: flex;
+    @include flex(row, $justify-content, $align-items);
 
     // Main Content
-    .main-content {}
+    .main-content {
+      .map-dashboard-section {
+        @include flex(column, $justify-content, $align-items);
+      }
+    }
   }
 }

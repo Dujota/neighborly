@@ -29,11 +29,11 @@ const Listings = () => {
   if (error) return `Error! ${error.message}`;
 
   return (
-    <div id="listings">
+    <aside id="listings-component">
       {data.listings.map(({ title, id, user, createdAt, description }) => (
         <ListingCard title={title} key={id} id={id} user={user} createdAt={createdAt} description={description} />
       ))}
-    </div>
+    </aside>
   );
 };
 
