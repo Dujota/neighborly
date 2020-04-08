@@ -1,7 +1,8 @@
 // This Provides the base style for the site layout
 
 body {
-  background: $neutral;
+  background: $white;
+  box-sizing: border-box;
 
   .layout-container {
     background: $neutral-light-gray;
