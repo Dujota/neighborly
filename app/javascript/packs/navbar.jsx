@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (element) {
     render(
       <Provider>
-        <div className="navbar">NAVBAR COMPONENT</div>
+        <>NAVBAR COMPONENT</>
       </Provider>,
       element
     );

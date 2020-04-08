@@ -10,9 +10,13 @@ body {
 
     // Main Content
     .main-content {
+      width: 100%;
+
       .map-dashboard-section {
+        width: 80%;
         @include flex(column, $justify-content, $align-items);
       }
+
     }
   }
 }

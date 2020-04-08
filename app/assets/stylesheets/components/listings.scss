@@ -1,22 +1,22 @@
 //List and listing items styles.
 #listings-component {
-  @include flex(row, space-around, flex-start);
-  flex-wrap: wrap;
-  width: 100%;
+  // @include flex(row, space-around, flex-start);
+  // flex-wrap: wrap;
+  // width: 100%;
 
   .listing-item {
     position: relative;
     @include flex(column, space-around, center);
-    -webkit-box-shadow: $shadow;
-    -moz-box-shadow: $shadow;
-    box-shadow: $shadow;
+    // -webkit-box-shadow: $shadow;
+    // -moz-box-shadow: $shadow;
+    // box-shadow: $shadow;
     background: $neutral;
     color: $primary;
     width: 350px;
     height: 300px;
     border-radius: $border-radius;
-    padding: $pad;
-    margin: $margin 0;
+    // padding: $pad;
+    margin: 2px 0;
     overflow: hidden;
 
     .listing-date {
