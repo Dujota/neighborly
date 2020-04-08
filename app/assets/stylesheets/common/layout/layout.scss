@@ -4,6 +4,10 @@ body {
   background: $white;
   box-sizing: border-box;
 
+  // Limit to the one page REMOVE ME if we want to change ?
+  height: 100vh;
+  overflow: hidden;
+
   .layout-container {
     background: $neutral-light-gray;
     @include flex(row, $justify-content, $align-items);
