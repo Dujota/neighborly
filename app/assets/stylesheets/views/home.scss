@@ -1,3 +1,9 @@
 section#home {
-  @include flex(row, $justify-content, $align-items);
+  display: flex;
+
+  &>section {
+    flex: 1 70%
+  }
+
+
 }
