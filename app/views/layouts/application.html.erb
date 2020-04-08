@@ -10,7 +10,7 @@
 
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_pack_tag "application" %>
-    <%= javascript_packs_with_chunks_tag "navbar", "topbar" %>
+    <%= javascript_packs_with_chunks_tag "navbar" %>
 
   </head>
 
@@ -20,17 +20,19 @@
     <header class="header">
       <h1>Welcome to Neighbourly</h1>
 
-      <ul class="menu">
-        <%= render "devise/menu/login_logout" %>
-        <%= render "devise/menu/signup_edit" %>
-      </ul>
+
     </header>
 
     <div class="layout-container">
       <nav id="nav-bar"></nav>
 
       <section class="main-content">
-        <div id="top-bar"></div>
+        <div id="top-bar">
+          <ul class="menu">
+            <%= render "devise/menu/login_logout" %>
+            <%= render "devise/menu/signup_edit" %>
+          </ul>
+        </div>
 
         <%= yield %>
       </section>

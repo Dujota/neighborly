@@ -3,6 +3,8 @@
   // @include flex(row, space-around, flex-start);
   // flex-wrap: wrap;
   // width: 100%;
+  overflow-y: auto;
+  height: 100%;
 
   .listing-item {
     position: relative;
