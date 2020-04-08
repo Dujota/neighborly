@@ -1,3 +1,13 @@
+// This Provides the base style for the site layout
+
 body {
   background: $neutral;
+
+  .layout-container {
+    background: $neutral-light-gray;
+    display: flex;
+
+    // Main Content
+    .main-content {}
+  }
 }

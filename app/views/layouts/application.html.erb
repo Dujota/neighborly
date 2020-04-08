@@ -15,17 +15,25 @@
   </head>
 
   <body>
-  <h1>Welcome to Neighbourly</h1>
     <%= render "layouts/flash" %>
 
-    <ul class="menu">
-      <%= render "devise/menu/login_logout" %>
-      <%= render "devise/menu/signup_edit" %>
-    </ul>
+    <div class="header">
+      <h1>Welcome to Neighbourly</h1>
 
-    <div id="nav-bar"></div>
-    <div id="top-bar"></div>
+      <ul class="menu">
+        <%= render "devise/menu/login_logout" %>
+        <%= render "devise/menu/signup_edit" %>
+      </ul>
+    </div>
 
-    <%= yield %>
+    <div class="layout-container">
+      <nav id="nav-bar"></nav>
+
+      <section class="main-content">
+        <div id="top-bar"></div>
+
+        <%= yield %>
+      </section>
+    </div>
   </body>
 </html>
