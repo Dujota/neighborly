@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 import Link from '../link';
 
-const Listing = ({ listing, handleToggleEditMode }) => (
+const Listing = ({ listing, handleToggleEditMode, canShow }) => (
   <div id="listing-details-component">
     <div className="listing-details-header">
       <div className="heading">
-        <Link className="btn btn-secondary" onClick={handleToggleEditMode}>
+        <Link className="btn btn-secondary" onClick={handleToggleEditMode} canShow={canShow}>
           Edit Listing
         </Link>
         <img

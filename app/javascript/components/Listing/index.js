@@ -5,27 +5,40 @@ import React, { useState, useEffect } from 'react';
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
 
+// Utils
+import { canShow } from '../../utils/permissions';
+
+// Components
 import ListingDetails from './listing_details';
 import EditListingForm from './edit_listing_form';
 
 // TODO : LOOK AT REDIRECT CACHE https://www.apollographql.com/docs/react/caching/cache-interaction/#cache-redirects-with-cacheredirects
 
-// eslint-disable-next-line react/display-name
-export default ({ listingId, edit = false }) => {
-  const GET_LISTING = gql`
-  query{
-    listing(id: ${listingId}) {
+const GET_LISTING = gql`
+  query listing($id: ID!) {
+    listing(id: $id) {
       id
       title
       description
       imageUrl
-        user{
-          id
-          email
-        }
+      user {
+        id
+        email
+      }
     }
   }
 `;
+
+const CURRENT_USER = gql`
+  {
+    currentUser {
+      isAdmin
+    }
+  }
+`;
+
+// eslint-disable-next-line react/display-name
+export default ({ listingId, edit = false }) => {
   const [editing, setEditing] = useState(edit);
 
   const toggleEditMode = e => {
@@ -37,12 +50,27 @@ export default ({ listingId, edit = false }) => {
     setEditing(!editing);
   };
 
-  const { loading, error, data } = useQuery(GET_LISTING);
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
+  // Execute Queries
+  const { loading: listingLoading, error: listingError, data: listingData } = useQuery(GET_LISTING, {
+    variables: {
+      id: listingId,
+    },
+  });
+
+  const { loading: currentUserLoading, error: currentUserError, data: currentUserData } = useQuery(CURRENT_USER);
+
+  if (listingLoading || currentUserLoading) return 'Loading...';
+  if (listingError || currentUserError) return `Error! ${listingError.message || currentUserError.message}`;
 
   if (editing) {
-    return <EditListingForm handleToggleEditMode={toggleEditMode} {...data.listing} />;
+    return <EditListingForm handleToggleEditMode={toggleEditMode} {...listingData.listing} />;
   }
-  return <ListingDetails listing={data.listing} handleToggleEditMode={toggleEditMode}></ListingDetails>;
+
+  return (
+    <ListingDetails
+      listing={listingData.listing}
+      handleToggleEditMode={toggleEditMode}
+      canShow={canShow(currentUserData.currentUser, listingData.listing.user.id)}
+    />
+  );
 };
