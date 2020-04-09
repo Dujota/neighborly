@@ -1,4 +1,6 @@
 #nav-bar {
   background: $neutral-medium-gray;
   width: 80px;
+
+  @include flex(column, $justify-content, $align-items);
 }
