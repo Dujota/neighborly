@@ -10,12 +10,6 @@ const Listing = ({ listing, handleToggleEditMode, canShow }) => (
         <Link className="btn btn-secondary" onClick={handleToggleEditMode} canShow={canShow}>
           Edit Listing
         </Link>
-        <img
-          className="logo"
-          src="https://thumbs.dreamstime.com/z/neighbor-icon-vicinal-170543124.jpg"
-          alt="Neighborly Logo"
-        ></img>
-        <h4>Neighborly</h4>
       </div>
 
       <img className="listing-image" src={listing.imageUrl} alt={`${listing.title}`}></img>

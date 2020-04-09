@@ -1,6 +1,14 @@
 #nav-bar {
+  @include flex(column, $justify-content, $align-items);
+
   background: $neutral-medium-gray;
   width: 80px;
 
-  @include flex(column, $justify-content, $align-items);
+  &>* {
+    width: 80px;
+  }
+
+  .nav-link {
+    height: 50px;
+  }
 }

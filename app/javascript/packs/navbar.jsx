@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (element) {
     render(
       <Provider>
+        <Logo />
         <NavBarActions />
       </Provider>,
       element
