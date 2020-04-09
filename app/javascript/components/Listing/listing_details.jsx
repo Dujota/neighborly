@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Listing = ({ listing }) => (
+import Link from '../link';
+
+const Listing = ({ listing, handleToggleEditMode }) => (
   <div id="listing-details-component">
     <div className="listing-details-header">
       <div className="heading">
+        <Link className="btn btn-secondary" onClick={handleToggleEditMode}>
+          Edit Listing
+        </Link>
         <img
           className="logo"
           src="https://thumbs.dreamstime.com/z/neighbor-icon-vicinal-170543124.jpg"
@@ -12,6 +17,7 @@ const Listing = ({ listing }) => (
         ></img>
         <h4>Neighborly</h4>
       </div>
+
       <img className="listing-image" src={listing.imageUrl} alt={`${listing.title}`}></img>
       <h1 className="listing-title">{listing.title}</h1>
       <div className="listing-description-box">
@@ -30,6 +36,7 @@ const Listing = ({ listing }) => (
     </div>
   </div>
 );
-Listing.propTypes = { listing: PropTypes.object };
+
+Listing.propTypes = { listing: PropTypes.object, handleToggleEditMode: PropTypes.func };
 
 export default Listing;
