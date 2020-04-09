@@ -12,15 +12,6 @@
         .heading {
             width: 100%;
             @include flex(row, flex-start, center);
-
-            h4 {
-                color: $neutral;
-            }
-
-            img {
-                width: 40px;
-                margin: 20px;
-            }
         }
 
         .listing-image {

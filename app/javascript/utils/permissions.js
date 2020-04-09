@@ -1,2 +1,2 @@
-export const canShow = (currentUser, listingUserId) =>
-  currentUser && (currentUser.id === listingUserId || currentUser.isAdmin);
+export const canShow = (currentUser = {}, resourceUserId = '') =>
+  currentUser.isAdmin || currentUser.id === resourceUserId;
