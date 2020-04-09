@@ -34,15 +34,13 @@ export default function EditListingForm({ title, description, imageUrl }) {
       {// Render Prop
       ({ errors, touched }) => (
         <Form>
-          <Field name="title"></Field>
+          <h2>EDIT LISTING FORM</h2>
+          <Field name="title" />
           <Error touched={touched.title} message={errors.title} />
-
-          <Field name="description"></Field>
+          <Field name="description" as="textarea" />
           <Error touched={touched.description} message={errors.description} />
-
-          <Field name="imageUrl"></Field>
+          <Field name="imageUrl" />
           <Error touched={touched.imageUrl} message={errors.imageUrl} />
-
           <button className="btn btn-primary" type="submit">
             Save Changes
           </button>
