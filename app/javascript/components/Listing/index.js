@@ -6,9 +6,10 @@ import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import ListingDetails from './listing_details';
+import EditListingForm from './edit_listing_form';
 
 // eslint-disable-next-line react/display-name
-export default ({ listingId }) => {
+export default ({ listingId, edit }) => {
   const GET_LISTING = gql`
   query{
     listing(id: ${listingId}) {
@@ -29,5 +30,8 @@ export default ({ listingId }) => {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
+  if (edit) {
+    return <EditListingForm {...data.listing} />;
+  }
   return <ListingDetails listing={data.listing} />;
 };
