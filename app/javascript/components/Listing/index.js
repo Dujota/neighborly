@@ -29,7 +29,11 @@ export default ({ listingId, edit = false }) => {
   const [editing, setEditing] = useState(edit);
 
   const toggleEditMode = e => {
-    e.preventDefault();
+    if (e) {
+      // if used with a Link component
+      e.preventDefault();
+    }
+    // Formik already handles the preventDefault for us
     setEditing(!editing);
   };
 

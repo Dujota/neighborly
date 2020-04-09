@@ -40,10 +40,12 @@ export default function EditListingForm({ id, title, description, imageUrl, hand
 
   const [updateListing, { data }] = useMutation(UPDATE_LISTING);
 
-  const handleSubmit = values => {
+  const handleSubmit = (values, { setSubmitting }) => {
     updateListing({
       variables: { id, title: values.title, description: values.description, imageUrl: values.imageUrl },
     });
+
+    handleToggleEditMode();
   };
 
   return (
@@ -65,9 +67,6 @@ export default function EditListingForm({ id, title, description, imageUrl, hand
           <button className="btn btn-primary" type="submit">
             Save Changes
           </button>
-          <button className="btn btn-secondary" onClick={handleToggleEditMode}>
-            Exit Edit
-          </button>
         </Form>
       )}
     </Formik>
@@ -81,4 +80,5 @@ EditListingForm.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   imageUrl: PropTypes.string,
+  handleToggleEditMode: PropTypes.func.isRequired,
 };
