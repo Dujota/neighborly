@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import Provider from '../components/Provider';
+
 
 // Components
 import Listings from '../components/Listings';
@@ -9,21 +9,19 @@ import MapBox from '../components/Mapbox';
 // Context
 import { ListingContext } from './listingContext';
 
-const [id, setId] = useState(null);
+const [listingId, setListingId] = useState(null);
 
-const value = useMemo(() => ({id, setId}), [id, setId]);
+const value = useMemo(() => ({listingId, setListingId}), [listingId, setListingId]);
 
 const Home = () => (
-  <Provider>
-      <ListingContext.Provider value={value}>
-        <section className="map-dashboard-section">
-            <Dashboard />
-            <MapBox />
-        </section>
+    <ListingContext.Provider value={value}>
+    <section className="map-dashboard-section">
+        <Dashboard />
+        <MapBox />
+    </section>
 
-        <Listings />
-      </ListingContext.Provider>
-  </Provider>
+    <Listings />
+    </ListingContext.Provider>
 );
 
 export default Home;

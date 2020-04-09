@@ -1,4 +1,18 @@
 /* eslint-disable react/display-name */
-import React from 'react';
+import React, { useContext } from 'react';
 
-export default () => <article id="mapbox-component">MAPBOX COMPONENT</article>;
+// Component
+import Listing from "../Listing"
+
+// Context
+import { ListingContext } from "../Home/listingContext"
+
+export default () => {
+    const{ listingId, setListingId } = useContext(ListingContext);
+
+    return (
+        <article id="mapbox-component">
+            <Listing listingId={listingId} />
+        </article>
+    );
+}
