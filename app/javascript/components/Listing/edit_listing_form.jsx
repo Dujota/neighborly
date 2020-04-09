@@ -1,10 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import gql from 'graphql-tag';
+import { useMutation } from 'react-apollo';
+
 import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 
 import Error from '../Forms/error';
+
+const UPDATE_LISTING = gql`
+  mutation UpdateListing($id: ID!, $title: String!, $description: String!, $imageUrl: String) {
+    updateListing(id: $id, title: $title, description: $description, imageUrl: $imageUrl) {
+      listing {
+        id
+        title
+        description
+        imageUrl
+      }
+    }
+  }
+`;
 
 const ListingValidationSchema = Yup.object().shape({
   title: Yup.string()
@@ -19,10 +35,15 @@ const ListingValidationSchema = Yup.object().shape({
     .max(255, 'Too Long!'),
 });
 
-export default function EditListingForm({ title, description, imageUrl }) {
+export default function EditListingForm({ id, title, description, imageUrl, handleToggleEditMode }) {
+  let input;
+
+  const [updateListing, { data }] = useMutation(UPDATE_LISTING);
+
   const handleSubmit = values => {
-    // same shape as initial values
-    console.log(values);
+    updateListing({
+      variables: { id, title: values.title, description: values.description, imageUrl: values.imageUrl },
+    });
   };
 
   return (
@@ -44,6 +65,9 @@ export default function EditListingForm({ title, description, imageUrl }) {
           <button className="btn btn-primary" type="submit">
             Save Changes
           </button>
+          <button className="btn btn-secondary" onClick={handleToggleEditMode}>
+            Exit Edit
+          </button>
         </Form>
       )}
     </Formik>
@@ -52,4 +76,9 @@ export default function EditListingForm({ title, description, imageUrl }) {
 
 EditListingForm.defaultProps = { title: '', description: '', imageUrl: '' };
 
-EditListingForm.propTypes = { title: PropTypes.string, description: PropTypes.string, imageUrl: PropTypes.string };
+EditListingForm.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  imageUrl: PropTypes.string,
+};

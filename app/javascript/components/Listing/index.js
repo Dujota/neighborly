@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // import PropTypes from 'prop-types';
 
 // GraphQl
@@ -8,8 +8,10 @@ import gql from 'graphql-tag';
 import ListingDetails from './listing_details';
 import EditListingForm from './edit_listing_form';
 
+// TODO : LOOK AT REDIRECT CACHE https://www.apollographql.com/docs/react/caching/cache-interaction/#cache-redirects-with-cacheredirects
+
 // eslint-disable-next-line react/display-name
-export default ({ listingId, edit }) => {
+export default ({ listingId, edit = false }) => {
   const GET_LISTING = gql`
   query{
     listing(id: ${listingId}) {
@@ -17,21 +19,26 @@ export default ({ listingId, edit }) => {
       title
       description
       imageUrl
-      createdAt
-      user {
-        id
-        email
-      }
+        user{
+          id
+          email
+        }
     }
   }
 `;
+  const [editing, setEditing] = useState(edit);
+
+  const toggleEditMode = e => {
+    e.preventDefault();
+    setEditing(!editing);
+  };
 
   const { loading, error, data } = useQuery(GET_LISTING);
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
-  if (edit) {
-    return <EditListingForm {...data.listing} />;
+  if (editing) {
+    return <EditListingForm handleToggleEditMode={toggleEditMode} {...data.listing} />;
   }
-  return <ListingDetails listing={data.listing} />;
+  return <ListingDetails listing={data.listing} handleToggleEditMode={toggleEditMode}></ListingDetails>;
 };
