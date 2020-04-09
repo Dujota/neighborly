@@ -77,8 +77,8 @@ EditListingForm.defaultProps = { title: '', description: '', imageUrl: '' };
 
 EditListingForm.propTypes = {
   id: PropTypes.string.isRequired,
+  handleToggleEditMode: PropTypes.func.isRequired,
   title: PropTypes.string,
   description: PropTypes.string,
   imageUrl: PropTypes.string,
-  handleToggleEditMode: PropTypes.func.isRequired,
 };
