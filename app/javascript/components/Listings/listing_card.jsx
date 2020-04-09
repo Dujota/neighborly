@@ -42,9 +42,9 @@ const ListingCard = ({ id, createdAt, title, user, description, canShow }) => {
           More Details
         </Link> */}
          <Link onClick={(e)=>{
-                e.preventDefault();
-                setListingId(id)}
-              } 
+                  e.preventDefault();
+                  setListingId(id)}
+               } 
                 className="btn listing-btn btn-secondary">
           More Details
         </Link>
