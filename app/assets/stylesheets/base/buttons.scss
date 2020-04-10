@@ -1,12 +1,12 @@
-$btn-radius: 9px;
+$btn-radius: 3px;
 
 .btn {
-  color: $neutral;
+  // color: $neutral;
   border-radius: $btn-radius;
-  padding: $pad;
-  border: none;
+  // padding: $pad;
+  // border: none;
   cursor: pointer;
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
   text-decoration: none;
 }
 
