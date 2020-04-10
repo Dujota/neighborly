@@ -18,14 +18,15 @@
     <%= render "layouts/flash" %>
 
     <div class="layout-container">
+    <% # Side Navbar %>
       <nav id="nav-bar"></nav>
 
       <section class="main-content">
+    <% # Devise Login %>
         <div id="top-bar">
-          <ul class="menu">
             <%= render "devise/menu/login_logout" %>
             <%= render "devise/menu/signup_edit" %>
-          </ul>
+
         </div>
 
         <%= yield %>
