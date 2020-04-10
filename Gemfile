@@ -59,3 +59,5 @@ gem "cancancan", "~> 3.1"
 gem "dotenv-rails", "~> 2.7", :groups => [:development, :test]
 
 gem "deployem", "~> 0.0.5"
+
+gem "font_awesome5_rails", "~> 1.1"

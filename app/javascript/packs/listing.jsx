@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     render(
       <Provider>
-        <h1>Listing No. {`${listingId}`}</h1>
         {edit ? <Listing listingId={listingId} edit={edit === 'true'} /> : <Listing listingId={listingId} />}
       </Provider>,
       element

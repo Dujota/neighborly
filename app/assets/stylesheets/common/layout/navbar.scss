@@ -1,14 +1,35 @@
 #nav-bar {
   @include flex(column, $justify-content, $align-items);
 
-  background: $neutral-medium-gray;
-  width: 80px;
+  background: $mineral-green;
+  width: $navbar-width;
 
   &>* {
-    width: 80px;
+    width: $navbar-width;
   }
 
-  .nav-link {
-    height: 50px;
+  .nav-link-container {
+    @include flex(row, center, center);
+    height: 80px;
+
+    .nav-link {
+      @include flex(column, center, center);
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 0.5rem;
+        border-radius: $border-radius;
+        width: 50px;
+      }
+
+      &>* {
+        font-size: 1.3rem;
+      }
+
+      svg {
+        margin-bottom: 0.5rem;
+      }
+    }
   }
+
 }
