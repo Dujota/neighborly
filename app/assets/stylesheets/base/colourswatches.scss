@@ -5,112 +5,79 @@
 
 // Palette from https://dribbble.com/shots/10924816-Event-calendar
 $primary: #5B635C;
-;
-
 $secondary: #856F49;
 
-$neutral: #EEF0EF;
-$neutral-light-gray: #C0C8C1;
+
 $neutral-medium-gray: #7A8A86;
-$super-dark-green: #0D1614;
+
+$super-dark-green: #0D1614; // Aztec
 
 
-// ColorPicker from https://dribbble.com/shots/10924816-Event-calendar/attachments/2553914?mode=media
-$body-color: #f3f3f3;
+
+// Link Default
+$neutral: #EEF0EF;
+$neutral-light-gray: #C0C8C1; // Hover
+
+
+// LAOYOUT PALLET from ColorPicker using this image https://dribbble.com/shots/10924816-Event-calendar/attachments/2553914?mode=media
+
+$white: #fff;
+
+$concrete: #F3F3F3;
+$mineral-green: #3B4F4B;
+$gin:#DEEBE6;
+
+$cinderella: #FDEADD;
+$vanilla-ice:#F4DBDB;
+$flamingo:#F7641F;
+
+$merino: #F6F1E4;
+$tussock: #BD9541;
+
+$nebula: #D9E2DF;
+$corduroy:#596D68;
+
 
 
 
 
 // Global Styles <--- we can trim down when a style-guide is decided --->
-$white: #feffff;
 $almost-white: #fafafa;
-$off-white: #fff;
-
-
-$dark-gray: #111;
-$medium-gray: #222;
-$nav-gray: #333;
-$gray: #777;
-$light-gray:#999;
-$really-light-gray: #a7a7a7;
-$slight-pale-gray:#bbb;
-$pale-gray:#ddd;
-$really-pale-gray:#eee;
 $almost-white-gray: #EAEAEA;
 
 
-$light-green: #BDEFC0;
-$green: #259b2d;
-$dark-green: #18661e;
+// $dark-gray: #111;
+// $medium-gray: #222;
+// $nav-gray: #333;
+// $gray: #777;
+// $light-gray:#999;
+// $really-light-gray: #a7a7a7;
+// $slight-pale-gray:#bbb;
+// $pale-gray:#ddd;
+// $really-pale-gray:#eee;
+
+
+// $light-green: #BDEFC0;
+// $green: #259b2d;
+// $dark-green: #18661e;
 $pale-green: #f3fef0;
 
-$pale-red: #ffedec;
+// $pale-red: #ffedec;
 $light-red: #FFD1CD;
-$red: #a90f1c;
-$dark-red: #640810;
+// $red: #a90f1c;
+// $dark-red: #640810;
 
-$success-background: #e2ffdd;
-$dark-success-background: #cdffc4;
-$medium-background: #fff9c6;
-$dark-medium-background: #f9f1a9;
-$low-background: #ffd3d3;
-$dark-low-background: #f2b5b5;
+// $success-background: #e2ffdd;
+// $dark-success-background: #cdffc4;
+// $medium-background: #fff9c6;
+// $dark-medium-background: #f9f1a9;
+// $low-background: #ffd3d3;
+// $dark-low-background: #f2b5b5;
 
-$light-blue: #3f8dfe;
-$blue: #145fcc;
-$dark-blue: #0B182B;
-$medium-blue: #6b86ae;
+// $light-blue: #3f8dfe;
+// $blue: #145fcc;
+// $dark-blue: #0B182B;
+// $medium-blue: #6b86ae;
 
-// Button Colours
-$btn-color: #2b7a78;
-
-$transparent: transparent;
-
-$hidden-background:#FEE0BD;
-
-/* Shadows*/
-$shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2),
-2px 2px 5px 0 rgba(0, 0, 0, 0.19);
-$table-row-shadow: 2px 0 4px 1px rgba(0, 0, 0, 0.2);
-
-
-@mixin light-blue-gradientt {
-  /* Old Browsers */
-  background: rgba(134, 174, 204, 1);
-  /* FF3.6+ */
-  background: -moz-linear-gradient(left,
-      rgba(134, 174, 204, 1) 0%,
-      rgba(212, 228, 239, 1) 100%);
-  /* Chrome, Safari4+ */
-  background: -webkit-gradient(left top,
-      right top,
-      color-stop(0%, rgba(134, 174, 204, 1)),
-      color-stop(100%, rgba(212, 228, 239, 1)));
-  /* Chrome10+,Safari5.1+ */
-  background: -webkit-linear-gradient(left,
-      rgba(134, 174, 204, 1) 0%,
-      rgba(212, 228, 239, 1) 100%);
-  /* Opera 11.10+ */
-  background: -o-linear-gradient(left,
-      rgba(134, 174, 204, 1) 0%,
-      rgba(212, 228, 239, 1) 100%);
-  /* IE 10+ */
-  background: -ms-linear-gradient(left,
-      rgba(134, 174, 204, 1) 0%,
-      rgba(212, 228, 239, 1) 100%);
-  /* W3C */
-  background: linear-gradient(to right,
-      rgba(134, 174, 204, 1) 0%,
-      rgba(212, 228, 239, 1) 100%);
-  /* IE6-9 */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#86aecc', endColorstr='#d4e4ef', GradientType=1);
-
-}
-
-.light-gray {
-  color: $light-gray;
-}
-
-.gray {
-  color: $gray !important;
-}
+// $transparent: transparent;
+// $hidden-background:#FEE0BD;
