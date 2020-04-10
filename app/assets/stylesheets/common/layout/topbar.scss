@@ -1,4 +1,11 @@
 #top-bar {
-  height: 2.5rem;
+  height: 65px;
   background: $transparent;
+
+  @include flex(row, flex-end, center);
+
+  .top-bar-link {
+    width: 50px;
+  }
+
 }

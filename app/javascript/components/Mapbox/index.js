@@ -4,25 +4,20 @@ import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
 
 // Component
-import Listing from "../Listing"
+import Listing from '../Listing';
 
 const GET_LISTING_ID = gql`
-    {
-        selectedListingId @client
-    } 
-`
-;
-
+  {
+    selectedListingId @client
+  }
+`;
 export default () => {
-    
-    const { data, loading, error } = useQuery(GET_LISTING_ID);
-   
-    if (loading) return 'Loading...';
-    if (error) return `Error! ${error.message}`;
+  const { data, loading, error } = useQuery(GET_LISTING_ID);
 
-    return (
-        <article id="mapbox-component">
-         { data && <Listing listingId={data.selectedListingId} /> }
-        </article>
-    );
-}
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+
+  return (
+    <article id="mapbox-component">{data.selectedListingId && <Listing listingId={data.selectedListingId} />}</article>
+  );
+};
