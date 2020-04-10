@@ -7,7 +7,7 @@ a {
   }
 
   &:hover {
-    color: $super-dark-green;
+    color: $neutral-light-gray;
   }
 
   img {
@@ -15,8 +15,8 @@ a {
   }
 }
 
-// .main-section {
-//   a {
-//     font-weight: bold;
-//   }
-// }
+.main-section {
+  a {
+    font-weight: bold;
+  }
+}

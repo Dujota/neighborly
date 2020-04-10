@@ -7,12 +7,22 @@
 $primary: #5B635C;
 $secondary: #856F49;
 
-$neutral: #EEF0EF;
-$neutral-light-gray: #C0C8C1;
+
 $neutral-medium-gray: #7A8A86;
-$super-dark-green: #0D1614;
+
+$super-dark-green: #0D1614; // Aztec
+
+
+
+// Link Default
+$neutral: #EEF0EF;
+$neutral-light-gray: #C0C8C1; // Hover
+
 
 // LAOYOUT PALLET from ColorPicker using this image https://dribbble.com/shots/10924816-Event-calendar/attachments/2553914?mode=media
+
+$white: #fff;
+
 $concrete: #F3F3F3;
 $mineral-green: #3B4F4B;
 $gin:#DEEBE6;
@@ -30,45 +40,44 @@ $corduroy:#596D68;
 
 
 
+
 // Global Styles <--- we can trim down when a style-guide is decided --->
-$white: #feffff;
 $almost-white: #fafafa;
-$off-white: #fff;
-
-
-$dark-gray: #111;
-$medium-gray: #222;
-$nav-gray: #333;
-$gray: #777;
-$light-gray:#999;
-$really-light-gray: #a7a7a7;
-$slight-pale-gray:#bbb;
-$pale-gray:#ddd;
-$really-pale-gray:#eee;
 $almost-white-gray: #EAEAEA;
 
 
-$light-green: #BDEFC0;
-$green: #259b2d;
-$dark-green: #18661e;
+// $dark-gray: #111;
+// $medium-gray: #222;
+// $nav-gray: #333;
+// $gray: #777;
+// $light-gray:#999;
+// $really-light-gray: #a7a7a7;
+// $slight-pale-gray:#bbb;
+// $pale-gray:#ddd;
+// $really-pale-gray:#eee;
+
+
+// $light-green: #BDEFC0;
+// $green: #259b2d;
+// $dark-green: #18661e;
 $pale-green: #f3fef0;
 
-$pale-red: #ffedec;
+// $pale-red: #ffedec;
 $light-red: #FFD1CD;
-$red: #a90f1c;
-$dark-red: #640810;
+// $red: #a90f1c;
+// $dark-red: #640810;
 
-$success-background: #e2ffdd;
-$dark-success-background: #cdffc4;
-$medium-background: #fff9c6;
-$dark-medium-background: #f9f1a9;
-$low-background: #ffd3d3;
-$dark-low-background: #f2b5b5;
+// $success-background: #e2ffdd;
+// $dark-success-background: #cdffc4;
+// $medium-background: #fff9c6;
+// $dark-medium-background: #f9f1a9;
+// $low-background: #ffd3d3;
+// $dark-low-background: #f2b5b5;
 
-$light-blue: #3f8dfe;
-$blue: #145fcc;
-$dark-blue: #0B182B;
-$medium-blue: #6b86ae;
+// $light-blue: #3f8dfe;
+// $blue: #145fcc;
+// $dark-blue: #0B182B;
+// $medium-blue: #6b86ae;
 
-$transparent: transparent;
-$hidden-background:#FEE0BD;
+// $transparent: transparent;
+// $hidden-background:#FEE0BD;

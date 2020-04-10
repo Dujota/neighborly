@@ -27,26 +27,34 @@ const NavbarActions = () => {
   return (
     <>
       {/* ADMIN */}
-      <Link title="All Users" path="/users" className="nav-link" canShow={canShow(data.currentUser)}>
-        <i className="fas fa-users-cog" />
-        Users
-      </Link>
+      <div className="nav-link-container">
+        <Link title="All Users" path="/users" className="nav-link" canShow={canShow(data.currentUser)}>
+          <i className="fas fa-users-cog" />
+          Users
+        </Link>
+      </div>
 
       {/* Regular User   TODO: Profile needs to be linked -> use devise view as the user management page or create a  react view???? */}
-      <Link title="Access your Profile" className="nav-link">
-        <i className="far fa-address-card" />
-        Profile
-      </Link>
+      <div className="nav-link-container">
+        <Link title="Access your Profile" className="nav-link">
+          <i className="far fa-address-card" />
+          Profile
+        </Link>
+      </div>
 
-      <Link title="Listings" path="/" className="nav-link">
-        <i className="far fa-list-alt" />
-        Listings
-      </Link>
+      <div className="nav-link-container">
+        <Link title="Listings" path="/" className="nav-link">
+          <i className="far fa-list-alt" />
+          Listings
+        </Link>
+      </div>
 
-      <Link title="Get in touch" path="/contact-us" className="nav-link">
-        <i className="far fa-comments" />
-        Contact
-      </Link>
+      <div className="nav-link-container">
+        <Link title="Get in touch" path="/contact-us" className="nav-link">
+          <i className="far fa-comments" />
+          Contact
+        </Link>
+      </div>
     </>
   );
 };
