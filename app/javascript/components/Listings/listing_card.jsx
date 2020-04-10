@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { useApolloClient } from "@apollo/react-hooks"; 
 
 // Utilities
 import Moment from 'react-moment';
@@ -7,11 +8,9 @@ import Moment from 'react-moment';
 // Components
 import Link from '../link';
 
-// Context
-import { ListingContext } from "../Home/listingContext" 
 
 const ListingCard = ({ id, createdAt, title, user, description, canShow }) => {
-  const { listingId, setListingId } = useContext(ListingContext);
+  const client = useApolloClient();
   
   return (
     <div className="listing-item" key={id}>
@@ -43,7 +42,7 @@ const ListingCard = ({ id, createdAt, title, user, description, canShow }) => {
         </Link> */}
          <Link onClick={(e)=>{
                   e.preventDefault();
-                  setListingId(id)}
+                  client.writeData({ data: { listingId : id } })}
                } 
                 className="btn listing-btn btn-secondary">
           More Details
