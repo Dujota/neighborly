@@ -5,6 +5,7 @@ import Provider from '../components/Provider';
 
 document.addEventListener('DOMContentLoaded', () => {
   // const element = document.querySelector('#top-bar');
+  let element;
 
   if (element) {
     render(
