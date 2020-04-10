@@ -4,8 +4,33 @@
 
   @include flex(row, flex-end, center);
 
-  .top-bar-link {
+  .top-bar-mini-fab-container {
     width: 50px;
+  }
+
+  &>a {
+    margin-right: 1rem;
+  }
+
+  // Both Mini-FAB icons
+  .edit-registration,
+  .logout {
+    color: $neutral-light-gray;
+  }
+
+  .signup,
+  .login {
+    &:hover {
+      color: $almost-white-gray
+    }
+  }
+
+  .signup {
+    background: $tussock;
+  }
+
+  .login {
+    background: $mineral-green;
   }
 
 }
