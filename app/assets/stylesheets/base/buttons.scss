@@ -28,7 +28,7 @@ $btn-radius: 3px;
 
   &:hover {
     // TODO: remove shadow???
-    box-shadow: 0 6px 14px 0 #666;
+    box-shadow: $shadow;
     transform: scale(1.05);
   }
 
@@ -52,10 +52,12 @@ $btn-radius: 3px;
 
 .extended-fab {
   background: $white;
-  @include flex(row, $justify-content, baseline);
-  height: 48px;
-  padding-left: 12px;
-  padding-right: 20px;
+  color: $black;
+  @include flex(row, center, center);
+  height: 2.5rem;
+  width: 100px;
+
+  border-radius: 30px;
 
   .extended-fab-icon {
     width: 24px;
@@ -63,8 +65,9 @@ $btn-radius: 3px;
   }
 
   &:hover {
+
     // TODO: remove shadow???
-    box-shadow: 0 6px 14px 0 #666;
+    box-shadow: $shadow;
     transform: scale(1.05);
   }
 }
