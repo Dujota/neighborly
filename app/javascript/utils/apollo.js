@@ -12,7 +12,16 @@ export const createCache = () => {
   if (process.env.NODE_ENV === 'development') {
     window.secretVariableToStoreCache = cache;
   }
+
+  // Default values
+  cache.writeData({
+    data:{
+      selectedListingId: ""
+    }
+  });
+
   return cache;
+
 };
 
 // getToken from meta tags

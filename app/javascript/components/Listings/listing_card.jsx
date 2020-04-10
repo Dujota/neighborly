@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useApolloClient } from "@apollo/react-hooks"; 
+import { useApolloClient } from "react-apollo"; 
 
 // Utilities
 import Moment from 'react-moment';
@@ -11,7 +11,7 @@ import Link from '../link';
 
 const ListingCard = ({ id, createdAt, title, user, description, canShow }) => {
   const client = useApolloClient();
-  
+
   return (
     <div className="listing-item" key={id}>
       <span className="listing-date">
@@ -42,7 +42,7 @@ const ListingCard = ({ id, createdAt, title, user, description, canShow }) => {
         </Link> */}
          <Link onClick={(e)=>{
                   e.preventDefault();
-                  client.writeData({ data: { listingId : id } })}
+                  client.writeData({ data: { selectedListingId : id } })}
                } 
                 className="btn listing-btn btn-secondary">
           More Details
