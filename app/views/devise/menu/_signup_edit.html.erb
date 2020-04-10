@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <%= link_to("Edit registration", edit_user_registration_path, class: "signup-edit") %>
+  <%= link_to fa_icon("user-cog", class: "fab-mini"), edit_user_registration_path, class: "edit-registration top-bar-link", aria: { label: "Edit registration" }, title: "Edit your account settings" %>
 <% else %>
-  <%= link_to("Register", new_user_registration_path, class: "signup-edit") %>
+  <%= link_to("Register", new_user_registration_path, class: "signup top-bar-link") %>
 <% end %>
