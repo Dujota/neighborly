@@ -1,0 +1,22 @@
+a {
+  color: $neutral;
+  text-decoration: none;
+
+  &:visited {
+    color: $neutral;
+  }
+
+  &:hover {
+    color: $super-dark-green;
+  }
+
+  img {
+    border: none;
+  }
+}
+
+// .main-section {
+//   a {
+//     font-weight: bold;
+//   }
+// }
