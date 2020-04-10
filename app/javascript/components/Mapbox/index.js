@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
 
