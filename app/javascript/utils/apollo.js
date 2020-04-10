@@ -15,13 +15,12 @@ export const createCache = () => {
 
   // Default values
   cache.writeData({
-    data:{
-      selectedListingId: ""
-    }
+    data: {
+      selectedListingId: '',
+    },
   });
 
   return cache;
-
 };
 
 // getToken from meta tags
