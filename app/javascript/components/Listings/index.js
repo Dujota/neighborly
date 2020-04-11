@@ -42,7 +42,7 @@ const Listings = () => {
   if (listingsError || currentUserError) return `Error! ${currentUserError.message || listingsError.message}`;
 
   return (
-    <aside id="listings-component">
+    <aside id="listings-component" className="card">
       {listingsData.listings.map(({ title, id, user, createdAt, description }) => (
         <ListingCard
           title={title}
