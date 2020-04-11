@@ -4,7 +4,8 @@
   // flex-wrap: wrap;
   // width: 100%;
   overflow-y: auto;
-  height: $main-content-height;
+  min-height: $main-content-height;
+  height: auto;
 
   .listings-index-head {
     background: $cinderella;
@@ -16,6 +17,7 @@
 
   .listing-card-index {
     border: 1px solid $concrete;
+    height: 100%;
   }
 
 }
