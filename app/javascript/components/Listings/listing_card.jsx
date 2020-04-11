@@ -42,13 +42,19 @@ const ListingCard = ({ id, createdAt, title, user, description, canShow }) => {
         </Link> */}
          <Link onClick={(e)=>{
                   e.preventDefault();
-                  client.writeData({ data: { selectedListingId : id } })}
+                  client.writeData({ data: { selectedListingId : id, edit: false } })}
                } 
                 className="btn listing-btn btn-secondary">
           More Details
         </Link>
 
-        <Link path={`/listing?id=${id}&edit=true`} className="btn listing-btn btn-secondary" canShow={canShow}>
+        {/* <Link path={`/listing?id=${id}&edit=true`} className="btn listing-btn btn-secondary" canShow={canShow}>
+          Edit
+        </Link> */}
+        <Link onClick={(e)=>{
+                  e.preventDefault();
+                  client.writeData({ data: { selectedListingId : id, edit: true } })}
+               }  className="btn listing-btn btn-secondary" canShow={canShow}>
           Edit
         </Link>
       </div>
