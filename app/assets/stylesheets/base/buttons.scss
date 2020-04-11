@@ -57,7 +57,7 @@ $btn-radius: 3px;
   height: 2.5rem;
   width: 115px;
 
-  border-radius: 30px;
+  border-radius: $border-radius;
 
   .extended-fab-icon {
     width: 24px;

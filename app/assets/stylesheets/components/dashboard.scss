@@ -1,3 +1,23 @@
 #dashboard-component {
-  background: $light-red;
+  height: 200px;
+
+  @include flex(row, center, center);
+  margin: 1.25rem;
+
+  .dashboard-icon,
+  .dashboard-item {
+    height: 200px;
+    @include flex(row, center, center);
+    margin: 1rem;
+  }
+
+  .dashboard-icon {
+    width: 20%;
+  }
+
+  .dashboard-item {
+    width: 40%;
+  }
+
+
 }
