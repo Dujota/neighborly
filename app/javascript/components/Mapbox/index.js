@@ -16,7 +16,6 @@ const GET_LISTING_INFO = gql`
 export default () => {
   const { data, loading, error } = useQuery(GET_LISTING_INFO);
 
-  console.log(data);
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
