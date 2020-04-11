@@ -68,14 +68,20 @@ export default ({ listingId, edit = false }) => {
   if (listingError || currentUserError) return `Error! ${listingError.message || currentUserError.message}`;
 
   if (editing) {
-    return <EditListingForm handleToggleEditMode={toggleEditMode} {...listingData.listing} />;
+    return (
+      <div className="card">
+        <EditListingForm handleToggleEditMode={toggleEditMode} {...listingData.listing} />
+      </div>
+    );
   }
 
   return (
-    <ListingDetails
-      listing={listingData.listing}
-      handleToggleEditMode={toggleEditMode}
-      canShow={canShow(currentUserData.currentUser, listingData.listing.user.id)}
-    />
+    <div className="card">
+      <ListingDetails
+        listing={listingData.listing}
+        handleToggleEditMode={toggleEditMode}
+        canShow={canShow(currentUserData.currentUser, listingData.listing.user.id)}
+      />
+    </div>
   );
 };
