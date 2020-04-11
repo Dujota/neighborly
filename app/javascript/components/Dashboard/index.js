@@ -2,4 +2,8 @@
 
 import React from 'react';
 
-export default () => <section id="dashboard-component">DASHBOARD COMPONENT</section>;
+export default () => (
+  <section id="dashboard-component" className="card">
+    DASHBOARD COMPONENT
+  </section>
+);
