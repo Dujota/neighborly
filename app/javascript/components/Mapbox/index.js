@@ -6,7 +6,7 @@ import gql from 'graphql-tag';
 // Component
 import Listing from '../Listing';
 
-const GET_LISTING_ID = gql`
+const GET_LISTING_INFO = gql`
   {
     selectedListingId @client,
     edit @client
@@ -14,7 +14,7 @@ const GET_LISTING_ID = gql`
 `;
 
 export default () => {
-  const { data, loading, error } = useQuery(GET_LISTING_ID);
+  const { data, loading, error } = useQuery(GET_LISTING_INFO);
 
   console.log(data);
   if (loading) return 'Loading...';
