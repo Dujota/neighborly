@@ -6,80 +6,17 @@
   overflow-y: auto;
   height: $main-content-height;
 
-  .listing-item {
-    position: relative;
-    @include flex(column, space-around, center);
-    // -webkit-box-shadow: $shadow;
-    // -moz-box-shadow: $shadow;
-    // box-shadow: $shadow;
-    background: $neutral;
-    color: $primary;
-    width: 350px;
-    border-radius: $border-radius;
-    // padding: $pad;
-    margin: 2px 0;
-    overflow: hidden;
-
-    .listing-date {
-      // color: $neutral-medium-gray;
-      font-size: 13px;
-      position: absolute;
-      top: $pad;
-      right: $pad;
-    }
-
-    .listing-image-section {
-      @include flex(row, center, center);
-      width: 10%;
-
-      img {
-        width: 100%;
-      }
-    }
-
-    .listing-info-section {
-      @include flex(column, flex-start, center);
-      width: 80%;
-      position: relative;
-      max-height: 175px;
-      overflow: hidden;
-
-      h3 {
-        margin: 0 0 5px 0;
-      }
-
-      .listing-user {
-        font-size: 12px;
-        margin: 0 0 5px 0;
-
-        span {
-          background: $secondary;
-          color: $neutral;
-          padding: 0 3px;
-        }
-      }
-
-      //Eventually add a fade bar under the P tag to fad the rest of description out of view.
-      p {
-        margin: 8px 0;
-      }
-
-      div {
-        position: absolute;
-        bottom: 0px;
-        width: 100%;
-        height: 50%;
-        z-index: 1000;
-        background: transparent;
-        background-image: linear-gradient(to bottom, transparent, $neutral);
-        background-image: -moz-linear-gradient(0deg, transparent, $neutral);
-        background-image: -webkit-linear-gradient(0deg, transparent $neutral);
-      }
-    }
-
-    .listing-action-section {
-      @include flex(column, center, center);
-      width: 40%;
-    }
+  .listings-index-head {
+    background: $cinderella;
   }
+
+  .listings-action-bar {
+    background: $gin;
+  }
+
+  .listing-card-index {
+
+    border: 1px solid $concrete;
+  }
+
 }
