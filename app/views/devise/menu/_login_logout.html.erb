@@ -1,5 +1,0 @@
-<% if user_signed_in? %>
-  <%= link_to("Logout", destroy_user_session_path, { method: :delete, class: "login-out top-bar-link extended-fab" }) %>
-<% else %>
-  <%= link_to("Login", new_user_session_path, class: "login-out top-bar-link extended-fab") %>
-<% end %>

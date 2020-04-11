@@ -27,7 +27,7 @@ $medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
 $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
 
 /* Shadows*/
-$shadow: 0px 17px 29px -8px rgba(0, 0, 0, 0.55);
+$shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
 $table-row-shadow: 2px 0 4px 1px rgba(0, 0, 0, 0.2);
 
 // $shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2),

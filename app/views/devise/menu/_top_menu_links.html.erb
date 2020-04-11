@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <%= link_to fas_icon("user-cog", class: "fab-mini"), edit_user_registration_path, class: "edit-registration top-bar-mini-fab-container", aria: { label: "Edit registration" }, title: "Edit your account settings" %>
+
+  <%= link_to fas_icon("sign-out-alt", class: "fab-mini"), destroy_user_session_path, method: :delete, class: "logout top-bar-mini-fab-container", aria: { label: "Log Out" }, title: "Log Out" %>
+<% else %>
+
+  <%= link_to("Register", new_user_registration_path, class: "signup extended-fab") %>
+
+  <%= link_to("Login", new_user_session_path, class: "login extended-fab") %>
+
+<% end %>
+
