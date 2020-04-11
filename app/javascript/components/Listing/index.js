@@ -41,6 +41,11 @@ const CURRENT_USER = gql`
 export default ({ listingId, edit = false }) => {
   const [editing, setEditing] = useState(edit);
 
+  // if the edit prop changes, updates the components edit state to toggle views properly 
+  useEffect(()=>{
+    setEditing(edit);
+  }, [edit]);
+
   const toggleEditMode = e => {
     if (e) {
       // if used with a Link component
