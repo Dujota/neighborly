@@ -1,5 +1,5 @@
 .listing-item {
-  height: 175px;
+  min-height: 175px;
 
   &.card {
     margin: 0;
@@ -41,5 +41,15 @@
 
     }
 
+  }
+
+  .listing-card-actions {
+    @include flex(row, $justify-content, center);
+    min-height: 52px;
+    padding: 8px;
+
+    .listing-card-action-buttons {
+      @include flex(row, $justify-content, center);
+    }
   }
 }

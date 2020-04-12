@@ -2,18 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useApolloClient } from 'react-apollo';
 
-// Utilities
-import Moment from 'react-moment';
-
 // Components
 import Link from '../link';
 
-/* <h3>{title}</h3>
-      <p>{user && user.email}</p>
-      <p></p>
-      <Moment format="DD/MM/YYYY">{createdAt}</Moment> */
-
-const ListingCard = ({ id, createdAt, title, user, description, canShow }) => {
+const ListingCard = ({ id, title, user, description, canShow }) => {
   const client = useApolloClient();
 
   return (
@@ -23,7 +15,7 @@ const ListingCard = ({ id, createdAt, title, user, description, canShow }) => {
         {/* Headers container */}
         <div className="listing-card-header">
           {/* Title */}
-          <h2 className="listing-card-title">Our Changing Planet</h2>
+          <h2 className="listing-card-title">{title}</h2>
           {/* Sub Header */}
           <h3 className="listing-card-user subtitle">{user && user.email}</h3>
         </div>
@@ -40,7 +32,7 @@ const ListingCard = ({ id, createdAt, title, user, description, canShow }) => {
               e.preventDefault();
               client.writeData({ data: { selectedListingId: id, edit: false } });
             }}
-            className="btn listing-btn btn-secondary"
+            className="btn-txt-link btn-txt-primary"
           >
             More Details
           </Link>
@@ -50,7 +42,7 @@ const ListingCard = ({ id, createdAt, title, user, description, canShow }) => {
               e.preventDefault();
               client.writeData({ data: { selectedListingId: id, edit: true } });
             }}
-            className="btn listing-btn btn-secondary"
+            className="btn-txt-link btn-txt-secondary"
             canShow={canShow}
           >
             Edit
@@ -63,7 +55,6 @@ const ListingCard = ({ id, createdAt, title, user, description, canShow }) => {
 };
 ListingCard.propTypes = {
   id: PropTypes.string,
-  createdAt: PropTypes.string,
   title: PropTypes.string,
   user: PropTypes.object,
   description: PropTypes.string,

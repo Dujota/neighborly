@@ -18,6 +18,9 @@ $btn-radius: 3px;
   background: $merino;
 }
 
+
+// Floating Action Button
+
 .fab-mini {
   background: $white;
   border-radius: 50%;
@@ -49,7 +52,6 @@ $btn-radius: 3px;
   }
 }
 
-
 .extended-fab {
   background: $white;
   color: $black;
@@ -70,4 +72,52 @@ $btn-radius: 3px;
     box-shadow: $shadow;
     transform: scale(1.05);
   }
+}
+
+// Card buttons
+
+.btn-txt-primary {
+  color: $tussock;
+
+  &:visited {
+    color: $tussock;
+  }
+
+  &:hover {
+    color: #8a6e32;
+
+  }
+}
+
+.btn-txt-secondary {
+  color: $neutral-light-gray;
+
+  &:visited {
+    color: $neutral-light-gray;
+  }
+
+  &:hover {
+    color: $neutral-medium-gray;
+  }
+}
+
+.btn-txt-link {
+  @include flex(inline-flex, center, center);
+
+  height: 36px;
+  font-size: .875rem;
+  font-weight: 500;
+  letter-spacing: .0892857143em;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0 8px;
+  position: relative;
+  min-width: 64px;
+  border: none;
+  outline: none;
+  line-height: inherit;
+  user-select: none;
+  overflow: visible;
+  vertical-align: middle;
+  border-radius: 4px;
 }
