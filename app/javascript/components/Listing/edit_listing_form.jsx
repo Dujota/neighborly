@@ -43,14 +43,16 @@ export default function EditListingForm({ id, title, description, imageUrl, hand
       variables: { id, title: values.title, description: values.description, imageUrl: values.imageUrl },
     });
 
-    handleToggleEditMode();
+    if (handleToggleEditMode) {
+      handleToggleEditMode();
+    }
   };
 
   return (
     <Formik
       initialValues={{ title, description, imageUrl }}
       validationSchema={ListingValidationSchema}
-      enableReinitialize={true}
+      enableReinitialize
       onSubmit={onSubmit}
     >
       {// Render Prop

@@ -19,12 +19,17 @@ export default () => {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
-  if (data.selectedListingId) {
+  if (data.edit) {
     return <Listing listingId={data.selectedListingId} edit={data.edit} />;
   }
+
+  if (data.selectedListingId) {
+    return <Listing listingId={data.selectedListingId} />;
+  }
+
   return (
     <article id="mapbox-component" className="card">
-      {data.selectedListingId || data.edit && <Listing listingId={data.selectedListingId} edit={data.edit} /> }
+      MAPBOX COMPONENT
     </article>
   );
 };
