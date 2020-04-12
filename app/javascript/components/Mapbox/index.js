@@ -24,7 +24,7 @@ export default () => {
   }
   return (
     <article id="mapbox-component" className="card">
-      MAPBOX
+      MAPBOX COMPONENT
     </article>
   );
 };

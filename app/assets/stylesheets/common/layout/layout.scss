@@ -28,6 +28,19 @@ body {
   }
 }
 
+body::after,
+body::before,
+input::after,
+input::before,
+select::after,
+select::before,
+textarea::after,
+textarea::before,
+body *::after,
+body *::before {
+  box-sizing: border-box;
+}
+
 .container {
   min-height: $main-content-height
 }

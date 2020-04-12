@@ -7,13 +7,9 @@
 $primary: #5B635C;
 $secondary: #856F49;
 
-
 $neutral-medium-gray: #7A8A86;
 
 $black: #0D1614; // Aztec
-
-
-
 
 // Link Default
 $neutral: #EEF0EF;
@@ -22,10 +18,10 @@ $neutral-light-gray: #C0C8C1; // Link hover default
 // FAB Link hover
 $almost-white-gray: #EAEAEA;
 
-$transparent: transparent;
 
 // LAOYOUT PALLET from ColorPicker using this image https://dribbble.com/shots/10924816-Event-calendar/attachments/2553914?mode=media
 
+$transparent: transparent;
 $white: #fff;
 
 $concrete: #F3F3F3;
@@ -51,6 +47,7 @@ $corduroy:#596D68;
 
 // Text Colouring
 $subtitle-colour:rgba(0, 0, 0, .54);
+$text-field-bottom-border-colour: rgba(0, 0, 0, 0.12);
 
 // Global Styles <--- we can trim down when a style-guide is decided --->
 $almost-white: #fafafa;

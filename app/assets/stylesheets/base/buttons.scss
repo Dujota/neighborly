@@ -118,7 +118,9 @@ $btn-radius: 3px;
 }
 
 .btn-txt-link {
-  @include flex(inline-flex, center, center);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
   height: 36px;
   font-size: .875rem;
