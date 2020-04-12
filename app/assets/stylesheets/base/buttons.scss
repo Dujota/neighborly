@@ -78,25 +78,41 @@ $btn-radius: 3px;
 
 .btn-txt-primary {
   color: $tussock;
+  -webkit-transition: background-color ease 500ms;
+  -o-transition: background-color ease 500ms;
+  transition: background-color ease 500ms;
 
   &:visited {
     color: $tussock;
   }
 
-  &:hover {
-    color: #8a6e32;
 
+
+  &:hover {
+    -webkit-transition: background-color ease 500ms;
+    -o-transition: background-color ease 500ms;
+    transition: background-color ease 500ms;
+    background-color: rgba(0, 0, 0, 0.04);
+    color: #8a6e32;
   }
 }
 
 .btn-txt-secondary {
   color: $neutral-light-gray;
 
+  -webkit-transition: background-color ease 500ms;
+  -o-transition: background-color ease 500ms;
+  transition: background-color ease 500ms;
+
   &:visited {
     color: $neutral-light-gray;
   }
 
   &:hover {
+    -webkit-transition: background-color ease 500ms;
+    -o-transition: background-color ease 500ms;
+    transition: background-color ease 500ms;
+    background-color: rgba(0, 0, 0, 0.04);
     color: $neutral-medium-gray;
   }
 }
