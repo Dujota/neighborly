@@ -13,37 +13,47 @@ const ListingCard = ({ id, createdAt, title, user, description, canShow }) => {
 
   return (
     <div className="listing-item card" key={id}>
-      <h3>{title}</h3>
+      {/* <h3>{title}</h3>
       <p>{user && user.email}</p>
-      <p>{description}</p>
-      <Moment format="DD/MM/YYYY">{createdAt}</Moment>
+      <p></p>
+      <Moment format="DD/MM/YYYY">{createdAt}</Moment> */}
 
-      <div className="listing-action-section">
-        <Link
-          onClick={e => {
-            e.preventDefault();
-            client.writeData({ data: { selectedListingId: id, edit: false } });
-          }}
-          className="btn listing-btn btn-secondary"
-        >
-          More Details
-        </Link>
+      <div className="listing-card-content-container" role="menuitem" tabIndex="0">
+        <div className="listing-card-header">
+          <h2 className="listing-card-title">Our Changing Planet</h2>
+          <h3 className="listing-card-user">{user && user.email}</h3>
+        </div>
 
-        <Link
-          onClick={e => {
-            e.preventDefault();
-            client.writeData({ data: { selectedListingId: id, edit: true } });
-          }}
-          className="btn listing-btn btn-secondary"
-          canShow={canShow}
-        >
-          Edit
-        </Link>
+        <div className="listing-card-body">{description}</div>
+      </div>
+      <div className="listing-card-actions">
+        <div className="listing-card-action-buttons">
+          <Link
+            onClick={e => {
+              e.preventDefault();
+              client.writeData({ data: { selectedListingId: id, edit: false } });
+            }}
+            className="btn listing-btn btn-secondary"
+          >
+            More Details
+          </Link>
+
+          <Link
+            onClick={e => {
+              e.preventDefault();
+              client.writeData({ data: { selectedListingId: id, edit: true } });
+            }}
+            className="btn listing-btn btn-secondary"
+            canShow={canShow}
+          >
+            Edit
+          </Link>
+        </div>
+        {/* <div className="mdc-card__action-icons">ICON LINKS GO HERE </div> */}
       </div>
     </div>
   );
 };
-
 ListingCard.propTypes = {
   id: PropTypes.string,
   createdAt: PropTypes.string,
