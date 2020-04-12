@@ -18,6 +18,12 @@ fieldset {
   border: none;
 }
 
+.invalid{
+  margin-top: 5px;
+  color: $flamingo;
+  font-size: .85rem;
+}
+
 .form-radio,
 .form-group {
   position: relative;
