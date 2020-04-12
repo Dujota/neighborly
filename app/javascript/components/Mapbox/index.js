@@ -24,7 +24,7 @@ export default () => {
   }
   return (
     <article id="mapbox-component" className="card">
-      MAPBOX COMPONENT
+      {data.selectedListingId || data.edit && <Listing listingId={data.selectedListingId} edit={data.edit} /> }
     </article>
   );
 };

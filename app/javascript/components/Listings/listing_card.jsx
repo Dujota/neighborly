@@ -36,18 +36,18 @@ const ListingCard = ({ id, title, user, description, canShow }) => {
           >
             More Details
           </Link>
-
           <Link
             onClick={e => {
               e.preventDefault();
               client.writeData({ data: { selectedListingId: id, edit: true } });
+              console.log(`SelectedId: ${id}`)
             }}
             className="btn-txt-link btn-txt-secondary"
             canShow={canShow}
           >
             Edit
           </Link>
-        </div>
+      </div>
         {/* <div className="mdc-card__action-icons">ICON LINKS GO HERE </div> */}
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import gql from 'graphql-tag';
@@ -50,6 +50,7 @@ export default function EditListingForm({ id, title, description, imageUrl, hand
     <Formik
       initialValues={{ title, description, imageUrl }}
       validationSchema={ListingValidationSchema}
+      enableReinitialize={true}
       onSubmit={onSubmit}
     >
       {// Render Prop
@@ -73,7 +74,6 @@ export default function EditListingForm({ id, title, description, imageUrl, hand
                 Title
               </label>
               <i className="bar"></i>
-
               {errors && <Error touched={touched.title} message={errors.title} />}
             </div>
 
@@ -92,7 +92,6 @@ export default function EditListingForm({ id, title, description, imageUrl, hand
                 Listing Image URL ( Optional )
               </label>
               <i className="bar"></i>
-
               {errors && <Error touched={touched.imageUrl} message={errors.imageUrl} />}
             </div>
 
@@ -112,7 +111,6 @@ export default function EditListingForm({ id, title, description, imageUrl, hand
               </label>
 
               <i className="bar"></i>
-
               {errors && <Error touched={touched.title} message={errors.title} />}
             </div>
 
