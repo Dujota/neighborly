@@ -12,7 +12,7 @@ const ListingCard = ({ id, createdAt, title, user, description, canShow }) => {
   const client = useApolloClient();
 
   return (
-    <div className="listing-item" key={id}>
+    <div className="listing-item card" key={id}>
       <h3>{title}</h3>
       <p>{user && user.email}</p>
       <p>{description}</p>

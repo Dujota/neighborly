@@ -1,1 +1,13 @@
-.listing-item {}
+.listing-item {
+  &.card {
+    margin: 2px 0;
+    padding: 0.5rem;
+  }
+
+  &:hover {
+    box-shadow: $shadow;
+    transform: scale(1.05);
+    transition-duration: 500ms;
+
+  }
+}
