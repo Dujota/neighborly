@@ -38,13 +38,15 @@ const CURRENT_USER = gql`
 `;
 
 // eslint-disable-next-line react/display-name
-export default ({ listingId, edit = false }) => {
+export default ({ listingId = "", edit = false }) => {
   const [editing, setEditing] = useState(edit);
+  const [listing, setListing] = useState(listingId);
 
-  // if the edit prop changes, updates the components edit state to toggle views properly 
-  useEffect(()=>{
-    setEditing(edit);
-  }, [edit]);
+  // if the edit prop changes, updates the components edit state to toggle views properly
+  useEffect(() => {
+    if(editing !== edit) setEditing(edit);
+    if(listing !== listingId) setListing(listingId);
+  }, [edit, listingId]);
 
   const toggleEditMode = e => {
     if (e) {
@@ -58,7 +60,7 @@ export default ({ listingId, edit = false }) => {
   // Execute Queries
   const { loading: listingLoading, error: listingError, data: listingData } = useQuery(GET_LISTING, {
     variables: {
-      id: listingId,
+      id: listing,
     },
   });
 
@@ -68,14 +70,20 @@ export default ({ listingId, edit = false }) => {
   if (listingError || currentUserError) return `Error! ${listingError.message || currentUserError.message}`;
 
   if (editing) {
-    return <EditListingForm handleToggleEditMode={toggleEditMode} {...listingData.listing} />;
+    return (
+      <div className="card">
+        <EditListingForm handleToggleEditMode={toggleEditMode} {...listingData.listing} />
+      </div>
+    );
   }
 
   return (
-    <ListingDetails
-      listing={listingData.listing}
-      handleToggleEditMode={toggleEditMode}
-      canShow={canShow(currentUserData.currentUser, listingData.listing.user.id)}
-    />
+    <div className="card">
+      <ListingDetails
+        listing={listingData.listing}
+        handleToggleEditMode={toggleEditMode}
+        canShow={canShow(currentUserData.currentUser, listingData.listing.user.id)}
+      />
+    </div>
   );
 };

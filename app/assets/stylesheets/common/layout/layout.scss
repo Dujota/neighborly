@@ -1,7 +1,9 @@
 // This Provides the base style for the site layout
-$main-content-height: calc(100vh - 40px) !default;
+$main-content-height: calc(100vh - 80px) !default;
 
 body {
+  font-family: 'Roboto', sans-serif;
+
   background: $concrete;
   box-sizing: border-box;
 
@@ -24,6 +26,19 @@ body {
       }
     }
   }
+}
+
+body::after,
+body::before,
+input::after,
+input::before,
+select::after,
+select::before,
+textarea::after,
+textarea::before,
+body *::after,
+body *::before {
+  box-sizing: border-box;
 }
 
 .container {

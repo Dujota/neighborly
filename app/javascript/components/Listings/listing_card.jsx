@@ -1,73 +1,64 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useApolloClient } from "react-apollo"; 
-
-// Utilities
-import Moment from 'react-moment';
+import { useApolloClient } from 'react-apollo';
 
 // Components
 import Link from '../link';
 
-
-const ListingCard = ({ id, createdAt, title, user, description, canShow }) => {
+const ListingCard = ({ id, title, user, description, canShow }) => {
   const client = useApolloClient();
 
   return (
-    <div className="listing-item" key={id}>
-      <span className="listing-date">
-        <Moment format="DD/MM/YYYY">{createdAt}</Moment>
-      </span>
+    <div className="listing-item card" key={id} role="menuitem" tabIndex="0">
+      {/* Container */}
+      <div className="listing-card-content-container">
+        {/* Headers container */}
+        <div className="listing-card-header">
+          {/* Title */}
+          <h2 className="listing-card-title">{title}</h2>
+          {/* Sub Header */}
+          <h3 className="listing-card-user subtitle">{user && user.email}</h3>
+        </div>
 
-      <div className="listing-image-section">
-        <img
-          src="https://cdn2.iconfinder.com/data/icons/grocery-store-solid/64/Grocery_food-36-512.png"
-          alt="listing-avatar"
-          />
+        {/* Description */}
+        <div className="listing-card-body">{description}</div>
       </div>
 
-      <div className="listing-info-section">
-        <h3 className="listing-title">{title}</h3>
-
-        {user && (
-          <span className="listing-user">
-            added by <span>{user.email}</span>
-          </span>
-        )}
-
-        <p className="listing-details">{description}</p>
+      {/* Actions */}
+      <div className="listing-card-actions">
+        <div className="listing-card-action-buttons">
+          <Link
+            onClick={e => {
+              e.preventDefault();
+              client.writeData({ data: { selectedListingId: id, edit: false } });
+            }}
+            className="btn-txt-link btn-txt-primary"
+          >
+            More Details
+          </Link>
+          <Link
+            onClick={e => {
+              e.preventDefault();
+              client.writeData({ data: { selectedListingId: id, edit: true } });
+              console.log(`SelectedId: ${id}`)
+            }}
+            className="btn-txt-link btn-txt-secondary"
+            canShow={canShow}
+          >
+            Edit
+          </Link>
       </div>
-      <div className="listing-action-section">
-        {/* <Link path={`/listing?id=${id}`} className="btn listing-btn btn-secondary">
-          More Details
-        </Link> */}
-         <Link onClick={(e)=>{
-                  e.preventDefault();
-                  client.writeData({ data: { selectedListingId : id, edit: false } })}
-               } 
-                className="btn listing-btn btn-secondary">
-          More Details
-        </Link>
-
-        {/* <Link path={`/listing?id=${id}&edit=true`} className="btn listing-btn btn-secondary" canShow={canShow}>
-          Edit
-        </Link> */}
-        <Link onClick={(e)=>{
-                  e.preventDefault();
-                  client.writeData({ data: { selectedListingId : id, edit: true } })}
-               }  className="btn listing-btn btn-secondary" canShow={canShow}>
-          Edit
-        </Link>
+        {/* <div className="mdc-card__action-icons">ICON LINKS GO HERE </div> */}
       </div>
     </div>
   );
-}
-
+};
 ListingCard.propTypes = {
   id: PropTypes.string,
-  createdAt: PropTypes.string,
   title: PropTypes.string,
   user: PropTypes.object,
   description: PropTypes.string,
+  canShow: PropTypes.bool,
 };
 
 export default ListingCard;
