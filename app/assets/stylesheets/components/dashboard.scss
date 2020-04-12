@@ -6,7 +6,7 @@
 
   .dashboard-icon,
   .dashboard-item {
-    height: 200px;
+    height: 100%;
     @include flex(row, center, center);
     margin: 1rem;
   }

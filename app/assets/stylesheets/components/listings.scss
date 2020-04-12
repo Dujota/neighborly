@@ -6,6 +6,7 @@
   overflow-y: auto;
   min-height: $main-content-height;
   height: auto;
+  padding: 1.25rem;
 
   .listings-index-head {
     background: $cinderella;
@@ -13,11 +14,14 @@
 
   .listings-action-bar {
     background: $gin;
+    margin-bottom: 1rem;
   }
 
   .listing-card-index {
     border: 1px solid $concrete;
     height: 100%;
+    margin: 0;
+    padding: 0.5rem;
   }
 
 }
