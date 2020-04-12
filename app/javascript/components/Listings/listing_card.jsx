@@ -8,24 +8,31 @@ import Moment from 'react-moment';
 // Components
 import Link from '../link';
 
+/* <h3>{title}</h3>
+      <p>{user && user.email}</p>
+      <p></p>
+      <Moment format="DD/MM/YYYY">{createdAt}</Moment> */
+
 const ListingCard = ({ id, createdAt, title, user, description, canShow }) => {
   const client = useApolloClient();
 
   return (
-    <div className="listing-item card" key={id}>
-      {/* <h3>{title}</h3>
-      <p>{user && user.email}</p>
-      <p></p>
-      <Moment format="DD/MM/YYYY">{createdAt}</Moment> */}
-
-      <div className="listing-card-content-container" role="menuitem" tabIndex="0">
+    <div className="listing-item card" key={id} role="menuitem" tabIndex="0">
+      {/* Container */}
+      <div className="listing-card-content-container">
+        {/* Headers container */}
         <div className="listing-card-header">
+          {/* Title */}
           <h2 className="listing-card-title">Our Changing Planet</h2>
-          <h3 className="listing-card-user">{user && user.email}</h3>
+          {/* Sub Header */}
+          <h3 className="listing-card-user subtitle">{user && user.email}</h3>
         </div>
 
+        {/* Description */}
         <div className="listing-card-body">{description}</div>
       </div>
+
+      {/* Actions */}
       <div className="listing-card-actions">
         <div className="listing-card-action-buttons">
           <Link
@@ -60,6 +67,7 @@ ListingCard.propTypes = {
   title: PropTypes.string,
   user: PropTypes.object,
   description: PropTypes.string,
+  canShow: PropTypes.bool,
 };
 
 export default ListingCard;
