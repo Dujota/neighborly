@@ -36,8 +36,6 @@ const ListingValidationSchema = Yup.object().shape({
 });
 
 export default function EditListingForm({ id, title, description, imageUrl, handleToggleEditMode }) {
-  let input;
-
   const [updateListing, { data }] = useMutation(UPDATE_LISTING);
 
   const handleSubmit = (values, { setSubmitting }) => {

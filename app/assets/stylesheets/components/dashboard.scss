@@ -2,11 +2,11 @@
   height: 200px;
 
   @include flex(row, center, center);
-  margin: 1.25rem;
+  // margin: 1.25rem;
 
   .dashboard-icon,
   .dashboard-item {
-    height: 200px;
+    height: 100%;
     @include flex(row, center, center);
     margin: 1rem;
   }

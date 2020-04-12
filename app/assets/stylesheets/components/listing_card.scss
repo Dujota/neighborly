@@ -1,0 +1,55 @@
+.listing-item {
+  min-height: 175px;
+
+  &.card {
+    margin: 0;
+    padding: 0.5rem;
+
+  }
+
+  &:hover {
+    box-shadow: $shadow;
+    transform: scale(1.05);
+    transition-duration: 500ms;
+
+  }
+
+  .listing-card-content-container {
+    color: inherit;
+    outline: none;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+
+    .listing-card-header {
+      padding: 1rem;
+    }
+
+    .listing-card-body {
+      padding: 0 1rem 8px;
+
+      font-size: .875rem;
+      letter-spacing: .0178571429em;
+      line-height: 1.25rem;
+      font-weight: 400;
+      text-decoration: inherit;
+      text-transform: inherit;
+
+    }
+
+  }
+
+  .listing-card-actions {
+    @include flex(row, $justify-content, center);
+    min-height: 52px;
+    padding: 8px;
+
+    .listing-card-action-buttons {
+      @include flex(row, $justify-content, center);
+    }
+  }
+}

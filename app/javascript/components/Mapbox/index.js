@@ -8,7 +8,7 @@ import Listing from '../Listing';
 
 const GET_LISTING_INFO = gql`
   {
-    selectedListingId @client,
+    selectedListingId @client
     edit @client
   }
 `;
@@ -19,9 +19,12 @@ export default () => {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
+  if (data.selectedListingId) {
+    return <Listing listingId={data.selectedListingId} edit={data.edit} />;
+  }
   return (
-    <article id="mapbox-component">
-      {data.selectedListingId && <Listing listingId={data.selectedListingId} edit={data.edit} /> }
+    <article id="mapbox-component" className="card">
+      MAPBOX
     </article>
   );
 };
