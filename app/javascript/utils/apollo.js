@@ -17,7 +17,8 @@ export const createCache = () => {
   cache.writeData({
     data: {
       selectedListingId: '',
-      edit: false
+      edit: false,
+      createNewListing: false
     },
   });
 

@@ -10,6 +10,7 @@ const GET_LISTING_INFO = gql`
   {
     selectedListingId @client
     edit @client
+    createNewListing @client
   }
 `;
 
@@ -18,6 +19,12 @@ export default () => {
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
+
+  console.log(data.createNewListing);
+
+  if (data.createNewListing) {
+    return <Listing createNewListing={data.createNewListing} />;
+  }
 
   if (data.edit) {
     return <Listing listingId={data.selectedListingId} edit={data.edit} />;
