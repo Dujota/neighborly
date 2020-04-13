@@ -1,13 +1,13 @@
 a {
-  color: $neutral;
+  color: $neutral-light-gray;
   text-decoration: none;
 
   &:visited {
-    color: $neutral;
+    color: $neutral-light-gray;
   }
 
   &:hover {
-    color: $neutral-light-gray;
+    color: $neutral-medium-gray;
   }
 
   img {
