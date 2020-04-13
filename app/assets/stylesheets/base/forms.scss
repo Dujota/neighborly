@@ -5,7 +5,7 @@
   background: $white;
   width: 100%;
   padding: 3rem 5rem 0;
-  border-radius: 1px;
+  border-radius: 8px;
 }
 
 .button-container {
@@ -18,7 +18,7 @@ fieldset {
   border: none;
 }
 
-.invalid{
+.invalid {
   margin-top: 5px;
   color: $flamingo;
   font-size: .85rem;
@@ -40,7 +40,7 @@ fieldset {
 .form-help {
   margin-top: 0.125rem;
   margin-left: 0.125rem;
-  color: #b3b3b3;
+  color: $form-grey;
   font-size: 0.8rem;
 }
 
@@ -61,7 +61,7 @@ fieldset {
   }
 
   .helper {
-    color: #999;
+    color: $form-helper-grey;
     position: absolute;
     top: 0;
     left: 0;
@@ -78,7 +78,7 @@ fieldset {
       left: 0.38rem;
       -webkit-transform: rotate(-135deg);
       transform: rotate(-135deg);
-      box-shadow: 0 0 0 0.0625rem #fff;
+      box-shadow: 0 0 0 0.0625rem $white;
     }
 
     &::after {
@@ -92,7 +92,7 @@ fieldset {
   label {
     &:hover {
       .helper {
-        color: #337ab7;
+        color: $form-blue;
       }
     }
   }
@@ -100,7 +100,7 @@ fieldset {
   input {
     &:checked {
       &~.helper {
-        color: #337ab7;
+        color: $form-blue;
 
         &::after {
           height: 0.5rem;
@@ -149,7 +149,7 @@ fieldset {
     pointer-events: none;
     padding-left: 0.125rem;
     z-index: 1;
-    color: #b3b3b3;
+    color: $form-grey;
     font-size: 1rem;
     font-weight: normal;
     -webkit-transition: all 0.28s ease;
@@ -158,7 +158,7 @@ fieldset {
 
   .bar {
     position: relative;
-    border-bottom: 0.0625rem solid #999;
+    border-bottom: 0.0625rem solid $form-helper-grey;
     display: block;
 
     &::before {
@@ -168,7 +168,7 @@ fieldset {
       left: 50%;
       bottom: -0.0625rem;
       position: absolute;
-      background: #337ab7;
+      background: $form-blue;
       -webkit-transition: left 0.28s ease, width 0.28s ease;
       transition: left 0.28s ease, width 0.28s ease;
       z-index: 2;
@@ -236,7 +236,7 @@ fieldset {
 .form-group select:focus~.control-label,
 .form-group input:focus~.control-label,
 .form-group textarea:focus~.control-label {
-  color: #337ab7;
+  color: $form-blue;
 }
 
 .form-group select:focus~.bar::before,
@@ -278,20 +278,20 @@ fieldset {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    color: #999;
+    color: $form-helper-grey;
 
     &::after {
       -webkit-transform: scale(0);
       transform: scale(0);
-      background-color: #337ab7;
-      border-color: #337ab7;
+      background-color: $form-blue;
+      border-color: $form-blue;
     }
   }
 
   label {
     &:hover {
       .helper {
-        color: #337ab7;
+        color: $form-blue;
       }
     }
   }
@@ -305,7 +305,7 @@ fieldset {
         }
 
         &::before {
-          color: #337ab7;
+          color: $form-blue;
         }
       }
     }
@@ -334,7 +334,7 @@ fieldset {
   position: absolute;
   height: 0;
   width: 0.2rem;
-  background-color: #337ab7;
+  background-color: $form-blue;
   display: block;
   -webkit-transform-origin: left top;
   transform-origin: left top;
@@ -383,65 +383,9 @@ fieldset {
   }
 }
 
-.button {
-  position: relative;
-  background: currentColor;
-  border: 1px solid currentColor;
-  font-size: 1.1rem;
-  color: #4f93ce;
-  margin: 3rem 0;
-  padding: 0.75rem 3rem;
-  cursor: pointer;
-  -webkit-transition: background-color 0.28s ease, color 0.28s ease,
-    box-shadow 0.28s ease;
-  transition: background-color 0.28s ease, color 0.28s ease,
-    box-shadow 0.28s ease;
-  overflow: hidden;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-    0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
-  span {
-    color: #fff;
-    position: relative;
-    z-index: 1;
-  }
 
-  &::before {
-    content: "";
-    position: absolute;
-    background: #071017;
-    border: 50vh solid #1d4567;
-    width: 30vh;
-    height: 30vh;
-    border-radius: 50%;
-    display: block;
-    top: 50%;
-    left: 50%;
-    z-index: 0;
-    opacity: 1;
-    -webkit-transform: translate(-50%, -50%) scale(0);
-    transform: translate(-50%, -50%) scale(0);
-  }
-
-  &:hover {
-    color: #337ab7;
-    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12),
-      0 3px 5px -1px rgba(0, 0, 0, 0.2);
-  }
-
-  &:focus {
-    outline: none;
-  }
-}
-
-.button:active::before,
-.button:focus::before {
-  -webkit-transition: opacity 0.28s ease 0.364s, -webkit-transform 1.12s ease;
-  transition: opacity 0.28s ease 0.364s, -webkit-transform 1.12s ease;
-  transition: transform 1.12s ease, opacity 0.28s ease 0.364s;
-  transition: transform 1.12s ease, opacity 0.28s ease 0.364s,
-    -webkit-transform 1.12s ease;
-  -webkit-transform: translate(-50%, -50%) scale(1);
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 0;
+// TEMP STYLE UNTIL CHECKBOX CARD
+#remember-me {
+  color: $form-helper-grey;
 }

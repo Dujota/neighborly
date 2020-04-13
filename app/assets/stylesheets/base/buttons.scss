@@ -1,13 +1,43 @@
-$btn-radius: 3px;
+$btn-radius: 4px;
 
 .btn {
-  // color: $neutral;
-  border-radius: $btn-radius;
-  // padding: $pad;
-  // border: none;
   cursor: pointer;
-  // margin-bottom: 10px;
+  margin: 8px 16px;
+  height: 36px;
+  min-width: 64px;
+  padding: 0 16px;
+  border: none;
+  outline: none;
+
+
+  color: $concrete;
+  font-size: .875rem;
+  font-weight: 500;
+  letter-spacing: .0892857143em;
+  line-height: inherit;
   text-decoration: none;
+  text-transform: uppercase;
+
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+
+  user-select: none;
+  overflow: visible;
+  border-radius: $btn-radius;
+
+  -webkit-transition: all ease-in-out 200ms;
+  -o-transition: all ease-in-out 200ms;
+  transition: all ease-in-out 200ms;
+
+  box-shadow: $elevation-1dp;
+
+  &:hover {
+    color: $almost-white;
+    transform: scale(1.05);
+  }
 }
 
 .btn-primary {
@@ -15,7 +45,7 @@ $btn-radius: 3px;
 }
 
 .btn-secondary {
-  background: $merino;
+  background: $corduroy;
 }
 
 
@@ -28,10 +58,13 @@ $btn-radius: 3px;
   height: 2.5rem;
   width: 1.5rem !important; // override font awesome width sizing
   padding: 0 0.5rem;
+  box-shadow: $elevation-2dp;
+
+  -webkit-transition: all ease-in-out 200ms;
+  -o-transition: all ease-in-out 200ms;
+  transition: all ease-in-out 200ms;
 
   &:hover {
-    // TODO: remove shadow???
-    box-shadow: $shadow;
     transform: scale(1.05);
   }
 
@@ -45,6 +78,10 @@ $btn-radius: 3px;
   width: 1.5rem !important; // override font awesome width sizing
   padding: 0 1rem;
 
+  -webkit-transition: all ease-in-out 200ms;
+  -o-transition: all ease-in-out 200ms;
+  transition: all ease-in-out 200ms;
+
   &:hover {
     // TODO: remove shadow???
     box-shadow: 0 6px 14px 0 #666;
@@ -53,13 +90,20 @@ $btn-radius: 3px;
 }
 
 .extended-fab {
-  background: $white;
-  color: $black;
+  background: $neutral-medium-gray;
+  color: $concrete;
+
   @include flex(row, center, center);
   height: 2.5rem;
   width: 115px;
-
   border-radius: $extended-fab-border-radius;
+
+  box-shadow: $elevation-2dp;
+
+  -webkit-transition: all ease-in-out 200ms;
+  -o-transition: all ease-in-out 200ms;
+  transition: all ease-in-out 200ms;
+
 
   .extended-fab-icon {
     width: 24px;
@@ -67,9 +111,10 @@ $btn-radius: 3px;
   }
 
   &:hover {
-
+    color: $almost-white;
     // TODO: remove shadow???
-    box-shadow: $shadow;
+
+    // box-shadow: $shadow;
     transform: scale(1.05);
   }
 }
@@ -85,8 +130,6 @@ $btn-radius: 3px;
   &:visited {
     color: $tussock;
   }
-
-
 
   &:hover {
     -webkit-transition: background-color ease 500ms;
