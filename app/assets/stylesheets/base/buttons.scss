@@ -10,7 +10,7 @@ $btn-radius: 4px;
   outline: none;
 
 
-  color: $concrete;
+  color: $almost-white;
   font-size: .875rem;
   font-weight: 500;
   letter-spacing: .0892857143em;
@@ -46,6 +46,10 @@ $btn-radius: 4px;
 
 .btn-secondary {
   background: $corduroy;
+}
+
+.btn-danger {
+  background: $danger;
 }
 
 
@@ -91,7 +95,7 @@ $btn-radius: 4px;
 
 .extended-fab {
   background: $neutral-medium-gray;
-  color: $concrete;
+  color: $almost-white;
 
   @include flex(row, center, center);
   height: 2.5rem;
