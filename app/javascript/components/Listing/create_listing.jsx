@@ -43,8 +43,8 @@ const CreateListing = () => {
     const { loading, error, data } = useQuery(CURRENT_USER);
    // const [createListing, { data }] = useMutation(CREATE_LISTING);
 
-    if (loading) 'Loading';
-    if (error) `Error ${error.message}`;
+    if (loading) return 'Loading';
+    if (error) return `Error ${error.message}`;
     
     useEffect(()=>{
         if (data && data.currentUser) {
