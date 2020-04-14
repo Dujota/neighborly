@@ -1,36 +1,43 @@
 #top-bar {
+  position:relative;
   height: 65px;
   background: $transparent;
 
-  @include flex(row, flex-end, center);
-
-  .top-bar-mini-fab-container {
-    width: 50px;
-  }
-
-  &>a {
-    margin-right: 1rem;
-  }
-
-  // Both Mini-FAB icons
-  .edit-registration,
-  .logout {
-    color: $neutral-light-gray;
-  }
-
-  .signup,
-  .login {
-    &:hover {
-      color: $almost-white-gray
+  #top-bar-fixed-wrapper{
+    @include flex(row, flex-end, center);
+    right: 0;
+    top: 1rem;
+    position: fixed;
+    
+    .top-bar-mini-fab-container {
+      width: 50px;
     }
-  }
+  
+    &>a {
+      margin-right: 1rem;
+    }
+  
+    // Both Mini-FAB icons
+    .edit-registration,
+    .logout {
+      color: $neutral-light-gray;
+    }
+  
+    .signup,
+    .login {
+      &:hover {
+        color: $almost-white-gray
+      }
+    }
+  
+    .signup {
+      background: $tussock;
+    }
+  
+    .login {
+      background: $mineral-green;
+    }
 
-  .signup {
-    background: $tussock;
-  }
-
-  .login {
-    background: $mineral-green;
   }
 
 }

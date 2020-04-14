@@ -42,13 +42,14 @@ const Listings = () => {
   if (listingsError || currentUserError) return `Error! ${currentUserError.message || listingsError.message}`;
 
   return (
-    <aside id="listings-component" className="card">
-      <div className="listings-index-head">Head</div>
-      <div className="listings-action-bar">Action Bar</div>
+    <aside id="listings-component">
+      <div id="listings-fixed-wrapper" className="card">
+        <div className="listings-index-head">Head</div>
+        <div className="listings-action-bar">Action Bar</div>
 
-      <div className="listing-card-index card">
-        {listingsData.listings.map(({ title, id, user, createdAt, description }) => (
-          <ListingCard
+        <div className="listing-card-index card">
+          {listingsData.listings.map(({ title, id, user, createdAt, description }) => (
+            <ListingCard
             title={title}
             key={id}
             id={id}
@@ -56,8 +57,9 @@ const Listings = () => {
             canShow={canShow(currentUserData.currentUser, user.id)}
             createdAt={createdAt}
             description={description}
-          />
-        ))}
+            />
+            ))}
+        </div>
       </div>
     </aside>
   );

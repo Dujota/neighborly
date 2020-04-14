@@ -3,11 +3,17 @@
   // @include flex(row, space-around, flex-start);
   // flex-wrap: wrap;
   // width: 100%;
-  overflow-y: auto;
-  min-height: $main-content-height;
-  height: auto;
-  padding: 1.25rem;
+
+  position:relative;
+  height:auto;
   width: 395px;
+
+  #listings-fixed-wrapper{
+    overflow-y: auto;
+    position: fixed;
+    height: calc(100vh - 138px);
+    padding: 1.25rem;
+  }
 
   .listings-index-head {
     background: $cinderella;
