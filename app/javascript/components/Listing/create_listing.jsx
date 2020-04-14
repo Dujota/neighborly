@@ -38,9 +38,12 @@ const CreateListing = () => {
 
     const[canShow, setCanShow] = useState(false);
 
+
+    const { data: listingData, loading: l, error: e } = useQuery(GET_LISTING_INFO);
     const { loading, error, data } = useQuery(CURRENT_USER);
    // const [createListing, { data }] = useMutation(CREATE_LISTING);
 
+  
     
     useEffect(()=>{
         if (data && data.currentUser) {
@@ -55,6 +58,7 @@ const CreateListing = () => {
         }
 
         client.writeData({ data: { createNewListing: true } });
+        console.log(listingData.createNewListing);
     }
 
     if (loading) return 'Loading';

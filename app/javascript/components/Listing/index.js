@@ -78,7 +78,7 @@ export default ({ listingId = '', edit = false, createNewListing = false }) => {
   if(createNewListing){
     return (
       <div className="card">
-        <EditListingForm handleToggleEditMode={toggleEditMode} editing={editing}/>
+        <EditListingForm handleToggleEditMode={toggleEditMode} editing={editing} id={listingData.listing.id}/>
       </div>
     )
   }

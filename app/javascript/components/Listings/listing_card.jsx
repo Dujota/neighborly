@@ -39,7 +39,7 @@ const ListingCard = ({ id, title, user, description, canShow }) => {
           <Link
             onClick={e => {
               e.preventDefault();
-              client.writeData({ data: { selectedListingId: id, edit: true } });
+              client.writeData({ data: { selectedListingId: id, edit: true, createNewListing: false } });
             }}
             className="btn-txt-link btn-txt-secondary"
             canShow={canShow}

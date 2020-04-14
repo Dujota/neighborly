@@ -20,10 +20,10 @@ export default () => {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
-  console.log(data.createNewListing);
+  console.log(`createNewListing Value in mapbox: ${data.createNewListing}`);
 
   if (data.createNewListing) {
-    return <Listing createNewListing={data.createNewListing} />;
+    return <Listing listingId={data.selectedListingId} createNewListing={data.createNewListing} />;
   }
 
   if (data.edit) {

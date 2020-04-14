@@ -37,7 +37,8 @@ const ListingValidationSchema = Yup.object().shape({
     .max(255, 'Too Long!'),
 });
 
-export default function EditListingForm({ id = null, title = "", description = "", imageUrl = "", editing, handleToggleEditMode }) {
+export default function EditListingForm({ id, title = "", description = "", imageUrl = "", editing, handleToggleEditMode }) {
+  
   const [updateListing, { data }] = useMutation(UPDATE_LISTING);
 
   const onSubmit = (values, { setSubmitting }) => {
