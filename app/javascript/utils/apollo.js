@@ -18,7 +18,7 @@ export const createCache = () => {
     data: {
       selectedListingId: '',
       edit: false,
-      createNewListing: false
+      createNewListing: false,
     },
   });
 

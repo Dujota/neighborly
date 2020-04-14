@@ -56,7 +56,9 @@ export default ({ listingId = '', edit = false, createNewListing = false }) => {
     if (e) {
       // if used with a Link component
       e.preventDefault();
-      return client.writeData({ data: { selectedListingId: listingId, edit: !editing, createNewListing: !createNewListing } });
+      return client.writeData({
+        data: { selectedListingId: listingId, edit: !editing, createNewListing: !createNewListing },
+      });
     }
 
     // Formik already handles the preventDefault for us
@@ -75,12 +77,12 @@ export default ({ listingId = '', edit = false, createNewListing = false }) => {
   if (listingLoading || currentUserLoading) return 'Loading...';
   if (listingError || currentUserError) return `Error! ${listingError.message || currentUserError.message}`;
 
-  if(createNewListing){
+  if (createNewListing) {
     return (
       <div className="card">
-        <EditListingForm handleToggleEditMode={toggleEditMode} editing={editing} id={listingData.listing.id}/>
+        <EditListingForm handleToggleEditMode={toggleEditMode} editing={editing} id={listingData.listing.id} />
       </div>
-    )
+    );
   }
 
   if (editing) {
