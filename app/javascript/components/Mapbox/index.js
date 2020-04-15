@@ -22,6 +22,7 @@ export default () => {
 
   console.log(`createNewListing Value in mapbox: ${data.createNewListing}`);
 
+  // NEED TO FIX THIS -- NEED render the FORM for create
   if (data.createNewListing) {
     return <Listing listingId={data.selectedListingId} createNewListing={data.createNewListing} />;
   }
