@@ -92,6 +92,19 @@ export default function ProcessListingForm({ id, title, description, imageUrl, h
     if (handleToggleEditMode) {
       updateListing({
         variables: { id, title: values.title, description: values.description, imageUrl: values.imageUrl },
+        optimisticResponse: {
+          __typename: 'Mutation',
+          updateListing: {
+            __typename: 'UpdateListingMutationPayload',
+            item: {
+              id,
+              __typename: 'Listing',
+              title,
+              description,
+              imageUrl,
+            },
+          },
+        },
       });
 
       handleToggleEditMode();
