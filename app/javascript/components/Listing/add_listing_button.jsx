@@ -4,6 +4,8 @@ import Link from '../link';
 export default function CreateListing() {
   const handleCreateListing = e => {
     e.preventDefault();
+
+    window.EventSystem.publish('create.new.listing', { createNewListing: true });
   };
 
   return (

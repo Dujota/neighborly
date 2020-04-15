@@ -5,11 +5,13 @@ import gql from 'graphql-tag';
 
 // Component
 import Listing from '../Listing';
+import ProcessListingForm from '../Listing/process_listing_form';
 
 const GET_LISTING_INFO = gql`
   {
     selectedListingId @client
     editListing @client
+    createListing @client
   }
 `;
 
@@ -18,6 +20,10 @@ export default () => {
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
+
+  if (data.createListing) {
+    return <ProcessListingForm createListing={data.createListing} />;
+  }
 
   if (data.editListing) {
     return <Listing listingId={data.selectedListingId} editListing={data.editListing} />;

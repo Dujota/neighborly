@@ -10,7 +10,7 @@ import { canShow } from '../../utils/permissions';
 
 // Components
 import ListingDetails from './listing_details';
-import EditListingForm from './edit_listing_form';
+import ProcessListingForm from './process_listing_form';
 
 // TODO : LOOK AT REDIRECT CACHE https://www.apollographql.com/docs/react/caching/cache-interaction/#cache-redirects-with-cacheredirects
 
@@ -76,7 +76,7 @@ export default ({ listingId = '', editListing = false }) => {
   if (editing) {
     return (
       <div className="card">
-        <EditListingForm handleToggleEditMode={toggleEditMode} {...listingData.listing} />
+        <ProcessListingForm handleToggleEditMode={toggleEditMode} {...listingData.listing} />
       </div>
     );
   }
