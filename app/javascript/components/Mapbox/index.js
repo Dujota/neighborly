@@ -23,7 +23,12 @@ export default () => {
 
   // NEED TO FIX THIS -- NEED render the FORM for create
   if (data.createNewListing) {
-    return <ProcessListingForm />;
+    const handleCreateNewListing = () => {
+      // update listing index in cache
+      debugger;
+    };
+
+    return <ProcessListingForm handleCreateNewListing={handleCreateNewListing} addListing={data.createNewListing} />;
   }
 
   if (data.edit) {

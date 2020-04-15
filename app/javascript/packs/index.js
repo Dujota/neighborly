@@ -16,10 +16,10 @@ export default function Home() {
     const toggleListingCreate = ({ createNewListing }) => {
       client.writeData({ data: { createNewListing } });
     };
-    debugger;
+    // debugger;
     // adding event listeners on mount here
     window.EventSystem.subscribe('create.new.listing', toggleListingCreate);
-    debugger;
+    // debugger;
     // return () => {
     //   // cleaning up the listeners here
     // };

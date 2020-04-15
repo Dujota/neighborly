@@ -24,6 +24,38 @@ const UPDATE_LISTING = gql`
   }
 `;
 
+const CREATE_LISTING = gql`
+  mutation CreateListing($title: String!, $description: String!, $imageUrl: String) {
+    createListing(title: $title, description: $description, imageUrl: $imageUrl) {
+      listing {
+        id
+        title
+        description
+        imageUrl
+      }
+    }
+  }
+`;
+
+const ALL_LISTINGS = gql`
+  {
+    listings {
+      id
+      title
+      description
+      imageUrl
+    }
+  }
+`;
+
+const SELECTED_LISTING = gql`
+  {
+    selectedListingId @client
+    createNewListing @client
+    listings @client
+  }
+`;
+
 const ListingValidationSchema = Yup.object().shape({
   title: Yup.string()
     .min(2, 'Too Short!')
@@ -43,17 +75,50 @@ export default function ProcessListingForm({
   description = '',
   imageUrl = '',
   editing,
+  addListing,
   handleToggleEditMode,
+  handleCreateNewListing,
 }) {
-  const [updateListing, { data }] = useMutation(UPDATE_LISTING);
+  const [updateListing, { data: updatedListing }] = useMutation(UPDATE_LISTING);
+
+  const [createListing, { data: newListingCreated }] = useMutation(CREATE_LISTING, {
+    update(cache, { data: { createListing: newListing } }) {
+      const { listing } = newListing;
+
+      if (listing) {
+        const currentListings = cache.readQuery({ query: ALL_LISTINGS });
+
+        cache.writeQuery({
+          query: SELECTED_LISTING,
+          data: {
+            selectedListingId: newListing.listing.id,
+            createNewListing: false,
+            // listings: [listing, ...currentListings.listings],
+          },
+        });
+        // debugger;
+        cache.writeData({
+          query: ALL_LISTINGS,
+          data: {
+            listings: [listing, ...currentListings.listings],
+          },
+        });
+      }
+    },
+  });
 
   const onSubmit = (values, { setSubmitting }) => {
-    updateListing({
-      variables: { id, title: values.title, description: values.description, imageUrl: values.imageUrl },
-    });
+    if (editing && handleToggleEditMode) {
+      updateListing({
+        variables: { id, title: values.title, description: values.description, imageUrl: values.imageUrl },
+      });
+      return handleToggleEditMode();
+    }
 
-    if (handleToggleEditMode) {
-      handleToggleEditMode();
+    if (handleCreateNewListing && addListing) {
+      createListing({
+        variables: { title: values.title, description: values.description, imageUrl: values.imageUrl },
+      });
     }
   };
 
@@ -94,7 +159,6 @@ export default function ProcessListingForm({
                   id="imageUrl"
                   type="text"
                   name="imageUrl"
-                  required="required"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.imageUrl}
@@ -143,9 +207,11 @@ ProcessListingForm.defaultProps = { title: '', description: '', imageUrl: '' };
 
 ProcessListingForm.propTypes = {
   id: PropTypes.string,
-  handleToggleEditMode: PropTypes,
+  handleToggleEditMode: PropTypes.func,
+  handleCreateNewListing: PropTypes.func,
   title: PropTypes.string,
   description: PropTypes.string,
   imageUrl: PropTypes.string,
   editing: PropTypes.bool,
+  addListing: PropTypes.bool,
 };

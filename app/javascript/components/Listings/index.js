@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // GraphQl
 import { useQuery } from 'react-apollo';
@@ -37,6 +37,12 @@ const CURRENT_USER = gql`
 const Listings = () => {
   const { loading: listingsLoading, error: listingsError, data: listingsData } = useQuery(ALL_LISTINGS);
   const { loading: currentUserLoading, error: currentUserError, data: currentUserData } = useQuery(CURRENT_USER);
+
+  useEffect(() => {
+    if (listingsData) {
+      debugger;
+    }
+  }, [listingsData]);
 
   if (listingsLoading || currentUserLoading) return 'Loading...';
   if (listingsError || currentUserError) return `Error! ${currentUserError.message || listingsError.message}`;
