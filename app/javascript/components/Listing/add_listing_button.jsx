@@ -5,7 +5,7 @@ export default function CreateListing() {
   const handleCreateListing = e => {
     e.preventDefault();
 
-    window.EventSystem.publish('create.new.listing', { createNewListing: true });
+    window.EventSystem.publish('create.new.listing', { createListing: true });
   };
 
   return (

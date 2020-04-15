@@ -9,10 +9,9 @@ import MapBox from '../Mapbox';
 
 const Home = () => {
   const client = useApolloClient();
-
   useEffect(() => {
-    const toggleListingCreate = ({ createNewListing }) => {
-      client.writeData({ data: { createNewListing } });
+    const toggleListingCreate = ({ createListing }) => {
+      client.writeData({ data: { createListing } });
     };
     // debugger;
     // adding event listeners on mount here
