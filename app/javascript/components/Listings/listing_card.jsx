@@ -30,7 +30,7 @@ const ListingCard = ({ id, title, user, description, canShow }) => {
           <Link
             onClick={e => {
               e.preventDefault();
-              client.writeData({ data: { selectedListingId: id, edit: false } });
+              client.writeData({ data: { selectedListingId: id, editListing: false } });
             }}
             className="btn-txt-link btn-txt-primary"
           >
@@ -39,7 +39,7 @@ const ListingCard = ({ id, title, user, description, canShow }) => {
           <Link
             onClick={e => {
               e.preventDefault();
-              client.writeData({ data: { selectedListingId: id, edit: true } });
+              client.writeData({ data: { selectedListingId: id, editListing: true } });
             }}
             className="btn-txt-link btn-txt-secondary"
             canShow={canShow}

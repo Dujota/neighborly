@@ -38,27 +38,27 @@ const CURRENT_USER = gql`
 `;
 
 // eslint-disable-next-line react/display-name
-export default ({ listingId = '', edit = false }) => {
+export default ({ listingId = '', editListing = false }) => {
   const client = useApolloClient();
 
-  const [editing, setEditing] = useState(edit);
+  const [editing, setEditing] = useState(editListing);
   const [listing, setListing] = useState(listingId);
 
   // if the edit prop changes, updates the components edit state to toggle views properly
   useEffect(() => {
-    if (editing !== edit) setEditing(edit);
+    if (editing !== editListing) setEditing(editListing);
     if (listing !== listingId) setListing(listingId);
-  }, [edit, editing, listing, listingId]);
+  }, [editListing, editing, listing, listingId]);
 
   const toggleEditMode = e => {
     if (e) {
       // if used with a Link component
       e.preventDefault();
-      return client.writeData({ data: { selectedListingId: listingId, edit: !editing } });
+      return client.writeData({ data: { selectedListingId: listingId, editListing: !editing } });
     }
 
     // Formik already handles the preventDefault for us
-    client.writeData({ data: { selectedListingId: listingId, edit: false } });
+    client.writeData({ data: { selectedListingId: listingId, editListing: false } });
   };
 
   // Execute Queries
