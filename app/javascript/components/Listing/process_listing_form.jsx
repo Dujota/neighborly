@@ -101,8 +101,6 @@ export default function ProcessListingForm({ id, title, description, imageUrl, h
       createListing({
         variables: { title: values.title, description: values.description, imageUrl: values.imageUrl },
       });
-      // client.writeData({ data: { editListing: false, createListing: false } });
-      // debugger;
     }
   };
 

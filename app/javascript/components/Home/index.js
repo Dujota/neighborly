@@ -13,13 +13,8 @@ const Home = () => {
     const toggleListingCreate = ({ createListing }) => {
       client.writeData({ data: { createListing } });
     };
-    // debugger;
-    // adding event listeners on mount here
+
     window.EventSystem.subscribe('create.new.listing', toggleListingCreate);
-    // debugger;
-    // return () => {
-    //   // cleaning up the listeners here
-    // };
   }, [client]);
 
   return (
