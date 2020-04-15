@@ -13,7 +13,12 @@
 
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_pack_tag "application" %>
-    <%= javascript_packs_with_chunks_tag "navbar", "create_listing" %>
+
+    <% if user_signed_in? %>
+      <%= javascript_packs_with_chunks_tag "navbar", "create_listing" %>
+    <% else %>
+      <%= javascript_packs_with_chunks_tag "navbar" %>
+    <% end %>
 
   </head>
 
@@ -21,14 +26,18 @@
     <%= render "layouts/flash" %>
 
     <div class="layout-container">
-    <% # Side Navbar %>
+
+      <% # Side Navbar %>
       <nav id="nav-bar"></nav>
 
       <section class="main-content">
-    <% # Devise Login %>
+        <% # Devise Login %>
         <div id="top-bar">
-            <div id="add-listing-btn"></div>
-            <%= render "devise/menu/top_menu_links" %>
+          <% if user_signed_in? %>
+              <div id="add-listing-btn"></div>
+          <% end %>
+
+          <%= render "devise/menu/top_menu_links" %>
         </div>
 
         <%= yield %>

@@ -9,7 +9,7 @@ export default function CreateListing() {
   };
 
   return (
-    <Link className="btn btn-secondary" onClick={handleCreateListing}>
+    <Link className="extended-fab" onClick={handleCreateListing}>
       Creat Listing
     </Link>
   );
