@@ -186,9 +186,10 @@ export default function ProcessListingForm({ id, title, description, imageUrl, h
 ProcessListingForm.defaultProps = { title: '', description: '', imageUrl: '' };
 
 ProcessListingForm.propTypes = {
-  id: PropTypes.string.isRequired,
-  handleToggleEditMode: PropTypes.func.isRequired,
+  id: PropTypes.string,
+  handleToggleEditMode: PropTypes.func,
   title: PropTypes.string,
   description: PropTypes.string,
   imageUrl: PropTypes.string,
+  addListing: PropTypes.bool,
 };
