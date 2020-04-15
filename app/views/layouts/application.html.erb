@@ -13,7 +13,7 @@
 
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_pack_tag "application" %>
-    <%= javascript_packs_with_chunks_tag "navbar" %>
+    <%= javascript_packs_with_chunks_tag "navbar", "create_listing" %>
 
   </head>
 
@@ -27,6 +27,7 @@
       <section class="main-content">
     <% # Devise Login %>
         <div id="top-bar">
+            <div id="add-listing-btn"></div>
             <%= render "devise/menu/top_menu_links" %>
         </div>
 
