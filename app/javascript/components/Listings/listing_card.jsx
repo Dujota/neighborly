@@ -30,7 +30,7 @@ const ListingCard = ({ id, title, user, description, canShow }) => {
           <Link
             onClick={e => {
               e.preventDefault();
-              client.writeData({ data: { selectedListingId: id, edit: false, createNewListing: true } });
+              client.writeData({ data: { selectedListingId: id, edit: false, createNewListing: false } });
             }}
             className="btn-txt-link btn-txt-primary"
           >
@@ -47,7 +47,7 @@ const ListingCard = ({ id, title, user, description, canShow }) => {
             Edit
           </Link>
         </div>
-        {/* <div className="mdc-card__action-icons">ICON LINKS GO HERE </div> */}
+        {/* <div className="listing-card-action-icons">ICON LINKS GO HERE </div> */}
       </div>
     </div>
   );

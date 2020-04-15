@@ -5,6 +5,7 @@ import gql from 'graphql-tag';
 
 // Component
 import Listing from '../Listing';
+import ProcessListingForm from '../Listing/process_listing_form';
 
 const GET_LISTING_INFO = gql`
   {
@@ -20,11 +21,9 @@ export default () => {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
-  console.log(`createNewListing Value in mapbox: ${data.createNewListing}`);
-
   // NEED TO FIX THIS -- NEED render the FORM for create
   if (data.createNewListing) {
-    return <Listing listingId={data.selectedListingId} createNewListing={data.createNewListing} />;
+    return <ProcessListingForm />;
   }
 
   if (data.edit) {
