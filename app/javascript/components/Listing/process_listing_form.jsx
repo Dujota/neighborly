@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import gql from 'graphql-tag';
-import { useMutation } from 'react-apollo';
+import { useMutation, useApolloClient } from 'react-apollo';
 
 import * as Yup from 'yup';
 import { Formik } from 'formik';
@@ -24,6 +24,40 @@ const UPDATE_LISTING = gql`
   }
 `;
 
+const CREATE_LISTING = gql`
+  mutation CreateListing($title: String!, $description: String!, $imageUrl: String) {
+    createListing(title: $title, description: $description, imageUrl: $imageUrl) {
+      listing {
+        id
+        title
+        description
+        imageUrl
+        createdAt
+        user {
+          id
+          email
+        }
+      }
+    }
+  }
+`;
+
+const ALL_LISTINGS = gql`
+  {
+    listings {
+      id
+      title
+      description
+      imageUrl
+      createdAt
+      user {
+        id
+        email
+      }
+    }
+  }
+`;
+
 const ListingValidationSchema = Yup.object().shape({
   title: Yup.string()
     .min(2, 'Too Short!')
@@ -37,16 +71,36 @@ const ListingValidationSchema = Yup.object().shape({
     .max(255, 'Too Long!'),
 });
 
-export default function EditListingForm({ id, title, description, imageUrl, handleToggleEditMode }) {
-  const [updateListing, { data }] = useMutation(UPDATE_LISTING);
+export default function ProcessListingForm({ id, title, description, imageUrl, handleToggleEditMode, addListing }) {
+  const [updateListing] = useMutation(UPDATE_LISTING);
+  const [createListing] = useMutation(CREATE_LISTING, {
+    update(cache, { data: { createListing: newListing } }) {
+      const currentListings = cache.readQuery({ query: ALL_LISTINGS });
+
+      cache.writeData({
+        data: {
+          editListing: false,
+          createListing: false,
+          selectedListingId: newListing.listing.id,
+          listings: [newListing.listing, ...currentListings.listings],
+        },
+      });
+    },
+  });
 
   const onSubmit = (values, { setSubmitting }) => {
-    updateListing({
-      variables: { id, title: values.title, description: values.description, imageUrl: values.imageUrl },
-    });
-
     if (handleToggleEditMode) {
+      updateListing({
+        variables: { id, title: values.title, description: values.description, imageUrl: values.imageUrl },
+      });
+
       handleToggleEditMode();
+    }
+
+    if (addListing) {
+      createListing({
+        variables: { title: values.title, description: values.description, imageUrl: values.imageUrl },
+      });
     }
   };
 
@@ -61,7 +115,7 @@ export default function EditListingForm({ id, title, description, imageUrl, hand
       ({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
         <div className="form-container">
           <form onSubmit={handleSubmit}>
-            <h2>EDIT LISTING FORM</h2>
+            <h2>{handleToggleEditMode ? 'Update' : 'Add a new'} Listing</h2>
 
             <div className="form-group">
               <input
@@ -86,7 +140,6 @@ export default function EditListingForm({ id, title, description, imageUrl, hand
                 id="imageUrl"
                 type="text"
                 name="imageUrl"
-                required="required"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.imageUrl}
@@ -130,12 +183,13 @@ export default function EditListingForm({ id, title, description, imageUrl, hand
   );
 }
 
-EditListingForm.defaultProps = { title: '', description: '', imageUrl: '' };
+ProcessListingForm.defaultProps = { title: '', description: '', imageUrl: '' };
 
-EditListingForm.propTypes = {
-  id: PropTypes.string.isRequired,
-  handleToggleEditMode: PropTypes.func.isRequired,
+ProcessListingForm.propTypes = {
+  id: PropTypes.string,
+  handleToggleEditMode: PropTypes.func,
   title: PropTypes.string,
   description: PropTypes.string,
   imageUrl: PropTypes.string,
+  addListing: PropTypes.bool,
 };
