@@ -9,7 +9,7 @@ import Listing from '../Listing';
 const GET_LISTING_INFO = gql`
   {
     selectedListingId @client
-    edit @client
+    editListing @client
   }
 `;
 
@@ -19,8 +19,8 @@ export default () => {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
-  if (data.edit) {
-    return <Listing listingId={data.selectedListingId} edit={data.edit} />;
+  if (data.editListing) {
+    return <Listing listingId={data.selectedListingId} editListing={data.editListing} />;
   }
 
   if (data.selectedListingId) {
