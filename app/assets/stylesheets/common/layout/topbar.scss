@@ -1,16 +1,24 @@
 #top-bar {
   height: 65px;
   background: $transparent;
-
-  @include flex(row, flex-end, center);
+  
+  #top-bar-fixed-wrapper{
+    width: 92vw;
+    position: fixed;
+    top: 15px;
+  
+    @include flex(row, flex-end, center);
+    
+    &>a {
+      margin-right: 1rem;
+    }
+  }
 
   .top-bar-mini-fab-container {
     width: 50px;
   }
 
-  &>a {
-    margin-right: 1rem;
-  }
+  
 
   // Both Mini-FAB icons
   .edit-registration,
