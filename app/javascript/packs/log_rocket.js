@@ -8,10 +8,10 @@ setupLogRocketReact(LogRocket);
 // Note that the gon include in the rails layout needs to be above this file's javascript_pack_tag
 if (window.gon) {
   const {
-    current_user_id: currentUserId,
-    current_user_full_name: name,
-    current_user_email: email,
-    current_user_role_names: userType,
+    currentUserId,
+    currentUserFullName: name,
+    currentUserEmail: email,
+    currentUserRoleNames: userType,
   } = window.gon;
 
   LogRocket.identify(currentUserId, {
