@@ -4,10 +4,10 @@
   // flex-wrap: wrap;
   // width: 100%;
   overflow-y: auto;
-  min-height: $main-content-height;
-  height: auto;
+  //height: $main-content-height;
   padding: 1.25rem;
   width: 395px;
+  display:table-cell;
 
   .listings-index-head {
     background: $cinderella;

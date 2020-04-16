@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 // GraphQl
 import { useQuery } from 'react-apollo';
@@ -39,11 +39,17 @@ const Listings = () => {
   const { loading: listingsLoading, error: listingsError, data: listingsData } = useQuery(ALL_LISTINGS);
   const { loading: currentUserLoading, error: currentUserError, data: currentUserData } = useQuery(CURRENT_USER);
 
+  const [listingHeight, setListingHeight] = useState(803);
+  
+  const adjustHeight = (height) => {
+    if(listingHeight != height) setListingHeight(height);
+  };
+
   if (listingsLoading || currentUserLoading) return 'Loading...';
   if (listingsError || currentUserError) return `Error! ${currentUserError.message || listingsError.message}`;
 
   return (
-    <aside id="listings-component" className="card">
+    <aside id="listings-component" style={{height: listingHeight}} className="card">
       <div className="listings-index-head">Head</div>
       <div className="listings-action-bar">Action Bar</div>
 
@@ -57,6 +63,7 @@ const Listings = () => {
             canShow={canShow(currentUserData.currentUser, user.id)}
             createdAt={createdAt}
             description={description}
+            adjustHeight = {adjustHeight}
           />
         ))}
       </div>
