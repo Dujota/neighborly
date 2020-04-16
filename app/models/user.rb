@@ -17,7 +17,6 @@ class User < ApplicationRecord
   # Delegation Methods
   delegate :first_name, :first_name=,
            :last_name, :last_name=,
-           :company, :company=,
            :phone_number, :phone_number=,
            :full_name, :full_name=,
            :location, :location=,

@@ -14,11 +14,15 @@
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_pack_tag "application" %>
 
+    <%= include_gon :camel_case => true, :camel_depth => 2 %>
+
     <% if user_signed_in? %>
       <%= javascript_packs_with_chunks_tag "navbar", "create_listing" %>
     <% else %>
       <%= javascript_packs_with_chunks_tag "navbar" %>
     <% end %>
+
+    <%= javascript_packs_with_chunks_tag "log_rocket" %>
 
   </head>
 
