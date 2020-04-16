@@ -20,9 +20,8 @@ export default () => {
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
-  debugger;
+
   if (data.createListing) {
-    debugger;
     return <ProcessListingForm addListing={data.createListing} />;
   }
 

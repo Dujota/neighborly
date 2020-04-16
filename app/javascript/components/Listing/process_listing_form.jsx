@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import gql from 'graphql-tag';
-import { useMutation, useApolloClient } from 'react-apollo';
+import { useMutation } from 'react-apollo';
 
 import * as Yup from 'yup';
 import { Formik } from 'formik';
