@@ -5,7 +5,7 @@ import { useApolloClient } from 'react-apollo';
 // Components
 import Link from '../link';
 
-const ListingCard = ({ id, title, user, description, canShow }) => {
+const ListingCard = ({ id, title, user, description, canShow, adjustHeight }) => {
   const client = useApolloClient();
 
   return (
@@ -31,6 +31,7 @@ const ListingCard = ({ id, title, user, description, canShow }) => {
             onClick={e => {
               e.preventDefault();
               client.writeData({ data: { selectedListingId: id, editListing: false, createNewListing: false } });
+              adjustHeight(1373);
             }}
             className="btn-txt-link btn-txt-primary"
           >
@@ -40,6 +41,7 @@ const ListingCard = ({ id, title, user, description, canShow }) => {
             onClick={e => {
               e.preventDefault();
               client.writeData({ data: { selectedListingId: id, editListing: true } });
+              adjustHeight(803);
             }}
             className="btn-txt-link btn-txt-secondary"
             canShow={canShow}
