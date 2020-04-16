@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Link from '../link';
+import DeleteListingButton from './delete_listing_button';
 
 const Listing = ({ listing, handleToggleEditMode, canShow }) => (
   <div id="listing-details-component">
@@ -10,6 +11,8 @@ const Listing = ({ listing, handleToggleEditMode, canShow }) => (
         <Link className="btn btn-secondary" onClick={handleToggleEditMode} canShow={canShow}>
           Edit Listing
         </Link>
+
+        {canShow && <DeleteListingButton listingId={listing.id} />}
       </div>
 
       <img className="listing-image" src={listing.imageUrl} alt={`${listing.title}`}></img>
@@ -31,6 +34,6 @@ const Listing = ({ listing, handleToggleEditMode, canShow }) => (
   </div>
 );
 
-Listing.propTypes = { listing: PropTypes.object, handleToggleEditMode: PropTypes.func };
+Listing.propTypes = { listing: PropTypes.object, handleToggleEditMode: PropTypes.func, canShow: PropTypes.bool };
 
 export default Listing;

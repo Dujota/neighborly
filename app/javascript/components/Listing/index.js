@@ -33,6 +33,7 @@ const CURRENT_USER = gql`
   {
     currentUser {
       isAdmin
+      id
     }
   }
 `;

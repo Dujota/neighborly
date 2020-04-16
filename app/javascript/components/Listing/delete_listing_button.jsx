@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import gql from 'graphql-tag';
-import { useMutation, useApolloClient } from 'react-apollo';
+import { useMutation } from 'react-apollo';
 
 import Link from '../link';
 
@@ -11,6 +11,10 @@ const DELETE_LISTING = gql`
     deleteListing(id: $id) {
       listing {
         id
+        title
+        description
+        imageUrl
+        createdAt
       }
     }
   }
@@ -32,10 +36,19 @@ const ALL_LISTINGS = gql`
   }
 `;
 
-export default function DeleteListingButton() {
+export default function DeleteListingButton({ listingId }) {
   const [deleteListing] = useMutation(DELETE_LISTING, {
     update(cache, { data: { deleteListing } }) {
       const currentListings = cache.readQuery({ query: ALL_LISTINGS });
+
+      cache.writeData({
+        data: {
+          editListing: false,
+          createListing: false,
+          selectedListingId: '',
+          listings: currentListings.listings.filter(listing => listing.id !== listingId),
+        },
+      });
     },
   });
   return (
@@ -43,9 +56,16 @@ export default function DeleteListingButton() {
       className="btn btn-danger"
       onClick={e => {
         e.preventDefault();
+        deleteListing({
+          variables: { id: listingId },
+        });
       }}
     >
       Delete Listing
     </Link>
   );
 }
+
+DeleteListingButton.propTypes = {
+  listingId: PropTypes.string,
+};
