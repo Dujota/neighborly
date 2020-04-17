@@ -56,9 +56,11 @@ export default function DeleteListingButton({ listingId }) {
       className="btn btn-danger"
       onClick={e => {
         e.preventDefault();
-        deleteListing({
-          variables: { id: listingId },
-        });
+        if (window.confirm(`Are you sure you want to delete listing No. ${listingId}`)) {
+          deleteListing({
+            variables: { id: listingId },
+          });
+        }
       }}
     >
       Delete Listing

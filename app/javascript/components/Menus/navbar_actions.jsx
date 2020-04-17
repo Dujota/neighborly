@@ -26,6 +26,13 @@ const NavbarActions = () => {
 
   return (
     <>
+      <div className="nav-link-container">
+        <Link title="Listings" path="/" className="nav-link">
+          <i className="far fa-list-alt" />
+          Listings
+        </Link>
+      </div>
+
       {/* ADMIN */}
       {canShow(data.currentUser) && (
         <div className="nav-link-container">
@@ -44,13 +51,7 @@ const NavbarActions = () => {
         </Link>
       </div>
 
-      <div className="nav-link-container">
-        <Link title="Listings" path="/" className="nav-link">
-          <i className="far fa-list-alt" />
-          Listings
-        </Link>
-      </div>
-
+      {/* TODO: consider only showing to non-admins?  */}
       <div className="nav-link-container">
         <Link title="Get in touch" path="/contact-us" className="nav-link">
           <i className="far fa-comments" />
