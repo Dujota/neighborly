@@ -31,7 +31,7 @@ const ListingCard = ({ id, title, user, description, canShow, adjustHeight }) =>
             onClick={e => {
               e.preventDefault();
               client.writeData({ data: { selectedListingId: id, editListing: false, createNewListing: false } });
-              adjustHeight(1373);
+              adjustHeight(1323);
             }}
             className="btn-txt-link btn-txt-primary"
           >
