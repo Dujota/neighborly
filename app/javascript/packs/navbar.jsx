@@ -11,8 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (element) {
     render(
       <Provider>
-        <Logo />
-        <NavBarActions />
+        <div id="nav-fixed-wrapper">
+          <Logo />
+          <NavBarActions />
+        </div>
       </Provider>,
       element
     );
