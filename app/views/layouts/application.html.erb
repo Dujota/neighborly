@@ -12,17 +12,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
     <%= stylesheet_link_tag "application", media: "all" %>
-    <%= javascript_packs_with_chunks_tag "application" %>
 
-    <%= include_gon :camel_case => true, :camel_depth => 2 %>
 
     <% if user_signed_in? %>
-      <%= javascript_packs_with_chunks_tag "navbar", "create_listing" %>
+      <%= javascript_packs_with_chunks_tag "log_rocket", "navbar", "create_listing", "application" %>
     <% else %>
-      <%= javascript_packs_with_chunks_tag "navbar" %>
+      <%= javascript_packs_with_chunks_tag "navbar", "application", "log_rocket" %>
     <% end %>
 
-    <%= javascript_packs_with_chunks_tag "log_rocket" %>
+    <%= include_gon :camel_case => true, :camel_depth => 2 %>
 
   </head>
 
