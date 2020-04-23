@@ -7,20 +7,45 @@
   //height: $main-content-height;
   padding: 1.25rem;
   width: 395px;
+  overflow-y: scroll;
 
   .listings-index-head {
     background: $cinderella;
+    position: fixed;
+    width: 26%;
+    z-index: 3000;
   }
 
   .listings-action-bar {
     background: $gin;
     margin-bottom: 1rem;
+    position: fixed;
+    top: 117px;
+    width: 26%;
+    z-index: 3000;
   }
 
   .listing-card-index {
     border: 1px solid $concrete;
-    height: 94%;
     margin: 0;
-    overflow-y: scroll;
+    overflow: visible;
+    margin-top: 50px
   }
+  
+    &::-webkit-scrollbar{
+      width: 12px;
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-track{
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb{
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+      background-color: $primary;
+    }
 }
