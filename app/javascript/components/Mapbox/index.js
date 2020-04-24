@@ -42,6 +42,9 @@ const fetchIcon = (count, size) => {
 };
 
 export default () => {
+  // Set Active Clicked on Marker
+  const [activePark, setActivePark] = React.useState(null);
+
   // state and refs
   const [bounds, setBounds] = useState(null);
   const [zoom, setZoom] = useState(13);
@@ -59,6 +62,7 @@ export default () => {
     setBounds([b.getSouthWest().lng, b.getSouthWest().lat, b.getNorthEast().lng, b.getNorthEast().lat]);
 
     setZoom(mapRef.current.leafletElement.getZoom());
+    setActivePark(null);
   }
 
   React.useEffect(() => {
@@ -74,9 +78,6 @@ export default () => {
     zoom,
     options: { radius: 75, maxZoom: 20 },
   });
-
-  // Set Active Clicked on Marker
-  const [activePark, setActivePark] = React.useState(null);
 
   // LISTING SHOW STUFF
   if (data.createListing) {
