@@ -61,8 +61,8 @@ export default () => {
     const b = mapRef.current.leafletElement.getBounds();
     setBounds([b.getSouthWest().lng, b.getSouthWest().lat, b.getNorthEast().lng, b.getNorthEast().lat]);
 
-    setZoom(mapRef.current.leafletElement.getZoom());
     setActivePark(null);
+    setZoom(mapRef.current.leafletElement.getZoom());
   }
 
   React.useEffect(() => {
