@@ -14,6 +14,7 @@
     position: fixed;
     width: 26%;
     z-index: 3000;
+    display: none;
   }
 
   .listings-action-bar {
@@ -23,13 +24,14 @@
     top: 117px;
     width: 26%;
     z-index: 3000;
+    display: none;
   }
 
   .listing-card-index {
     border: 1px solid $concrete;
     margin: 0;
     overflow: visible;
-    margin-top: 50px
+    //margin-top: 50px !Enable when index head and action bar are displayed
   }
   
     &::-webkit-scrollbar{
