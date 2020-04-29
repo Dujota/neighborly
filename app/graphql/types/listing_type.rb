@@ -7,5 +7,7 @@ module Types
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
 
     field :user, Types::UserType, null: false
+
+    field :location, Types::LocationType, null:true
   end
 end

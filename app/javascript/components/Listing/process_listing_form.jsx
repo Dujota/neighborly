@@ -24,6 +24,9 @@ const UPDATE_LISTING = gql`
   }
 `;
 
+//Insert "location {longitude latitude}" to pass that information into listing
+//Insert "$latitude: String, $longitude: String " for mutation CreateListing params
+//Insert "latitude: $latitude, longitude: $longitude"for createListing params
 const CREATE_LISTING = gql`
   mutation CreateListing($title: String!, $description: String!, $imageUrl: String) {
     createListing(title: $title, description: $description, imageUrl: $imageUrl) {
@@ -71,6 +74,15 @@ const ListingValidationSchema = Yup.object().shape({
     .max(255, 'Too Long!'),
 });
 
+const geoLocateOptions = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+}
+
+let longitude;
+let latitude;
+
 export default function ProcessListingForm({ id, title, description, imageUrl, handleToggleEditMode, addListing }) {
   const [updateListing] = useMutation(UPDATE_LISTING);
   const [createListing] = useMutation(CREATE_LISTING, {
@@ -89,6 +101,18 @@ export default function ProcessListingForm({ id, title, description, imageUrl, h
   });
 
   const onSubmit = (values, { setSubmitting }) => {
+
+    navigator.geolocation.getCurrentPosition( (pos) => {
+      //Success function
+      let crds = pos.coords
+      longitude = crds.longitude;
+      latitude = crds.latitude;
+      console.log(`geolocation coords are: `, pos.coords);
+    }, (err) => {
+      //Error function
+      console.log(`There was an error setting the geolocation: `, err)
+    }, geoLocateOptions);
+
     if (handleToggleEditMode) {
       updateListing({
         variables: { id, title: values.title, description: values.description, imageUrl: values.imageUrl },
@@ -112,7 +136,8 @@ export default function ProcessListingForm({ id, title, description, imageUrl, h
 
     if (addListing) {
       createListing({
-        variables: { title: values.title, description: values.description, imageUrl: values.imageUrl },
+        // Added latitude and longitude to accept values.latitude and values.longitude
+        variables: { title: values.title, description: values.description, imageUrl: values.imageUrl, latitude: latitude, longitude: longitude },
       });
     }
   };

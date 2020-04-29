@@ -5,6 +5,8 @@ module Mutations
     argument :title, String, required: true
     argument :description, String, required: true
     argument :image_url, String, required: false
+    # argument :longitude, String, required: false
+    # argument :latitude, String, required: false
 
     # return type from the mutation if you just want the object with the below line
     # type Types::ListingType
@@ -22,7 +24,11 @@ module Mutations
         title: title,
         description: description,
         image_url: image_url,
-        user: context[:current_user],
+        user: context[:current_user]
+        #location: {
+        # longitude: longitude,
+        # latitude: latitude
+        #}
       )
 
       if listing.save
