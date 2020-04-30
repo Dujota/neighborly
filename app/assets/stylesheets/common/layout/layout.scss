@@ -22,7 +22,7 @@ body {
 
       .map-dashboard-section {
         width: 80%;
-        height: 875px;
+        min-height: 875px;
 
         @include flex(column, $justify-content, $align-items);
       }
