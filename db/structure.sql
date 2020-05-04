@@ -34,6 +34,7 @@ CREATE TABLE public.listings (
     title character varying,
     description text,
     image_url character varying,
+    location character varying,
     user_id bigint NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL

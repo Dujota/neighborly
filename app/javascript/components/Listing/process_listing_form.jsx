@@ -12,27 +12,29 @@ import { Formik } from 'formik';
 import Error from '../Forms/error';
 
 const UPDATE_LISTING = gql`
-  mutation UpdateListing($id: ID!, $title: String!, $description: String!, $imageUrl: String) {
-    updateListing(id: $id, title: $title, description: $description, imageUrl: $imageUrl) {
+  mutation UpdateListing($id: ID!, $title: String!, $description: String!, $imageUrl: String, $location: String!) {
+    updateListing(id: $id, title: $title, description: $description, imageUrl: $imageUrl, location: $location) {
       listing {
         id
         title
         description
         imageUrl
+        location
       }
     }
   }
 `;
 
 const CREATE_LISTING = gql`
-  mutation CreateListing($title: String!, $description: String!, $imageUrl: String) {
-    createListing(title: $title, description: $description, imageUrl: $imageUrl) {
+  mutation CreateListing($title: String!, $description: String!, $imageUrl: String, $location: String!) {
+    createListing(title: $title, description: $description, imageUrl: $imageUrl, location: $location) {
       listing {
         id
         title
         description
         imageUrl
         createdAt
+        location
         user {
           id
           email
@@ -50,6 +52,7 @@ const ALL_LISTINGS = gql`
       description
       imageUrl
       createdAt
+      location
       user {
         id
         email
@@ -71,7 +74,7 @@ const ListingValidationSchema = Yup.object().shape({
     .max(255, 'Too Long!'),
 });
 
-export default function ProcessListingForm({ id, title, description, imageUrl, handleToggleEditMode, addListing }) {
+export default function ProcessListingForm({ id, title, description, imageUrl, location, handleToggleEditMode, addListing }) {
   const [updateListing] = useMutation(UPDATE_LISTING);
   const [createListing] = useMutation(CREATE_LISTING, {
     update(cache, { data: { createListing: newListing } }) {
@@ -191,14 +194,14 @@ export default function ProcessListingForm({ id, title, description, imageUrl, h
                 name="location"
                 onChange={handleChange}
                 onBlur={handleBlur}
-               
-                className={touched.title && errors.title ? 'has-error' : null}
+                values={values.location}
+                className={touched.location && errors.location ? 'has-error' : null}
               />
-              <label htmlFor="title" className="control-label">
+              <label htmlFor="location" className="control-label">
                 Location
               </label>
               <i className="bar"></i>
-              {errors && <Error touched={touched.title} message={errors.title} />}
+              {errors && <Error touched={touched.location} message={errors.location} />}
             </div>
 
             <div className="button-container">

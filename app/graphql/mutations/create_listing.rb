@@ -5,6 +5,7 @@ module Mutations
     argument :title, String, required: true
     argument :description, String, required: true
     argument :image_url, String, required: false
+    argument :location, String, required: true
 
     # return type from the mutation if you just want the object with the below line
     # type Types::ListingType
@@ -12,7 +13,7 @@ module Mutations
     field :listing, Types::ListingType, null: true
 
     # 2 required, one optional
-    def resolve(title:, description:, image_url: nil)
+    def resolve(title:, description:, image_url: nil, location:)
       if !authorize_user(:create, Listing)
         raise GraphQL::ExecutionError,
               "You need to authenticate to perform this action"
@@ -22,6 +23,7 @@ module Mutations
         title: title,
         description: description,
         image_url: image_url,
+        location: location,
         user: context[:current_user],
       )
 

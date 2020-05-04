@@ -6,14 +6,16 @@ module Mutations
     argument :title, String, required: true
     argument :description, String, required: false
     argument :image_url, String, required: false
+    argument :location, String, required: true
 
     field :listing, Types::ListingType, null: true
 
-    def resolve(id:, title:, description: nil, image_url: nil)
+    def resolve(id:, title:, description: nil, image_url: nil, location:)
       listing = Listing.find id
       listing.title = title if title
       listing.description = description if description
       listing.image_url = image_url if image_url
+      listing.location = location if location
 
       if !authorize_user(:update, listing)
         raise GraphQL::ExecutionError, "Unauthorized operation"
