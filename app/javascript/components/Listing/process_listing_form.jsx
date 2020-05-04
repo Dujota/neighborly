@@ -4,12 +4,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import gql from 'graphql-tag';
-import { useMutation } from 'react-apollo';
+import { useQuery, useMutation } from 'react-apollo';
 
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 
 import Error from '../Forms/error';
+
+const CURRENT_USER = gql`
+  {
+    currentUser {
+      isAdmin
+      id
+      coords
+    }
+  }
+`;
 
 const UPDATE_LISTING = gql`
   mutation UpdateListing($id: ID!, $title: String!, $description: String!, $imageUrl: String, $location: String!) {
@@ -75,6 +85,16 @@ const ListingValidationSchema = Yup.object().shape({
 });
 
 export default function ProcessListingForm({ id, title, description, imageUrl, location, handleToggleEditMode, addListing }) {
+  const { loading: currentUserLoading, error: currentUserError, data: currentUserData } = useQuery(CURRENT_USER);
+
+  const coordsToAddress = (coords) => {
+    //Input lat lng into geosuggest 
+    //Get address from geo suggest
+    //Return address
+  };
+
+  console.log(`Current user `, currentUserData);
+
   const [updateListing] = useMutation(UPDATE_LISTING);
   const [createListing] = useMutation(CREATE_LISTING, {
     update(cache, { data: { createListing: newListing } }) {
@@ -192,9 +212,13 @@ export default function ProcessListingForm({ id, title, description, imageUrl, l
                 id="location"
                 type="text"
                 name="location"
+                required="required"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                values={values.location}
+                value={
+                  //Use coordsToAddress to get a more readable location for the user
+                  currentUserData && currentUserData.currentUser.coords
+                }
                 className={touched.location && errors.location ? 'has-error' : null}
               />
               <label htmlFor="location" className="control-label">
