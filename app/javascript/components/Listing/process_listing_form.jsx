@@ -91,7 +91,7 @@ export default function ProcessListingForm({ id, title, description, imageUrl, h
   const onSubmit = (values, { setSubmitting }) => {
     if (handleToggleEditMode) {
       updateListing({
-        variables: { id, title: values.title, description: values.description, imageUrl: values.imageUrl },
+        variables: { id, title: values.title, description: values.description, imageUrl: values.imageUrl, location: values.location },
         optimisticResponse: {
           __typename: 'Mutation',
           updateListing: {
@@ -112,14 +112,14 @@ export default function ProcessListingForm({ id, title, description, imageUrl, h
 
     if (addListing) {
       createListing({
-        variables: { title: values.title, description: values.description, imageUrl: values.imageUrl },
+        variables: { title: values.title, description: values.description, imageUrl: values.imageUrl, location: values.location },
       });
     }
   };
 
   return (
     <Formik
-      initialValues={{ title, description, imageUrl }}
+      initialValues={{ title, description, imageUrl, location }}
       validationSchema={ListingValidationSchema}
       enableReinitialize
       onSubmit={onSubmit}
@@ -184,6 +184,23 @@ export default function ProcessListingForm({ id, title, description, imageUrl, h
               {errors && <Error touched={touched.title} message={errors.title} />}
             </div>
 
+            <div className="form-group">
+              <input
+                id="location"
+                type="text"
+                name="location"
+                onChange={handleChange}
+                onBlur={handleBlur}
+               
+                className={touched.title && errors.title ? 'has-error' : null}
+              />
+              <label htmlFor="title" className="control-label">
+                Location
+              </label>
+              <i className="bar"></i>
+              {errors && <Error touched={touched.title} message={errors.title} />}
+            </div>
+
             <div className="button-container">
               <button className="btn btn-primary" type="submit" disabled={isSubmitting}>
                 Save Changes
@@ -196,7 +213,7 @@ export default function ProcessListingForm({ id, title, description, imageUrl, h
   );
 }
 
-ProcessListingForm.defaultProps = { title: '', description: '', imageUrl: '' };
+ProcessListingForm.defaultProps = { title: '', description: '', imageUrl: '', location: '' };
 
 ProcessListingForm.propTypes = {
   id: PropTypes.string,
@@ -204,5 +221,6 @@ ProcessListingForm.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   imageUrl: PropTypes.string,
+  location: PropTypes.string,
   addListing: PropTypes.bool,
 };

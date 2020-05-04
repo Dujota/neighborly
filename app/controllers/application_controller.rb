@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
         current_user_full_name: current_user.full_name,
         current_user_role_names: current_user.role_names,
         current_user_email: current_user.email,
+        current_user_coords: current_user.coords,
       })
     end
   end

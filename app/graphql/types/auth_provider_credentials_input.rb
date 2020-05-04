@@ -4,6 +4,7 @@ module Types
     graphql_name "AUTH_PROVIDER_CREDENTIALS"
 
     argument :email, String, required: true
+    argument :coords, String, required: false
     argument :password, String, required: true
   end
 end
