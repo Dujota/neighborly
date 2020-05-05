@@ -7,9 +7,10 @@ class User < ApplicationRecord
   #  Callbacks
 
   #  Assosiactions
-  has_and_belongs_to_many :roles
   has_one :profile, autosave: true
+  has_and_belongs_to_many :roles
   has_many :listings, -> { order "updated_at desc" }, dependent: :destroy
+  has_many :locations, dependent: :destroy
 
   # Validations
   validates :email, presence: true, uniqueness: true
