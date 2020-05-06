@@ -33,10 +33,10 @@
     <i class="bar"></i>
   </div>
 
-  <div class="form-group" style="display: none">
-    <input type="text" name="user[coords]" id="user_coords" autocomplete="location" required="required"/>
+  <div class="form-group">
+    <input type="text" name="user[coords]" id="user_coords" autocomplete="location" />
 
-    <label for="user_profile_attributes_coords" class="control-label">Location</label>
+    <label for="user_profile_attributes_coords" class="control-label">Location (leave blank if you want to use device location)</label>
 
     <i class="bar"></i>
   </div>
@@ -63,7 +63,7 @@
   </div>
 
   <div class="button-container">
-    <%= f.submit "Sign up", class: "btn btn-primary" %>
+    <%= f.submit "Sign up", id: "submitBtn", class: "btn btn-primary" %>
     <%= render "devise/shared/links" %>
   </div>
 <% end %>
@@ -71,7 +71,23 @@
 
 <script type="text/javascript">
 
+var form = document.querySelector("form");
 var locationInput = document.querySelector("#user_coords");
+var submitBtn = document.querySelector("#submitBtn");
+
+submitBtn.addEventListener("click", function(){
+  console.log("submit paused");
+  event.preventDefault();
+
+  if(!locationInput.value || locationInput.value === ""){
+    locationInput.style.display = "none";
+    navigator.geolocation.getCurrentPosition(success, error, geoLocationOptions);
+    console.log("Added location coords");
+  } else {
+    form.submit();
+  }
+
+});
 
 var geoLocationOptions = {
   enableHighAccuracy: true,
@@ -85,15 +101,15 @@ function success(pos) {
   locationInput.value = JSON.stringify(crdsObj);
   console.log(`location Input Element: `, locationInput.value);
   console.log(`coords: `, crds);
+  form.submit();
 };
 
 function error(err){
-    locationInput.value = "none";
+    locationInput.value = "";
     console.log(`Geolocation error: `, err);
     console.log(`Set location field to: `, locationInput.value);
+    form.submit();
 };
-
-navigator.geolocation.getCurrentPosition(success, error, geoLocationOptions);
 
 </script>
 

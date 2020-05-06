@@ -11,7 +11,7 @@ SET row_security = off;
 
 SET default_tablespace = '';
 
-SET default_table_access_method = heap;
+SET default_with_oids = false;
 
 --
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
@@ -69,8 +69,8 @@ CREATE TABLE public.locations (
     lat character varying,
     long character varying,
     display_name character varying,
-    user_id bigint,
-    listing_id bigint,
+    user_id bigint NOT NULL,
+    listing_id bigint NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL
 );
