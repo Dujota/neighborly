@@ -82,7 +82,6 @@ submitBtn.addEventListener("click", function(){
   if(!locationInput.value || locationInput.value === ""){
     locationInput.style.display = "none";
     navigator.geolocation.getCurrentPosition(success, error, geoLocationOptions);
-    console.log("Added location coords");
   } else {
     form.submit();
   }
@@ -99,15 +98,11 @@ function success(pos) {
   var crds = pos.coords;
   var crdsObj = {latitude: crds.latitude, longitude: crds.longitude};
   locationInput.value = JSON.stringify(crdsObj);
-  console.log(`location Input Element: `, locationInput.value);
-  console.log(`coords: `, crds);
   form.submit();
 };
 
 function error(err){
     locationInput.value = "";
-    console.log(`Geolocation error: `, err);
-    console.log(`Set location field to: `, locationInput.value);
     form.submit();
 };
 
