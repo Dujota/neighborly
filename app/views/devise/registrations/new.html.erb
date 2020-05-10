@@ -34,9 +34,9 @@
   </div>
 
   <div class="form-group">
-    <input type="text" name="user[coords]" id="user_coords" autocomplete="location" />
+    <input type="text" name="user[user_location]" id="user_location" autocomplete="location" />
 
-    <label for="user_profile_attributes_coords" class="control-label">Location (leave blank if you want to use device location)</label>
+    <label for="user_profile_attributes_user_location" class="control-label">Location (leave blank if you want to use device location)</label>
 
     <i class="bar"></i>
   </div>
@@ -72,7 +72,7 @@
 <script type="text/javascript">
 
 var form = document.querySelector("form");
-var locationInput = document.querySelector("#user_coords");
+var locationInput = document.querySelector("#user_location");
 var submitBtn = document.querySelector("#submitBtn");
 
 submitBtn.addEventListener("click", function(){
@@ -94,7 +94,7 @@ var geoLocationOptions = {
   maximumAge: 0
 };
 
-function success(pos) {
+function success(pos){
   var crds = pos.coords;
   var crdsObj = {latitude: crds.latitude, longitude: crds.longitude};
   locationInput.value = JSON.stringify(crdsObj);

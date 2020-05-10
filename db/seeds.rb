@@ -8,19 +8,19 @@
 
 john = User.create!(
   email: "john.doe@example.com",
-  coords: "",
+  user_location: "",
   password: "123456",
 )
 
 jane = User.create!(
   email: "jane.doe@example.com",
-  coords: "",
+  user_location: "",
   password: "123456",
 )
 
 admin = User.create!(
   email: "admin@user.com",
-  coords: "",
+  user_location: "",
   password: "123456",
 )
 

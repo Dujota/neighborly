@@ -14,7 +14,7 @@ module Mutations
     def resolve(auth_provider: nil)
       user = User.new(
         email: auth_provider&.dig(:credentials, :email),
-        coords: auth_provider.dig(:credentials, :coords),
+        user_location: auth_provider.dig(:credentials, :user_location),
         password: auth_provider&.dig(:credentials, :password),
       )
 
