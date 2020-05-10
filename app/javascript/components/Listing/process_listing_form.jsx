@@ -16,7 +16,7 @@ const CURRENT_USER = gql`
     currentUser {
       isAdmin
       id
-      coords
+      userLocation
     }
   }
 `;
@@ -92,8 +92,6 @@ export default function ProcessListingForm({ id, title, description, imageUrl, l
     //Get address from geo suggest
     //Return address
   };
-
-  console.log(`Current user `, currentUserData);
 
   const [updateListing] = useMutation(UPDATE_LISTING);
   const [createListing] = useMutation(CREATE_LISTING, {
@@ -217,7 +215,7 @@ export default function ProcessListingForm({ id, title, description, imageUrl, l
                 onBlur={handleBlur}
                 value={
                   //Use coordsToAddress to get a more readable location for the user
-                  currentUserData && currentUserData.currentUser.coords
+                  currentUserData && currentUserData.currentUser.userLocation
                 }
                 className={touched.location && errors.location ? 'has-error' : null}
               />
