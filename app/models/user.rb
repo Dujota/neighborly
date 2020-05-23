@@ -30,7 +30,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile
 
   # Before Creating a User, run a method for locationIQ
-  before_create do
+  after_create do
   
     if user_location.starts_with?("{")
         coords = JSON.parse(user_location)
@@ -49,7 +49,7 @@ class User < ApplicationRecord
     long = resTarget["lon"]
     display_name = resTarget["display_name"]
 
-    puts "###########LAT "+lat+" LONG "+long+" DISPLAYNAME "+display_name
+    self.locations.create({lat: lat, long: long, display_name: display_name})
     
 end
   
