@@ -31,26 +31,30 @@ class User < ApplicationRecord
 
   # Before Creating a User, run a method for locationIQ
   after_create do
-  
-    if user_location.starts_with?("{")
-        coords = JSON.parse(user_location)
-        url = "https://us1.locationiq.com/v1/reverse.php?key=2081a07b6ccffd&lat="+coords["latitude"].to_s+"&lon="+coords["longitude"].to_s+"&format=json"
-    else
-        url = "https://us1.locationiq.com/v1/search.php?key=2081a07b6ccffd&q="+user_location+"&format=json"
+    
+    if user_location.present?
+
+      if user_location.starts_with?("{")
+          coords = JSON.parse(user_location)
+          url = "https://us1.locationiq.com/v1/reverse.php?key=2081a07b6ccffd&lat="+coords["latitude"].to_s+"&lon="+coords["longitude"].to_s+"&format=json"
+      else
+          url = "https://us1.locationiq.com/v1/search.php?key=2081a07b6ccffd&q="+user_location+"&format=json"
+      end
+
+      uri = URI(url)
+      response = Net::HTTP.get(uri)
+      res = JSON.parse(response)
+
+      user_location.starts_with?("{") ? resTarget = res : resTarget = res[0]
+
+      lat = resTarget["lat"]
+      long = resTarget["lon"]
+      display_name = resTarget["display_name"]
+
+      self.locations.create({lat: lat, long: long, display_name: display_name})
+    
     end
 
-    uri = URI(url)
-    response = Net::HTTP.get(uri)
-    res = JSON.parse(response)
-
-    user_location.starts_with?("{") ? resTarget = res : resTarget = res[0]
-
-    lat = resTarget["lat"]
-    long = resTarget["lon"]
-    display_name = resTarget["display_name"]
-
-    self.locations.create({lat: lat, long: long, display_name: display_name})
-    
 end
   
 
