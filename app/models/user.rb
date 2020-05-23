@@ -31,41 +31,28 @@ class User < ApplicationRecord
 
   # Before Creating a User, run a method for locationIQ
   before_create do
-    #Check the value of self.user_location
-    #If self.user_location starts with '{' then it is holding the users coords
-    #Might need to check if nil first?
+  
     if user_location.starts_with?("{")
-      get_location_name(user_location)
+        coords = JSON.parse(user_location)
+        url = "https://us1.locationiq.com/v1/reverse.php?key=2081a07b6ccffd&lat="+coords["latitude"].to_s+"&lon="+coords["longitude"].to_s+"&format=json"
     else
-      get_coords(user_location)
+        url = "https://us1.locationiq.com/v1/search.php?key=2081a07b6ccffd&q="+user_location+"&format=json"
     end
-  end
 
-  #API call to locationIQ
-  def get_coords(location_name)
-    #Call api with the location coords to return the coords / set the lat long values for locations
-    url = "https://us1.locationiq.com/v1/search.php?key=2081a07b6ccffd&q="+location_name+"&format=json"
     uri = URI(url)
     response = Net::HTTP.get(uri)
     res = JSON.parse(response)
-    lat = res[0]["lat"]
-    long = res[0]["lon"]
-    display_name = res[0]["display_name"]
-    #Set locations lat long and display_name with the above values
-  end
 
-  def get_location_name(location_coords)
-    #Call api with the location name to return the name / set the name value for the locations
-    coords = JSON.parse(location_coords)
-    url = "https://us1.locationiq.com/v1/reverse.php?key=2081a07b6ccffd&lat="+coords["latitude"].to_s+"&lon="+coords["longitude"].to_s+"&format=json"
-    uri = URI(url)
-    response = Net::HTTP.get(uri)
-    res = JSON.parse(response)
-    lat = res["lat"]
-    long = res["lon"]
-    display_name = res["display_name"]
-    #Set locations lat long and display_name with the above values
-  end
+    user_location.starts_with?("{") ? resTarget = res : resTarget = res[0]
+
+    lat = resTarget["lat"]
+    long = resTarget["lon"]
+    display_name = resTarget["display_name"]
+
+    puts "###########LAT "+lat+" LONG "+long+" DISPLAYNAME "+display_name
+    
+end
+  
 
   # USER AUTHORITY METHODS
   def add_role(role)
