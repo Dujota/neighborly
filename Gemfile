@@ -62,4 +62,4 @@ gem "deployem", "~> 0.0.5"
 
 gem "font_awesome5_rails", "~> 1.1"
 
-gem "gon", "~> 6.3"
+gem "gon", "~> 6.4"
